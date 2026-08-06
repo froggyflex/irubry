@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Rubrica interattiva per cercare organizzazioni e servizi della Pianura Est.">
-    <title>Rubrica Pianura Est</title>
+    <meta name="description" content="Home del progetto della rubrica interattiva della Pianura Est.">
+    <title>Pianura Est | Home</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -13,109 +13,56 @@
         <p class="eyebrow">Rubrica interattiva</p>
         <h1>Pianura Est</h1>
       </div>
-      <div class="header-stats" aria-label="Statistiche archivio">
-        <span><strong id="totalRecords">0</strong> organizzazioni</span>
-        <span><strong id="totalMunicipalities">0</strong> comuni</span>
-      </div>
+      <nav class="site-nav" aria-label="Navigazione principale">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="rubrica.html">Rubrica</a>
+        <a class="nav-link" href="mappa.html">Mappa</a>
+      </nav>
     </header>
 
-    <main class="app-shell">
-      <aside class="filters-panel" aria-label="Filtri">
-        <section class="search-panel">
-          <label for="searchInput">Cerca nella rubrica</label>
-          <div class="search-row">
-            <input id="searchInput" type="search" autocomplete="off" placeholder="Nome, comune, servizio...">
-            <button id="clearSearch" class="icon-button" type="button" aria-label="Cancella ricerca" title="Cancella ricerca">×</button>
-          </div>
-        </section>
-
-        <section>
-          <label for="municipalityFilter">Comune</label>
-          <select id="municipalityFilter">
-            <option value="">Tutti i comuni</option>
-          </select>
-        </section>
-
-        <section>
-          <label for="categoryFilter">Categoria</label>
-          <select id="categoryFilter">
-            <option value="">Tutte le categorie</option>
-          </select>
-        </section>
-
-        <section class="quick-needs" aria-label="Bisogni frequenti">
-          <h2>Bisogni frequenti</h2>
-          <div id="quickNeeds" class="chip-list"></div>
-        </section>
-
-        <section aria-label="Servizi">
-          <div class="section-title-row">
-            <h2>Servizi</h2>
-            <button id="clearServices" class="text-button" type="button">Pulisci</button>
-          </div>
-          <div id="servicesList" class="service-list"></div>
-        </section>
-
-        <section class="toggles" aria-label="Altri filtri">
-          <label class="check-row">
-            <input id="fivePerMilleFilter" type="checkbox">
-            <span>Accetta 5x1000</span>
-          </label>
-          <label class="check-row">
-            <input id="networkFilter" type="checkbox">
-            <span>In rete territoriale</span>
-          </label>
-        </section>
-      </aside>
-
-      <section class="results-panel" aria-label="Risultati">
-        <div class="assistant-panel">
-          <div class="assistant-copy">
-            <h2>Assistente</h2>
-            <p id="assistantReply">Scrivi una richiesta semplice, per esempio: “cerco trasporto per anziani a Budrio”.</p>
-          </div>
-          <form id="assistantForm" class="assistant-form">
-            <label class="sr-only" for="assistantInput">Richiesta assistente</label>
-            <input id="assistantInput" type="text" autocomplete="off" placeholder="Di che cosa hai bisogno?">
-            <button type="submit">Cerca</button>
-          </form>
+    <main class="page-shell">
+      <section class="hero-card hero-split">
+        <div class="hero-image" aria-hidden="true">
+          <span>Foto distretto<br>Pianura Est</span>
         </div>
-
-        <div class="results-toolbar">
-          <div>
-            <p class="eyebrow">Risultati</p>
-            <h2 id="resultCount">0 organizzazioni</h2>
+        <div class="hero-copy">
+          <p class="eyebrow">Perché serve questa rubrica</p>
+          <h2>Una guida semplice per trovare i servizi giusti nel territorio</h2>
+          <p>Questa rubrica nasce per aiutare cittadini, famiglie e operatori a orientarsi tra enti, servizi e opportunità disponibili nella Pianura Est, in modo rapido e immediato.</p>
+          <p>Per utilizzarla basta aprire la sezione rubrica, cercare per parola chiave, comune o servizio e consultare le schede degli enti più adatti alle proprie esigenze.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="rubrica.html">Apri la rubrica</a>
+            <a class="button-secondary" href="mappa.html">Scopri la mappa</a>
           </div>
-          <select id="sortSelect" aria-label="Ordina risultati">
-            <option value="relevance">Più pertinenti</option>
-            <option value="name">Nome A-Z</option>
-            <option value="municipality">Comune A-Z</option>
-          </select>
         </div>
-
-        <div id="activeFilters" class="active-filters" aria-live="polite"></div>
-        <div id="resultsList" class="results-list"></div>
       </section>
 
-      <aside class="details-panel" aria-label="Scheda organizzazione">
-        <div id="detailsEmpty" class="empty-state">
-          <h2>Scheda profilo</h2>
-          <p>Seleziona un risultato per vedere contatti, servizi e dati amministrativi.</p>
-        </div>
-        <article id="detailsCard" class="details-card hidden"></article>
-      </aside>
-    </main>
+      <section class="content-grid contact-section">
+        <article class="info-card contact-card">
+          <h3>Vuoi aggiornare o aggiungere la tua realtà?</h3>
+          <p>Se sei un ente e vuoi segnalare una modifica, aggiungere un servizio o far conoscere la tua presenza nel territorio, compila il modulo qui sotto.</p>
+          <form id="contactForm" class="contact-form" novalidate>
+            <label for="contactName">Nome</label>
+            <input id="contactName" name="name" type="text" autocomplete="given-name" required>
 
-    <template id="resultTemplate">
-      <article class="result-card">
-        <button class="result-main" type="button">
-          <span class="result-kicker"></span>
-          <strong class="result-name"></strong>
-          <span class="result-description"></span>
-          <span class="service-preview"></span>
-        </button>
-      </article>
-    </template>
+            <label for="contactSurname">Cognome</label>
+            <input id="contactSurname" name="surname" type="text" autocomplete="family-name" required>
+
+            <label for="contactOrganisation">Nome ente</label>
+            <input id="contactOrganisation" name="organisation" type="text" autocomplete="organization">
+
+            <label for="contactEmail">Email</label>
+            <input id="contactEmail" name="email" type="email" autocomplete="email" required>
+
+            <label for="contactMessage">Messaggio</label>
+            <textarea id="contactMessage" name="message" rows="5" required></textarea>
+
+            <button class="button-primary" type="submit">Invia messaggio</button>
+          </form>
+          <p id="contactStatus" class="status-message" role="status">Compila il modulo se vuoi inviare un messaggio al team.</p>
+        </article>
+      </section>
+    </main>
 
     <script src="app.js"></script>
   </body>
