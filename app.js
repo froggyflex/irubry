@@ -32,6 +32,16 @@ const els = {
   detailsEmpty: document.querySelector('#detailsEmpty'),
   detailsCard: document.querySelector('#detailsCard'),
   resultTemplate: document.querySelector('#resultTemplate'),
+  contactForm: document.querySelector('#contactForm'),
+  contactStatus: document.querySelector('#contactStatus'),
+  contactName: document.querySelector('#contactName'),
+  contactSurname: document.querySelector('#contactSurname'),
+  contactOrganisation: document.querySelector('#contactOrganisation'),
+  contactEmail: document.querySelector('#contactEmail'),
+  contactMessage: document.querySelector('#contactMessage'),
+  filtersPanel: document.querySelector('.filters-panel'),
+  filtersToggle: document.querySelector('#toggleFilters'),
+  appShell: document.querySelector('.app-shell'),
 };
 
 const quickNeeds = [
@@ -109,7 +119,52 @@ function countLabel(count) {
   return count === 1 ? '1 organizzazione' : `${count} organizzazioni`;
 }
 
+function setContactStatus(message, type = '') {
+  if (!els.contactStatus) return;
+  els.contactStatus.textContent = message;
+  els.contactStatus.className = `status-message${type ? ` ${type}` : ''}`;
+}
+
+function initContactForm() {
+  if (!els.contactForm) return;
+  els.contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const data = {
+      name: els.contactName?.value?.trim() || '',
+      surname: els.contactSurname?.value?.trim() || '',
+      organisation: els.contactOrganisation?.value?.trim() || '',
+      email: els.contactEmail?.value?.trim() || '',
+      message: els.contactMessage?.value?.trim() || '',
+    };
+
+    if (!data.name || !data.surname || !data.email || !data.message) {
+      setContactStatus('Compila nome, cognome, email e messaggio.', 'error');
+      return;
+    }
+
+    const recipient = 'contatti@pianuraest.it';
+    const body = [
+      `Nome: ${data.name} ${data.surname}`,
+      data.organisation ? `Ente: ${data.organisation}` : '',
+      `Email: ${data.email}`,
+      '',
+      data.message,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const subject = encodeURIComponent(`Messaggio dal sito Pianura Est - ${data.name} ${data.surname}`);
+    const encodedBody = encodeURIComponent(body);
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${encodedBody}`;
+    setContactStatus('Il messaggio è pronto per essere inviato via email.', 'success');
+    els.contactForm.reset();
+  });
+}
+
 async function loadData() {
+  if (!els.resultsList || !els.resultCount) return;
+
   try {
     const response = await fetch('data/organisations.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -122,6 +177,8 @@ async function loadData() {
 }
 
 function bootstrap() {
+  if (!els.totalRecords || !els.totalMunicipalities || !els.municipalityFilter || !els.categoryFilter) return;
+
   els.totalRecords.textContent = state.data.metadata.recordCount;
   els.totalMunicipalities.textContent = state.data.municipalities.length;
   populateSelect(els.municipalityFilter, state.data.municipalities, 'Tutti i comuni');
@@ -143,6 +200,7 @@ function populateSelect(select, items, firstLabel) {
 }
 
 function renderQuickNeeds() {
+  if (!els.quickNeeds) return;
   els.quickNeeds.innerHTML = '';
   quickNeeds.forEach((need) => {
     const button = document.createElement('button');
@@ -162,10 +220,11 @@ function renderQuickNeeds() {
 }
 
 function renderServices() {
+  if (!els.servicesList) return;
   els.servicesList.innerHTML = '';
   state.data.services
     .filter((service) => service.count > 0)
-    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'it'))
+    .sort((a, b) => a.name.localeCompare(b.name, 'it'))
     .forEach((service) => {
       const label = document.createElement('label');
       label.className = 'service-option';
@@ -185,68 +244,97 @@ function renderServices() {
 }
 
 function bindEvents() {
-  els.searchInput.addEventListener('input', (event) => {
-    state.query = event.target.value;
-    state.selectedId = null;
-    render();
-  });
-  els.clearSearch.addEventListener('click', () => {
-    state.query = '';
-    state.selectedId = null;
-    syncControls();
-    render();
-  });
-  els.municipalityFilter.addEventListener('change', (event) => {
-    state.municipality = event.target.value;
-    state.selectedId = null;
-    render();
-  });
-  els.categoryFilter.addEventListener('change', (event) => {
-    state.category = event.target.value;
-    state.selectedId = null;
-    render();
-  });
-  els.clearServices.addEventListener('click', () => {
-    state.services.clear();
-    state.selectedId = null;
-    syncControls();
-    render();
-  });
-  els.fivePerMilleFilter.addEventListener('change', (event) => {
-    state.fivePerMille = event.target.checked;
-    state.selectedId = null;
-    render();
-  });
-  els.networkFilter.addEventListener('change', (event) => {
-    state.network = event.target.checked;
-    state.selectedId = null;
-    render();
-  });
-  els.sortSelect.addEventListener('change', (event) => {
-    state.sort = event.target.value;
-    render();
-  });
-  els.assistantForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    applyAssistantQuery(els.assistantInput.value);
-  });
+  if (els.filtersToggle && els.filtersPanel && els.appShell) {
+    els.filtersToggle.addEventListener('click', () => {
+      const collapsed = els.filtersPanel.classList.toggle('collapsed');
+      els.appShell.classList.toggle('filters-collapsed', collapsed);
+      els.filtersToggle.setAttribute('aria-expanded', String(!collapsed));
+      els.filtersToggle.title = collapsed ? 'Espandi filtri' : 'Comprimi filtri';
+    });
+  }
+
+  if (els.searchInput) {
+    els.searchInput.addEventListener('input', (event) => {
+      state.query = event.target.value;
+      state.selectedId = null;
+      render();
+    });
+  }
+  if (els.clearSearch) {
+    els.clearSearch.addEventListener('click', () => {
+      state.query = '';
+      state.selectedId = null;
+      syncControls();
+      render();
+    });
+  }
+  if (els.municipalityFilter) {
+    els.municipalityFilter.addEventListener('change', (event) => {
+      state.municipality = event.target.value;
+      state.selectedId = null;
+      render();
+    });
+  }
+  if (els.categoryFilter) {
+    els.categoryFilter.addEventListener('change', (event) => {
+      state.category = event.target.value;
+      state.selectedId = null;
+      render();
+    });
+  }
+  if (els.clearServices) {
+    els.clearServices.addEventListener('click', () => {
+      state.services.clear();
+      state.selectedId = null;
+      syncControls();
+      render();
+    });
+  }
+  if (els.fivePerMilleFilter) {
+    els.fivePerMilleFilter.addEventListener('change', (event) => {
+      state.fivePerMille = event.target.checked;
+      state.selectedId = null;
+      render();
+    });
+  }
+  if (els.networkFilter) {
+    els.networkFilter.addEventListener('change', (event) => {
+      state.network = event.target.checked;
+      state.selectedId = null;
+      render();
+    });
+  }
+  if (els.sortSelect) {
+    els.sortSelect.addEventListener('change', (event) => {
+      state.sort = event.target.value;
+      render();
+    });
+  }
+  if (els.assistantForm && els.assistantInput) {
+    els.assistantForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      applyAssistantQuery(els.assistantInput.value);
+    });
+  }
 }
 
 function syncControls() {
-  els.searchInput.value = state.query;
-  els.municipalityFilter.value = state.municipality;
-  els.categoryFilter.value = state.category;
-  els.fivePerMilleFilter.checked = state.fivePerMille;
-  els.networkFilter.checked = state.network;
-  els.sortSelect.value = state.sort;
-  els.servicesList.querySelectorAll('input[type="checkbox"]').forEach((input) => {
-    input.checked = state.services.has(input.value);
-  });
+  if (els.searchInput) els.searchInput.value = state.query;
+  if (els.municipalityFilter) els.municipalityFilter.value = state.municipality;
+  if (els.categoryFilter) els.categoryFilter.value = state.category;
+  if (els.fivePerMilleFilter) els.fivePerMilleFilter.checked = state.fivePerMille;
+  if (els.networkFilter) els.networkFilter.checked = state.network;
+  if (els.sortSelect) els.sortSelect.value = state.sort;
+  if (els.servicesList) {
+    els.servicesList.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+      input.checked = state.services.has(input.value);
+    });
+  }
 }
 
 function applyAssistantQuery(input) {
   const raw = String(input || '').trim();
-  if (!raw) return;
+  if (!raw || !state.data) return;
   const normalized = normalize(raw);
   const foundMunicipality = state.data.municipalities.find((item) =>
     normalized.includes(normalize(item.name))
@@ -278,7 +366,7 @@ function applyAssistantQuery(input) {
   if (state.category) pieces.push(`categoria ${state.category}`);
   if (state.services.size) pieces.push(`${state.services.size} servizio/i`);
   const suffix = pieces.length ? ` Ho applicato: ${pieces.join(', ')}.` : ' Ho cercato nel testo delle schede.';
-  els.assistantReply.textContent = `Risultati per “${raw}”.${suffix}`;
+  if (els.assistantReply) els.assistantReply.textContent = `Risultati per “${raw}”.${suffix}`;
 }
 
 function filterAndSort() {
@@ -324,6 +412,7 @@ function relevanceScore(org, terms) {
 }
 
 function render() {
+  if (!els.resultsList || !els.resultCount) return;
   syncControls();
   const results = filterAndSort();
   if (!state.selectedId || !results.some((org) => org.id === state.selectedId)) {
@@ -343,10 +432,13 @@ function renderActiveFilters() {
   Array.from(state.services).forEach((service) => filters.push(`Servizio: ${service}`));
   if (state.fivePerMille) filters.push('5x1000');
   if (state.network) filters.push('Rete territoriale');
-  els.activeFilters.innerHTML = filters.map((filter) => `<span class="active-filter">${escapeHtml(filter)}</span>`).join('');
+  if (els.activeFilters) {
+    els.activeFilters.innerHTML = filters.map((filter) => `<span class="active-filter">${escapeHtml(filter)}</span>`).join('');
+  }
 }
 
 function renderResults(results) {
+  if (!els.resultsList || !els.resultTemplate) return;
   els.resultsList.innerHTML = '';
   if (!results.length) {
     els.resultsList.innerHTML = '<div class="no-results"><strong>Nessun risultato.</strong><p>Prova a togliere un servizio o a cercare solo per comune.</p></div>';
@@ -364,7 +456,7 @@ function renderResults(results) {
       state.selectedId = org.id;
       render();
       if (window.matchMedia('(max-width: 1180px)').matches) {
-        els.detailsCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        els.detailsCard?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
     fragment.append(node);
@@ -373,6 +465,7 @@ function renderResults(results) {
 }
 
 function renderDetails(org) {
+  if (!els.detailsEmpty || !els.detailsCard) return;
   if (!org) {
     els.detailsEmpty.classList.remove('hidden');
     els.detailsCard.classList.add('hidden');
@@ -402,19 +495,34 @@ function renderDetails(org) {
 
     ${links.length ? `<div class="detail-block"><h3>Contatti digitali</h3><div class="detail-links">${links.join('')}</div></div>` : ''}
 
-    <div class="detail-block">
-      <h3>Dati amministrativi</h3>
-      <div class="detail-grid">
-        ${detailRow('Rappresentante', org.legalRepresentative)}
-        ${detailRow('Codice fiscale', org.taxCode)}
-        ${detailRow('Repertorio', org.registryNumber)}
-        ${detailRow('Iscrizione', org.registrationDate)}
-        ${detailRow('5x1000', org.fivePerMille)}
-        ${detailRow('Rete', org.network)}
-        ${detailRow('Categoria beneficio', org.benefitCategory)}
+    <div class="detail-block admin-block">
+      <button class="detail-toggle" type="button" aria-expanded="false">
+        <h3>Dati amministrativi</h3>
+        <span class="detail-toggle-icon" aria-hidden="true">▸</span>
+      </button>
+      <div class="detail-content is-collapsed">
+        <div class="detail-grid">
+          ${detailRow('Rappresentante', org.legalRepresentative)}
+          ${detailRow('Codice fiscale', org.taxCode)}
+          ${detailRow('Repertorio', org.registryNumber)}
+          ${detailRow('Iscrizione', org.registrationDate)}
+          ${detailRow('5x1000', org.fivePerMille)}
+          ${detailRow('Rete', org.network)}
+          ${detailRow('Categoria beneficio', org.benefitCategory)}
+        </div>
       </div>
     </div>
   `;
+
+  const adminToggle = els.detailsCard.querySelector('.detail-toggle');
+  adminToggle?.addEventListener('click', () => {
+    const block = adminToggle.closest('.admin-block');
+    const content = block?.querySelector('.detail-content');
+    const expanded = adminToggle.getAttribute('aria-expanded') === 'true';
+    adminToggle.setAttribute('aria-expanded', String(!expanded));
+    content?.classList.toggle('is-collapsed', expanded);
+    block?.classList.toggle('is-open', !expanded);
+  });
 }
 
 function detailRow(label, value) {
@@ -422,4 +530,9 @@ function detailRow(label, value) {
   return `<div class="detail-row"><span>${escapeHtml(label)}</span><span>${escapeHtml(value)}</span></div>`;
 }
 
-loadData();
+function initApp() {
+  initContactForm();
+  loadData();
+}
+
+initApp();
