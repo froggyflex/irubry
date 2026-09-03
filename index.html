@@ -9,9 +9,12 @@
   </head>
   <body>
     <header class="app-header">
-      <div>
-        <p class="eyebrow">Rubrica interattiva</p>
-        <h1>Pianura Est</h1>
+      <div class="brand-block">
+        <img class="brand-logo" src="Mappa%20pianura%20est2%20bianco.png" alt="Logo Pianura Est">
+        <div class="brand-copy">
+          <p class="eyebrow">Rubrica interattiva</p>
+          <h1>Pianura Est</h1>
+        </div>
       </div>
       <nav class="site-nav" aria-label="Navigazione principale">
         <a class="nav-link active" href="index.html">Home</a>
@@ -22,40 +25,52 @@
 
     <main class="page-shell">
       <section class="hero-card hero-split">
-        <div class="hero-image" aria-hidden="true">
-          <span>Foto distretto<br>Pianura Est</span>
+        <div class="hero-image" aria-label="Mappa del distretto della Pianura Est">
+          <img class="hero-map-image" src="Mappa%20pianura%20est2%20(1).png" alt="Mappa del distretto della Pianura Est">
         </div>
         <div class="hero-copy">
           <p class="eyebrow">Perché serve questa rubrica</p>
           <h2>Una guida semplice per trovare i servizi giusti nel territorio</h2>
           <p>Questa rubrica nasce per aiutare cittadini, famiglie e operatori a orientarsi tra enti, servizi e opportunità disponibili nella Pianura Est, in modo rapido e immediato.</p>
           <p>Per utilizzarla basta aprire la sezione rubrica, cercare per parola chiave, comune o servizio e consultare le schede degli enti più adatti alle proprie esigenze.</p>
-          <div class="hero-actions">
-            <a class="button-primary" href="rubrica.html">Apri la rubrica</a>
-            <a class="button-secondary" href="mappa.html">Scopri la mappa</a>
-          </div>
         </div>
       </section>
 
       <section class="content-grid contact-section">
         <article class="info-card contact-card">
-          <h3>Vuoi aggiornare o aggiungere la tua realtà?</h3>
-          <p>Se sei un ente e vuoi segnalare una modifica, aggiungere un servizio o far conoscere la tua presenza nel territorio, compila il modulo qui sotto.</p>
+          <div class="contact-header">
+            <h3>Vuoi aggiornare o aggiungere la tua realtà?</h3>
+            <p>Se sei un ente e vuoi segnalare una modifica, aggiungere un servizio o far conoscere la tua presenza nel territorio,<br>compila il modulo qui sotto.</p>
+          </div>
           <form id="contactForm" class="contact-form" novalidate>
-            <label for="contactName">Nome</label>
-            <input id="contactName" name="name" type="text" autocomplete="given-name" required>
+            <div class="field-row">
+              <div class="field-group">
+                <label for="contactName">Nome</label>
+                <input id="contactName" name="name" type="text" autocomplete="given-name" required>
+              </div>
 
-            <label for="contactSurname">Cognome</label>
-            <input id="contactSurname" name="surname" type="text" autocomplete="family-name" required>
+              <div class="field-group">
+                <label for="contactSurname">Cognome</label>
+                <input id="contactSurname" name="surname" type="text" autocomplete="family-name" required>
+              </div>
+            </div>
 
-            <label for="contactOrganisation">Nome ente</label>
-            <input id="contactOrganisation" name="organisation" type="text" autocomplete="organization">
+            <div class="field-row">
+              <div class="field-group">
+                <label for="contactOrganisation">Nome ente</label>
+                <input id="contactOrganisation" name="organisation" type="text" autocomplete="organization">
+              </div>
 
-            <label for="contactEmail">Email</label>
-            <input id="contactEmail" name="email" type="email" autocomplete="email" required>
+              <div class="field-group">
+                <label for="contactEmail">Email</label>
+                <input id="contactEmail" name="email" type="email" autocomplete="email" required>
+              </div>
+            </div>
 
-            <label for="contactMessage">Messaggio</label>
-            <textarea id="contactMessage" name="message" rows="5" required></textarea>
+            <div class="field-group field-message">
+              <label for="contactMessage">Messaggio</label>
+              <textarea id="contactMessage" name="message" rows="5" required></textarea>
+            </div>
 
             <button class="button-primary" type="submit">Invia messaggio</button>
           </form>

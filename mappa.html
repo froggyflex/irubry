@@ -3,41 +3,126 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Pagina dedicata alla futura mappa degli enti della Pianura Est.">
+    <meta name="description" content="Mappa interattiva degli enti della Pianura Est.">
     <title>Pianura Est | Mappa</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="app-header">
-      <div>
-        <p class="eyebrow">Rubrica interattiva</p>
-        <h1>Pianura Est</h1>
+      <div class="brand-block">
+        <img class="brand-logo" src="Mappa%20pianura%20est2%20bianco.png" alt="Logo Pianura Est">
+        <div class="brand-copy">
+          <p class="eyebrow">Rubrica interattiva</p>
+          <h1>Pianura Est</h1>
+        </div>
       </div>
       <nav class="site-nav" aria-label="Navigazione principale">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="rubrica.html">Rubrica</a>
         <a class="nav-link active" href="mappa.html">Mappa</a>
       </nav>
+      <div class="header-stats" aria-label="Statistiche archivio">
+        <span><strong id="totalRecords">0</strong> organizzazioni</span>
+        <span><strong id="totalMunicipalities">0</strong> comuni</span>
+      </div>
     </header>
 
-    <main class="page-shell">
-      <section class="hero-card">
-        <p class="eyebrow">Prossimamente</p>
-        <h2>La mappa degli enti sarà la terza fase del progetto</h2>
-        <p>Qui verranno inseriti tutti gli enti del territorio con una visualizzazione geografica per facilitare la scoperta dei servizi in modo più immediato.</p>
-        <a class="button-primary" href="rubrica.html">Torna alla rubrica</a>
+    <main class="app-shell map-shell">
+      <aside class="filters-panel" aria-label="Filtri">
+        <button id="toggleFilters" class="filters-toggle" type="button" aria-expanded="true" title="Comprimi filtri">
+          <span>Filtri</span>
+          <span class="filters-toggle-icon" aria-hidden="true">←</span>
+        </button>
+
+        <div class="filters-content">
+          <section class="search-panel">
+            <label for="searchInput">Cerca nella rubrica</label>
+            <div class="search-row">
+              <input id="searchInput" type="search" autocomplete="off" placeholder="Nome, comune, servizio...">
+              <button id="clearSearch" class="icon-button" type="button" aria-label="Cancella ricerca" title="Cancella ricerca">×</button>
+            </div>
+          </section>
+
+          <section>
+            <label for="municipalityFilter">Comune</label>
+            <div class="custom-select" data-select-id="municipalityFilter">
+              <button id="municipalityFilterTrigger" class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                Tutti i comuni
+              </button>
+              <div id="municipalityFilterMenu" class="custom-select-menu" role="listbox" aria-label="Comune"></div>
+            </div>
+            <select id="municipalityFilter" class="native-select" aria-label="Comune" hidden>
+              <option value="">Tutti i comuni</option>
+            </select>
+          </section>
+
+          <section>
+            <label for="categoryFilter">Categoria</label>
+            <div class="custom-select" data-select-id="categoryFilter">
+              <button id="categoryFilterTrigger" class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                Tutte le categorie
+              </button>
+              <div id="categoryFilterMenu" class="custom-select-menu" role="listbox" aria-label="Categoria"></div>
+            </div>
+            <select id="categoryFilter" class="native-select" aria-label="Categoria" hidden>
+              <option value="">Tutte le categorie</option>
+            </select>
+          </section>
+
+          <section aria-label="Servizi">
+            <div class="section-title-row">
+              <h2>Servizi</h2>
+              <button id="clearServices" class="text-button" type="button">Pulisci</button>
+            </div>
+            <div id="servicesList" class="service-list"></div>
+          </section>
+
+        </div>
+      </aside>
+
+      <section class="results-panel map-panel" aria-label="Mappa degli enti">
+        <div class="map-box">
+          <div id="map" aria-label="Mappa del distretto"></div>
+          <div id="mapNotice" class="map-notice" aria-live="polite"></div>
+        </div>
+
+        <div class="results-toolbar">
+          <div>
+            <p class="eyebrow">Risultati</p>
+            <h2 id="resultCount">0 organizzazioni</h2>
+          </div>
+          <select id="sortSelect" aria-label="Ordina risultati">
+            <option value="relevance">Più pertinenti</option>
+            <option value="name-asc">Nome A-Z</option>
+            <option value="name-desc">Nome Z-A</option>
+            <option value="municipality-asc">Comune A-Z</option>
+            <option value="municipality-desc">Comune Z-A</option>
+          </select>
+        </div>
+
+        <div id="activeFilters" class="active-filters" aria-live="polite"></div>
+        <div id="resultsList" class="results-list"></div>
       </section>
 
-      <section class="info-card">
-        <h3>Che cosa troverai</h3>
-        <p>In questa pagina, in futuro, verranno mostrati:</p>
-        <ul>
-          <li>Gli enti geolocalizzati sul territorio.</li>
-          <li>Filtri per comune, categoria e servizi.</li>
-          <li>Una vista mappa più intuitiva per orientarsi rapidamente.</li>
-        </ul>
-      </section>
+      <aside class="details-panel hidden" aria-label="Scheda organizzazione">
+        <div id="detailsEmpty" class="empty-state">
+          <h2>Scheda profilo</h2>
+          <p>Seleziona un risultato o un marker per vedere contatti, servizi e dati amministrativi.</p>
+        </div>
+        <article id="detailsCard" class="details-card hidden"></article>
+      </aside>
     </main>
+
+    <template id="resultTemplate">
+      <article class="result-card">
+        <button class="result-main" type="button">
+          <span class="result-kicker"></span>
+          <strong class="result-name"></strong>
+          <span class="result-description"></span>
+          <span class="service-preview"></span>
+        </button>
+      </article>
+    </template>
 
     <script src="app.js"></script>
   </body>

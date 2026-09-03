@@ -1,11 +1,11 @@
+const STORAGE_KEY = 'pianura-est-state-v1';
+
 const state = {
   data: null,
   query: '',
   municipality: '',
   category: '',
   services: new Set(),
-  fivePerMille: false,
-  network: false,
   sort: 'relevance',
   selectedId: null,
 };
@@ -17,11 +17,13 @@ const els = {
   clearSearch: document.querySelector('#clearSearch'),
   municipalityFilter: document.querySelector('#municipalityFilter'),
   categoryFilter: document.querySelector('#categoryFilter'),
+  municipalityTrigger: document.querySelector('#municipalityFilterTrigger'),
+  categoryTrigger: document.querySelector('#categoryFilterTrigger'),
+  municipalityMenu: document.querySelector('#municipalityFilterMenu'),
+  categoryMenu: document.querySelector('#categoryFilterMenu'),
   quickNeeds: document.querySelector('#quickNeeds'),
   servicesList: document.querySelector('#servicesList'),
   clearServices: document.querySelector('#clearServices'),
-  fivePerMilleFilter: document.querySelector('#fivePerMilleFilter'),
-  networkFilter: document.querySelector('#networkFilter'),
   assistantReply: document.querySelector('#assistantReply'),
   assistantForm: document.querySelector('#assistantForm'),
   assistantInput: document.querySelector('#assistantInput'),
@@ -29,6 +31,7 @@ const els = {
   sortSelect: document.querySelector('#sortSelect'),
   activeFilters: document.querySelector('#activeFilters'),
   resultsList: document.querySelector('#resultsList'),
+  detailsPanel: document.querySelector('.details-panel'),
   detailsEmpty: document.querySelector('#detailsEmpty'),
   detailsCard: document.querySelector('#detailsCard'),
   resultTemplate: document.querySelector('#resultTemplate'),
@@ -119,6 +122,43 @@ function countLabel(count) {
   return count === 1 ? '1 organizzazione' : `${count} organizzazioni`;
 }
 
+function getCategoryClassName(category) {
+  const value = normalize(category || '');
+  if (value.includes('assistenza') || value.includes('inclusione')) return 'category-assistenza';
+  if (value.includes('sanita') || value.includes('soccorso') || value.includes('protezione')) return 'category-sanit';
+  if (value.includes('cultura') || value.includes('arte') || value.includes('spettacolo')) return 'category-cultura';
+  if (value.includes('educazione') || value.includes('infanzia') || value.includes('giovani')) return 'category-educazione';
+  if (value.includes('aggregazione') || value.includes('sviluppo') || value.includes('ricreazione')) return 'category-aggregazione';
+  if (value.includes('ambiente') || value.includes('animali')) return 'category-ambiente';
+  if (value.includes('sport') || value.includes('benessere')) return 'category-sport';
+  return 'category-aggregazione';
+}
+
+function socialLinkFor(type, value) {
+  const clean = String(value || '').trim();
+  if (!clean) return '';
+
+  if (type === 'website') return clean;
+  if (type === 'facebook') {
+    const handle = clean.replace(/^https?:\/\/[^/]*facebook\.com\//i, '').replace(/^@/, '').trim();
+    return handle ? `https://www.facebook.com/${encodeURIComponent(handle)}` : '';
+  }
+  if (type === 'instagram') {
+    const handle = clean.replace(/^https?:\/\/[^/]*instagram\.com\//i, '').replace(/^@/, '').trim();
+    return handle ? `https://www.instagram.com/${encodeURIComponent(handle)}` : '';
+  }
+  return '';
+}
+
+function getSocialIcon(type) {
+  const icons = {
+    website: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Zm6.93 9h-3.07a14.87 14.87 0 0 0-1.26-5A8.03 8.03 0 0 1 18.93 11ZM14 11H10V6.13A13.36 13.36 0 0 1 14 11Zm0 2H10v4.87A13.36 13.36 0 0 1 14 13Zm2 0h3.07A8.03 8.03 0 0 1 18.93 13H16Zm1.26-8A14.87 14.87 0 0 0 16 11h3.07A8.03 8.03 0 0 1 17.26 5ZM12 4.07A13.38 13.38 0 0 1 13.9 11H10.1A13.38 13.38 0 0 1 12 4.07ZM10.1 13h3.8A13.38 13.38 0 0 1 12 19.93 13.38 13.38 0 0 1 10.1 13ZM5.07 13H8a14.87 14.87 0 0 0 1.26 5A8.03 8.03 0 0 1 5.07 13Zm1.67-8A8.03 8.03 0 0 1 8 11H4.93A14.87 14.87 0 0 0 6.74 5Zm-1.67 8h3.07A14.87 14.87 0 0 0 8 18a8.03 8.03 0 0 1-3.93-5Z"/></svg>',
+    facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V7.1c0-.9.3-1.5 1.6-1.5h1.7V2.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7v3.1h2.8v8h3.7Z"/></svg>',
+    instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.25-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/></svg>'
+  };
+  return icons[type] || icons.website;
+}
+
 function setContactStatus(message, type = '') {
   if (!els.contactStatus) return;
   els.contactStatus.textContent = message;
@@ -176,6 +216,40 @@ async function loadData() {
   }
 }
 
+function loadPersistedState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const saved = JSON.parse(raw);
+    if (!saved || typeof saved !== 'object') return;
+
+    state.query = typeof saved.query === 'string' ? saved.query : '';
+    state.municipality = typeof saved.municipality === 'string' ? saved.municipality : '';
+    state.category = typeof saved.category === 'string' ? saved.category : '';
+    state.sort = typeof saved.sort === 'string' ? saved.sort : 'relevance';
+    state.selectedId = saved.selectedId || null;
+    state.services = new Set(Array.isArray(saved.services) ? saved.services.filter((service) => typeof service === 'string') : []);
+  } catch (error) {
+    console.warn('Unable to restore saved filters:', error);
+  }
+}
+
+function persistState() {
+  try {
+    const payload = {
+      query: state.query,
+      municipality: state.municipality,
+      category: state.category,
+      services: Array.from(state.services),
+      sort: state.sort,
+      selectedId: state.selectedId,
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  } catch (error) {
+    console.warn('Unable to persist filters:', error);
+  }
+}
+
 function bootstrap() {
   if (!els.totalRecords || !els.totalMunicipalities || !els.municipalityFilter || !els.categoryFilter) return;
 
@@ -186,6 +260,8 @@ function bootstrap() {
   renderQuickNeeds();
   renderServices();
   bindEvents();
+  loadPersistedState();
+  syncControls();
   render();
 }
 
@@ -196,6 +272,43 @@ function populateSelect(select, items, firstLabel) {
     option.value = item.name;
     option.textContent = `${item.name} (${item.count})`;
     select.append(option);
+  });
+
+  const menu = select.parentElement?.querySelector('.custom-select-menu');
+  const trigger = select.parentElement?.querySelector('.custom-select-trigger');
+  if (!menu || !trigger) return;
+
+  menu.innerHTML = '';
+  const blankOption = document.createElement('button');
+  blankOption.type = 'button';
+  blankOption.className = 'custom-select-option';
+  blankOption.dataset.value = '';
+  blankOption.textContent = firstLabel;
+  blankOption.addEventListener('click', (event) => {
+    event.stopPropagation();
+    select.value = '';
+    trigger.textContent = firstLabel;
+    menu.parentElement?.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+  menu.append(blankOption);
+
+  items.forEach((item) => {
+    const option = document.createElement('button');
+    option.type = 'button';
+    option.className = 'custom-select-option';
+    option.dataset.value = item.name;
+    option.textContent = `${item.name} (${item.count})`;
+    option.addEventListener('click', (event) => {
+      event.stopPropagation();
+      select.value = item.name;
+      trigger.textContent = `${item.name} (${item.count})`;
+      menu.parentElement?.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    menu.append(option);
   });
 }
 
@@ -282,25 +395,45 @@ function bindEvents() {
       render();
     });
   }
+  if (els.municipalityTrigger && els.municipalityMenu) {
+    els.municipalityTrigger.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const parent = els.municipalityTrigger.closest('.custom-select');
+      const isOpen = parent.classList.contains('is-open');
+      document.querySelectorAll('.custom-select').forEach((item) => item.classList.remove('is-open'));
+      document.querySelectorAll('.custom-select-trigger').forEach((item) => item.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) {
+        parent.classList.add('is-open');
+        els.municipalityTrigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+  if (els.categoryTrigger && els.categoryMenu) {
+    els.categoryTrigger.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const parent = els.categoryTrigger.closest('.custom-select');
+      const isOpen = parent.classList.contains('is-open');
+      document.querySelectorAll('.custom-select').forEach((item) => item.classList.remove('is-open'));
+      document.querySelectorAll('.custom-select-trigger').forEach((item) => item.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) {
+        parent.classList.add('is-open');
+        els.categoryTrigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (!target.closest('.custom-select')) {
+      document.querySelectorAll('.custom-select').forEach((item) => item.classList.remove('is-open'));
+      document.querySelectorAll('.custom-select-trigger').forEach((item) => item.setAttribute('aria-expanded', 'false'));
+    }
+  });
   if (els.clearServices) {
     els.clearServices.addEventListener('click', () => {
       state.services.clear();
       state.selectedId = null;
       syncControls();
-      render();
-    });
-  }
-  if (els.fivePerMilleFilter) {
-    els.fivePerMilleFilter.addEventListener('change', (event) => {
-      state.fivePerMille = event.target.checked;
-      state.selectedId = null;
-      render();
-    });
-  }
-  if (els.networkFilter) {
-    els.networkFilter.addEventListener('change', (event) => {
-      state.network = event.target.checked;
-      state.selectedId = null;
       render();
     });
   }
@@ -318,12 +451,21 @@ function bindEvents() {
   }
 }
 
+function updateCustomSelectUI(select, trigger, menu, defaultLabel) {
+  if (!select || !trigger || !menu) return;
+  const selected = select.value;
+  const option = [...menu.querySelectorAll('.custom-select-option')].find((item) => item.dataset.value === selected);
+  if (option) trigger.textContent = option.textContent;
+  else trigger.textContent = defaultLabel;
+  trigger.setAttribute('aria-expanded', String(menu.parentElement?.classList.contains('is-open')));
+}
+
 function syncControls() {
   if (els.searchInput) els.searchInput.value = state.query;
   if (els.municipalityFilter) els.municipalityFilter.value = state.municipality;
   if (els.categoryFilter) els.categoryFilter.value = state.category;
-  if (els.fivePerMilleFilter) els.fivePerMilleFilter.checked = state.fivePerMille;
-  if (els.networkFilter) els.networkFilter.checked = state.network;
+  if (els.municipalityTrigger && els.municipalityMenu) updateCustomSelectUI(els.municipalityFilter, els.municipalityTrigger, els.municipalityMenu, 'Tutti i comuni');
+  if (els.categoryTrigger && els.categoryMenu) updateCustomSelectUI(els.categoryFilter, els.categoryTrigger, els.categoryMenu, 'Tutte le categorie');
   if (els.sortSelect) els.sortSelect.value = state.sort;
   if (els.servicesList) {
     els.servicesList.querySelectorAll('input[type="checkbox"]').forEach((input) => {
@@ -379,13 +521,13 @@ function filterAndSort() {
       if (state.municipality && org.municipality !== state.municipality) return false;
       if (state.category && org.category !== state.category) return false;
       if (selectedServices.length && !selectedServices.some((service) => org.services.includes(service))) return false;
-      if (state.fivePerMille && !hasYes(org.fivePerMille)) return false;
-      if (state.network && !hasYes(org.network)) return false;
       return true;
     });
 
-  if (state.sort === 'name') rows.sort((a, b) => a.org.name.localeCompare(b.org.name, 'it'));
-  else if (state.sort === 'municipality') rows.sort((a, b) => a.org.municipality.localeCompare(b.org.municipality, 'it') || a.org.name.localeCompare(b.org.name, 'it'));
+  if (state.sort === 'name-asc') rows.sort((a, b) => a.org.name.localeCompare(b.org.name, 'it'));
+  else if (state.sort === 'name-desc') rows.sort((a, b) => b.org.name.localeCompare(a.org.name, 'it'));
+  else if (state.sort === 'municipality-asc') rows.sort((a, b) => a.org.municipality.localeCompare(b.org.municipality, 'it') || a.org.name.localeCompare(b.org.name, 'it'));
+  else if (state.sort === 'municipality-desc') rows.sort((a, b) => b.org.municipality.localeCompare(a.org.municipality, 'it') || b.org.name.localeCompare(a.org.name, 'it'));
   else rows.sort((a, b) => b.score - a.score || a.org.name.localeCompare(b.org.name, 'it'));
   return rows.map((item) => item.org);
 }
@@ -415,13 +557,18 @@ function render() {
   if (!els.resultsList || !els.resultCount) return;
   syncControls();
   const results = filterAndSort();
-  if (!state.selectedId || !results.some((org) => org.id === state.selectedId)) {
-    state.selectedId = results[0]?.id || null;
-  }
+  const selectedOrg = state.selectedId && results.some((org) => org.id === state.selectedId)
+    ? results.find((org) => org.id === state.selectedId)
+    : null;
+  state.selectedId = selectedOrg ? selectedOrg.id : null;
+  persistState();
   els.resultCount.textContent = countLabel(results.length);
   renderActiveFilters();
   renderResults(results);
-  renderDetails(results.find((org) => org.id === state.selectedId));
+  renderDetails(selectedOrg);
+  if (document.getElementById('map')) {
+    renderMapMarkers(results);
+  }
 }
 
 function renderActiveFilters() {
@@ -430,8 +577,6 @@ function renderActiveFilters() {
   if (state.municipality) filters.push(`Comune: ${state.municipality}`);
   if (state.category) filters.push(`Categoria: ${state.category}`);
   Array.from(state.services).forEach((service) => filters.push(`Servizio: ${service}`));
-  if (state.fivePerMille) filters.push('5x1000');
-  if (state.network) filters.push('Rete territoriale');
   if (els.activeFilters) {
     els.activeFilters.innerHTML = filters.map((filter) => `<span class="active-filter">${escapeHtml(filter)}</span>`).join('');
   }
@@ -447,11 +592,18 @@ function renderResults(results) {
   const fragment = document.createDocumentFragment();
   results.forEach((org) => {
     const node = els.resultTemplate.content.firstElementChild.cloneNode(true);
+    const categoryClass = getCategoryClassName(org.category);
+    node.classList.add(categoryClass);
     if (org.id === state.selectedId) node.classList.add('selected');
     node.querySelector('.result-kicker').textContent = `${org.municipality || 'Comune non indicato'} · ${org.category || 'Categoria non indicata'}`;
     node.querySelector('.result-name').textContent = org.name;
     node.querySelector('.result-description').textContent = org.activity || 'Descrizione non disponibile.';
-    node.querySelector('.service-preview').textContent = serviceText(org.services);
+    const servicePreview = node.querySelector('.service-preview');
+    if (org.services.length) {
+      servicePreview.innerHTML = org.services.slice(0, 3).map((service) => `<span class="service-pill">${escapeHtml(service)}</span>`).join('');
+    } else {
+      servicePreview.innerHTML = '<span class="service-pill service-pill-muted">Nessun servizio indicato</span>';
+    }
     node.querySelector('.result-main').addEventListener('click', () => {
       state.selectedId = org.id;
       render();
@@ -470,17 +622,39 @@ function renderDetails(org) {
     els.detailsEmpty.classList.remove('hidden');
     els.detailsCard.classList.add('hidden');
     els.detailsCard.innerHTML = '';
+    if (els.detailsPanel) els.detailsPanel.classList.add('hidden');
     return;
   }
+
   els.detailsEmpty.classList.add('hidden');
   els.detailsCard.classList.remove('hidden');
+  if (els.detailsPanel) els.detailsPanel.classList.remove('hidden');
+
   const links = [];
-  if (org.links.website) links.push(`<a class="link-button" href="${escapeHtml(org.links.website)}" target="_blank" rel="noreferrer">Sito web</a>`);
-  if (org.links.facebook) links.push(`<span class="tag">Facebook: ${escapeHtml(org.links.facebook)}</span>`);
-  if (org.links.instagram) links.push(`<span class="tag">Instagram: ${escapeHtml(org.links.instagram)}</span>`);
+  const orgLinks = org.links || {};
+  const website = String(orgLinks.website || '').trim();
+  const facebook = String(orgLinks.facebook || '').trim();
+  const instagram = String(orgLinks.instagram || '').trim();
+
+  if (website) {
+    links.push(`<a class="contact-button website-button" href="${escapeHtml(website)}" target="_blank" rel="noreferrer">${getSocialIcon('website')}<span>Sito web</span></a>`);
+  }
+  if (facebook) {
+    const facebookLink = socialLinkFor('facebook', facebook);
+    if (facebookLink) {
+      links.push(`<a class="contact-button facebook-button" href="${escapeHtml(facebookLink)}" target="_blank" rel="noreferrer">${getSocialIcon('facebook')}<span>Facebook</span></a>`);
+    }
+  }
+  if (instagram) {
+    const instagramLink = socialLinkFor('instagram', instagram);
+    if (instagramLink) {
+      links.push(`<a class="contact-button instagram-button" href="${escapeHtml(instagramLink)}" target="_blank" rel="noreferrer">${getSocialIcon('instagram')}<span>Instagram</span></a>`);
+    }
+  }
 
   els.detailsCard.innerHTML = `
-    <div>
+    <button class="detail-close" type="button" aria-label="Chiudi scheda dettagli">×</button>
+    <div class="detail-header-block">
       <p class="meta">${escapeHtml(org.municipality || 'Comune non indicato')} · ${escapeHtml(org.category || 'Categoria non indicata')}</p>
       <h2>${escapeHtml(org.name)}</h2>
       <p>${escapeHtml(org.activity || 'Descrizione non disponibile.')}</p>
@@ -489,11 +663,11 @@ function renderDetails(org) {
     <div class="detail-block">
       <h3>Servizi</h3>
       <div class="service-tags">
-        ${(org.services.length ? org.services : ['Nessun servizio specifico indicato']).map((service) => `<span class="tag">${escapeHtml(service)}</span>`).join('')}
+        ${(org.services.length ? org.services : ['Nessun servizio specifico indicato']).map((service) => `<span class="service-pill detail-service-pill">${escapeHtml(service)}</span>`).join('')}
       </div>
     </div>
 
-    ${links.length ? `<div class="detail-block"><h3>Contatti digitali</h3><div class="detail-links">${links.join('')}</div></div>` : ''}
+    ${links.length ? `<div class="detail-block"><h3>Contatti</h3><div class="detail-links">${links.join('')}</div></div>` : ''}
 
     <div class="detail-block admin-block">
       <button class="detail-toggle" type="button" aria-expanded="false">
@@ -514,6 +688,12 @@ function renderDetails(org) {
     </div>
   `;
 
+  const closeButton = els.detailsCard.querySelector('.detail-close');
+  closeButton?.addEventListener('click', () => {
+    state.selectedId = null;
+    render();
+  });
+
   const adminToggle = els.detailsCard.querySelector('.detail-toggle');
   adminToggle?.addEventListener('click', () => {
     const block = adminToggle.closest('.admin-block');
@@ -530,8 +710,105 @@ function detailRow(label, value) {
   return `<div class="detail-row"><span>${escapeHtml(label)}</span><span>${escapeHtml(value)}</span></div>`;
 }
 
+function getOrgCoordinates(org) {
+  if (!org) return null;
+  if (Array.isArray(org.coordinates) && org.coordinates.length >= 2) {
+    const lat = Number(org.coordinates[0]);
+    const lng = Number(org.coordinates[1]);
+    if (Number.isFinite(lat) && Number.isFinite(lng)) return [lat, lng];
+  }
+  if (Number.isFinite(Number(org.lat)) && Number.isFinite(Number(org.lng))) {
+    return [Number(org.lat), Number(org.lng)];
+  }
+  if (Number.isFinite(Number(org.latitude)) && Number.isFinite(Number(org.longitude))) {
+    return [Number(org.latitude), Number(org.longitude)];
+  }
+  if (org.location && Number.isFinite(Number(org.location.lat)) && Number.isFinite(Number(org.location.lng))) {
+    return [Number(org.location.lat), Number(org.location.lng)];
+  }
+  if (org.location && Number.isFinite(Number(org.location.latitude)) && Number.isFinite(Number(org.location.longitude))) {
+    return [Number(org.location.latitude), Number(org.location.longitude)];
+  }
+  return null;
+}
+
+function renderMapMarkers(results) {
+  if (!document.getElementById('map') || typeof window.L === 'undefined') return;
+  if (!state.data || !Array.isArray(results)) return;
+
+  if (!window.__pianuraMap) {
+    window.__pianuraMap = L.map('map', { zoomControl: true, scrollWheelZoom: true }).setView([44.495, 11.356], 11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 19,
+    }).addTo(window.__pianuraMap);
+    window.__pianuraMarkers = L.layerGroup().addTo(window.__pianuraMap);
+  }
+
+  const map = window.__pianuraMap;
+  const markerLayer = window.__pianuraMarkers;
+  markerLayer.clearLayers();
+
+  const validResults = results.filter((org) => {
+    const coords = getOrgCoordinates(org);
+    return coords && Number.isFinite(coords[0]) && Number.isFinite(coords[1]);
+  });
+
+  const notice = document.getElementById('mapNotice');
+  if (!validResults.length) {
+    if (notice) notice.textContent = 'Nessuna geolocalizzazione disponibile per i filtri attuali.';
+    return;
+  }
+
+  const bounds = [];
+  validResults.forEach((org) => {
+    const coords = getOrgCoordinates(org);
+    if (!coords) return;
+    const marker = L.marker(coords).addTo(markerLayer);
+    marker.bindPopup(`<strong>${escapeHtml(org.name)}</strong><br>${escapeHtml(org.municipality || '')}`);
+    marker.on('click', () => {
+      state.selectedId = org.id;
+      render();
+    });
+    bounds.push(coords);
+  });
+
+  if (notice) notice.textContent = '';
+  if (bounds.length) map.fitBounds(bounds, { padding: [24, 24] });
+}
+
+function initMapPage() {
+  if (!document.getElementById('map')) return;
+
+  const existingCss = document.querySelector('link[data-leaflet]');
+  if (!existingCss) {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    css.dataset.leaflet = 'true';
+    document.head.appendChild(css);
+  }
+
+  if (window.L) {
+    renderMapMarkers(filterAndSort());
+    return;
+  }
+
+  const existingScript = document.querySelector('script[data-leaflet]');
+  if (!existingScript) {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    script.dataset.leaflet = 'true';
+    script.onload = () => {
+      if (state.data) renderMapMarkers(filterAndSort());
+    };
+    document.head.appendChild(script);
+  }
+}
+
 function initApp() {
   initContactForm();
+  initMapPage();
   loadData();
 }
 

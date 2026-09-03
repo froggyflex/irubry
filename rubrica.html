@@ -9,9 +9,12 @@
   </head>
   <body>
     <header class="app-header">
-      <div>
-        <p class="eyebrow">Rubrica interattiva</p>
-        <h1>Pianura Est</h1>
+      <div class="brand-block">
+        <img class="brand-logo" src="Mappa%20pianura%20est2%20bianco.png" alt="Logo Pianura Est">
+        <div class="brand-copy">
+          <p class="eyebrow">Rubrica interattiva</p>
+          <h1>Pianura Est</h1>
+        </div>
       </div>
       <nav class="site-nav" aria-label="Navigazione principale">
         <a class="nav-link" href="index.html">Home</a>
@@ -42,14 +45,26 @@
 
           <section>
             <label for="municipalityFilter">Comune</label>
-            <select id="municipalityFilter">
+            <div class="custom-select" data-select-id="municipalityFilter">
+              <button id="municipalityFilterTrigger" class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                Tutti i comuni
+              </button>
+              <div id="municipalityFilterMenu" class="custom-select-menu" role="listbox" aria-label="Comune"></div>
+            </div>
+            <select id="municipalityFilter" class="native-select" aria-label="Comune" hidden>
               <option value="">Tutti i comuni</option>
             </select>
           </section>
 
           <section>
             <label for="categoryFilter">Categoria</label>
-            <select id="categoryFilter">
+            <div class="custom-select" data-select-id="categoryFilter">
+              <button id="categoryFilterTrigger" class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                Tutte le categorie
+              </button>
+              <div id="categoryFilterMenu" class="custom-select-menu" role="listbox" aria-label="Categoria"></div>
+            </div>
+            <select id="categoryFilter" class="native-select" aria-label="Categoria" hidden>
               <option value="">Tutte le categorie</option>
             </select>
           </section>
@@ -62,23 +77,13 @@
             <div id="servicesList" class="service-list"></div>
           </section>
 
-          <section class="toggles" aria-label="Altri filtri">
-            <label class="check-row">
-              <input id="fivePerMilleFilter" type="checkbox">
-              <span>Accetta 5x1000</span>
-            </label>
-            <label class="check-row">
-              <input id="networkFilter" type="checkbox">
-              <span>In rete territoriale</span>
-            </label>
-          </section>
         </div>
       </aside>
 
       <section class="results-panel" aria-label="Risultati">
         <div class="assistant-panel">
           <div class="assistant-copy">
-            <h2>Assistente</h2>
+            <h2>Ricerca Intelligente</h2>
             <p id="assistantReply">Scrivi una richiesta semplice, per esempio: “cerco trasporto per anziani a Budrio”.</p>
           </div>
           <form id="assistantForm" class="assistant-form">
@@ -95,8 +100,10 @@
           </div>
           <select id="sortSelect" aria-label="Ordina risultati">
             <option value="relevance">Più pertinenti</option>
-            <option value="name">Nome A-Z</option>
-            <option value="municipality">Comune A-Z</option>
+            <option value="name-asc">Nome A-Z</option>
+            <option value="name-desc">Nome Z-A</option>
+            <option value="municipality-asc">Comune A-Z</option>
+            <option value="municipality-desc">Comune Z-A</option>
           </select>
         </div>
 
@@ -104,7 +111,7 @@
         <div id="resultsList" class="results-list"></div>
       </section>
 
-      <aside class="details-panel" aria-label="Scheda organizzazione">
+      <aside class="details-panel hidden" aria-label="Scheda organizzazione">
         <div id="detailsEmpty" class="empty-state">
           <h2>Scheda profilo</h2>
           <p>Seleziona un risultato per vedere contatti, servizi e dati amministrativi.</p>
