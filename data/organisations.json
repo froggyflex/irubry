@@ -77,10 +77,6 @@
       "count": 32
     },
     {
-      "name": "FUNO",
-      "count": 1
-    },
-    {
       "name": "GALLIERA",
       "count": 9
     },
@@ -207,7 +203,7 @@
     {
       "name": "Servizi Pulizia",
       "count": 3,
-      "definition": "Offerta di servizio come ttività di pulizia e sanificazione"
+      "definition": "Offerta di servizio come attività di pulizia e sanificazione"
     },
     {
       "name": "Produzione Artigianale",
@@ -265,6 +261,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Tempo Libero",
+      "lat": 44.62100945002148,
+      "lng": 11.67266483170501,
       "searchText": "fondazione giuseppe massarenti e anselmo martoni ets molinella bo cultura, arte e spettacolo organizzazione e gestione di attività culturali, artistiche o ricreative di interesse sociale, di promozione e diffusione della cultura e della pratica del volontariato. l'attività si concentra sulla divulgazione dei valori e degli insegnamenti legati alle figure di giuseppe massarenti e anselmo martoni attraverso l'organizzazione di incontri, eventi formativi e l'erogazione di borse di studio a supporto delle nuove generazioni. tempo libero organizzazione eventi e tradizioni   https://www.fondazionemassarentimartoni.it/"
     },
     {
@@ -293,6 +291,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Attività di volontariato e/o di Assistenza agli indigenti",
+      "lat": 44.54966068799678,
+      "lng": 11.447220908786383,
       "searchText": "vitalia odv granarolo dell'emilia bo assistenza sociale e inclusione organizzazione di volontariato che gestisce la bottega solidale di granarolo dell'emilia. l'ente fornisce supporto materiale e relazionale a cittadini in temporanea difficoltà economica, permettendo loro di reperire gratuitamente beni di consumo di prima necessità. oltre all'assistenza alimentare, l'associazione funge da punto di ascolto e accoglienza, offrendo un sostegno umano grazie all'impegno dei volontari. attività di volontariato e/o di assistenza agli indigenti assistenza alimentare e materiale sportello ascolto supp. fragilità vitalìa - bottega solidale  https://www.terredipianura.it/it-it/vivere-il-territorio/associazioni-enti/associazione-vitalia-bottega-solidale-53809-1-4fda7800c9e7ad28597971b0fe797e1a"
     },
     {
@@ -325,6 +325,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.57621076039261,
+      "lng": 11.368601167426679,
       "searchText": "alveare societa' cooperativa sociale castel maggiore bo assistenza sociale e inclusione cooperativa sociale mista (di tipo a e b) che coniuga l'assistenza alle vulnerabilità con lo sviluppo locale. l'ente opera su un doppio fronte: da un lato eroga servizi educativi e formativi alla persona, inclusi percorsi di doposcuola; dall'altro gestisce attività imprenditoriali, come i servizi di pulizia, con l'obiettivo primario di favorire l'inclusione e l'inserimento lavorativo di soggetti in condizione di svantaggio. assistenza e sicurezza sociale sportello ascolto inserim. lavorativo supp. fragilità corsi e laboratori servizi pulizia doposcuola supporto alla genitorialità cooperativa sociale alveare alveare_coop https://www.cooperativasocialealveare.it/"
     },
     {
@@ -352,6 +354,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Scolastico/educativo/giovanile",
+      "lat": 44.70128722994061,
+      "lng": 11.402832369283294,
       "searchText": "amici di mariele societa' cooperativa sociale san pietro in casale bo educazione, infanzia e giovani gestisce la scuola primaria paritaria “mariele ventre” scolastico/educativo/giovanile doposcuola centri estivi e oratori scuola primaria paritaria \"mariele ventre\" scuolamarieleventre https://amicidimariele.it/"
     },
     {
@@ -382,6 +386,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.55165291932938,
+      "lng": 11.389234880918359,
       "searchText": "arca di noe' - societa' cooperativa sociale granarolo dell'emilia bo assistenza sociale e inclusione arca di noè è una cooperativa sociale a+b nata nel 2001 a bologna. promuove l’inclusione di persone con disabilità o fragilità e offre servizi di accoglienza e integrazione per persone richiedenti asilo e rifugiate. favoriscono l’inclusione lavorativa e la partecipazione attraverso l’attività produttiva. assistenza e sicurezza sociale inserim. lavorativo integrazione e accoglienza supporto disabilità supp. fragilità corsi e laboratori arcadinoebologna arca di noè cooperativa sociale https://www.arcacoop.com/"
     },
     {
@@ -414,6 +420,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.706676225092565,
+      "lng": 11.403206296269714,
       "searchText": "campi d'arte - societa' cooperativa sociale san pietro in casale bo assistenza sociale e inclusione l’area disabilità si dedica all’accompagnamento delle persone con disabilità supportandole nell’acquisizione di competenze per la vita quotidiana e l’autodeterminazione. la cooperativa promuove percorsi di inserimento lavorativo e inclusione sociale per persone fragili, oltre a organizzare eventi di sensibilizzazione sul tema della disabilità. area produttiva, è volto alla realizzazione artigianale di prodotti e a lavori di confezionamento per conto terzi, coinvolgendo soggetti in difficoltà. l’area scuola, giovani minori e famiglie offre una vasta gamma di servizi educativi e assistenziali rivolti a bambini, adolescenti, giovani e famiglie. assistenza e sicurezza sociale sportello ascolto inserim. lavorativo supporto disabilità supp. fragilità corsi e laboratori produzione artigianale supporto alla genitorialità campi d'arte - cooperativa sociale campi_darte https://www.campidarte.it/"
     },
     {
@@ -445,6 +453,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.60858096623237,
+      "lng": 11.418631382771045,
       "searchText": "cooperativa sociale anima societa' cooperativa sociale bentivoglio bo assistenza sociale e inclusione cooperativa sociale di tipo a-b, una organizzazione che si occupa dell’inserimento lavorativo di ragazzi disabili. operano i vari modi tra cui la loro locanda, servizi di giardinaggio e catering assistenza e sicurezza sociale inserim. lavorativo supporto disabilità supp. fragilità tutela ambiente e territorio produzione artigianale ristoraz/catering cooperativa sociale anima - la locanda smeraldi coopanima https://www.coopsocialeanima.it/"
     },
     {
@@ -476,6 +486,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Scolastico/educativo/giovanile / Assistenza e sicurezza sociale",
+      "lat": 44.617609793763485,
+      "lng": 11.680578480922087,
       "searchText": "gestione servizi - gesser - societa' cooperativa sociale molinella bo educazione, infanzia e giovani servizi in ambito scolastico ed educativo (asilo nido e scuola d’infanzia). sostegno ai minori diversamente abili, nel trasporto scolastico e nei servizi integrativi. si è affermata offrendo un ottimo servizio di pulizia sia in strutture pubbliche che private presenti sul territorio del ferrarese e del bolognese. infine ha gestito attività di assistenza in centri diurni e servizi domiciliari presso diversi comuni del bolognese. scolastico/educativo/giovanile / assistenza e sicurezza sociale trasporto sociale e sanitario inserim. lavorativo assist. anziani supporto disabilità centri diurni / residenziali servizi pulizia gestione servizi gesser gesserbimbi https://gessercoop.it/about/"
     },
     {
@@ -505,6 +517,8 @@
       "network": "No",
       "fivePerMille": "No",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.55827474691983,
+      "lng": 11.448267301631951,
       "searchText": "kairos societa' cooperativa sociale granarolo dell'emilia bo assistenza sociale e inclusione sostegno autentico ai minori destinati a rimanere in comunità e alle famiglie affidatarie assistenza e sicurezza sociale sportello ascolto supp. fragilità tutela minori / affido familiare supporto alla genitorialità associazione kairos cooperativa_kairosbologna https://kairos.bo.it/"
     },
     {
@@ -534,6 +548,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Tutela dei valori ambientali",
+      "lat": 44.709384746647146,
+      "lng": 11.3123672546919,
       "searchText": "la citta' verde societa' cooperativa sociale a responsabilita' limitata pieve di cento bo assistenza sociale e inclusione cooperativa sociale (tipicamente di tipo b) specializzata nella coniugazione di servizi ambientali e inclusione sociale. l'ente opera principalmente nei settori della cura del verde, della gestione e recupero dei rifiuti, dell'installazione e manutenzione di arredi urbani e dell'agricoltura sociale. la sua attività è strutturata per creare opportunità di occupazione stabili, socialità , con particolare attenzione alle persone in condizione di forte svantaggio o marginalità tutela dei valori ambientali inserim. lavorativo supp. fragilità tutela ambiente e territorio produzione agricola la città verde cooperativa sociale la_città_verde https://lacittaverde.coop/"
     },
     {
@@ -563,6 +579,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.53264526909592,
+      "lng": 11.418908838588566,
       "searchText": "l'arche - comunita' l'arcobaleno - impresa sociale granarolo dell'emilia bo assistenza sociale e inclusione centro socio riabilitativo residenziale e un centro socio riabilitativo semiresidenziale (diurno) per persone con disabilità. il residenziale sorge all’interno di un grande giardino ed è strutturato in due case, detti “focolari”, con 20 persone che risiedono stabilmente nella comunità. il diurno accoglie una ventina di persone ed è il luogo in cui viene valorizzata la capacità delle persone inserite in contesti di tipo lavorativo. assistenza e sicurezza sociale inserim. lavorativo supporto disabilità supp. fragilità centri diurni / residenziali l'arche comunità l'arcobaleno - impresa sociale - bologna larche_arcobaleno https://www.larchebologna.it/"
     },
     {
@@ -590,6 +608,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Tutela dei valori ambientali",
+      "lat": 44.725876637435825,
+      "lng": 11.290884638599499,
       "searchText": "l'arcoiris societa' cooperativa sociale pieve di cento bo educazione, infanzia e giovani principalmente bottega commercio equo e solidale, agenzia educativa, che offre progetti didattici su consumo critico e sviluppo sostenibile tutela dei valori ambientali assistenza alimentare e materiale tutela ambiente e territorio arcoiris bottegarcoiriscento https://www.arcoiriscoop.it/"
     },
     {
@@ -622,6 +642,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.64721166619899,
+      "lng": 11.371744496266365,
       "searchText": "la venenta societa' cooperativa sociale san giorgio di piano bo assistenza sociale e inclusione cooperativa che opera su più fronti per sostenere la comunità. in ambito educativo gestisce progetti scolastici, doposcuola e centri estivi. nel sociale, offre percorsi di accoglienza protetta per famiglie o persone fragili, gestisce un centro socio-occupazionale per persone con disabilità e supporta le vittime all'interno di centri antiviolenza. inoltre, favorisce l'inserimento lavorativo e l'autonomia di soggetti svantaggiati attraverso laboratori artigianali per la creazione di abbigliamento e oggettistica. assistenza e sicurezza sociale inserim. lavorativo supporto disabilità corsi e laboratori produzione artigianale doposcuola centri estivi e oratori supporto alla genitorialità la venenta coopsociale lavenenta https://www.venenta.it/"
     },
     {
@@ -651,6 +673,8 @@
       "network": "No",
       "fivePerMille": "No",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.51575127567832,
+      "lng": 11.528820940437068,
       "searchText": "pictor societa' cooperativa sociale impresa sociale budrio bo assistenza sociale e inclusione fondata con l’intento di offrire alle persone più fragili la possibilità e la motivazione per inserirsi in modo premiante nella società, cooperativa sociale pictor crede da sempre nel lavoro come agente di inclusione sociale. praticare un mestiere che valorizzi le abilità personali diventa lo strumento per dimostrare la capacità di portare a compimento gli incarichi assegnati e per sentirsi parte integrante e insostituibile di una comunità. servizi: pulizia/disinfestazione, servizi di mensa,inserimento lavorativo, cablaggio quadro e impianti elettrodomestici assistenza e sicurezza sociale inserim. lavorativo supporto disabilità servizi pulizia ristoraz/catering pictor  https://cooperativapictor.it/"
     },
     {
@@ -677,6 +701,8 @@
       "network": "No",
       "fivePerMille": "No",
       "benefitCategory": "Scolastico/educativo/giovanile",
+      "lat": 44.64415200540381,
+      "lng": 11.635709953937477,
       "searchText": "primi giochi societa' cooperativa sociale abbreviabile in \"primi giochi cooperativa sociale\" molinella bo educazione, infanzia e giovani servizi di materna e asili nido; assistenza diurna per minori disabili scolastico/educativo/giovanile doposcuola   https://www.primi-giochi.it/"
     },
     {
@@ -708,6 +734,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Assistenza e sicurezza sociale",
+      "lat": 44.63766516209097,
+      "lng": 11.412594653937024,
       "searchText": "societa' cooperativa sociale arcobaleno bentivoglio bo assistenza sociale e inclusione cooperativa arcobaleno lavora con persone svantaggiate e con persone in condizione di fragilità e vulnerabilità. il progetto di cura della cooperativa riguarda la presa in carico dei bisogni di socialità, lavoro, gestione della vita quotidiana delle persone nel territorio di loro appartenenza. laboratori di ceramica e ristorazione (pasta fresca, panificazione e biscotteria) assistenza e sicurezza sociale inserim. lavorativo supporto disabilità supp. fragilità corsi e laboratori produzione artigianale ristoraz/catering società cooperativa sociale arcobaleno cooparcobaleno82 https://www.coopsocialearcobaleno.com/"
     },
     {
@@ -739,6 +767,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Attività ricreative e del tempo libero",
+      "lat": 44.536530002899646,
+      "lng": 11.52910325208185,
       "searchText": "solco idapoli societa' cooperativa sociale budrio bo assistenza sociale e inclusione settore anziani gestisce servizi socio assistenziali accreditati dalla regione, settore educativo opera attraverso la gestione e la realizzazione di progetti socio-educativi rivolti a minori e portatori di disabilità fisica e psichica: interventi domiciliari, scuole dell’infanzia, comunità educativa per minori, servizi educativi di integrazione scolastica, servizi parascolastici e centri estivi, centro diurno per disabili adulti, offre servizi di animazione sia in case di riposo che a domicilio, sviluppa e propone progetti intergenerazionali. attività ricreative e del tempo libero assist. anziani supporto disabilità centri diurni / residenziali tutela minori / affido familiare doposcuola centri estivi e oratori solco idapoli budrio  https://www.coopidapoli.it/"
     },
     {
@@ -767,6 +797,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Tutela dei valori ambientali",
+      "lat": 44.73210194802384,
+      "lng": 11.358810640449352,
       "searchText": "nella vecchia fattoria - aps san pietro in casale bo tutela dell'ambiente e degli animali associazione di promozione sociale che all'interno della propria fattoria accoglie animali bisognosi per prenderci cura di loro. nelle \"estati in fattoria\" attive per tutto il periodo di chiusura scolastica i bambini faranno da cornice in questo progetto, per imparare il rispetto e l approccio con gli animali. tutela dei valori ambientali tutela ambiente e territorio tutela animali centri estivi e oratori   https://sites.google.com/view/nellavecchiafattoria5046/chi-siam"
     },
     {
@@ -796,6 +828,8 @@
       "network": "No",
       "fivePerMille": "Si",
       "benefitCategory": "Tutela dei valori ambientali",
+      "lat": 44.66587445991489,
+      "lng": 11.328557179075382,
       "searchText": "agriconcura societa' cooperativa sociale agricola argelato bo tutela dell'ambiente e degli animali attività agricola sociale, apicoltura, allevamento animali da cortile, produzione miele e uova, attività di vivaismo, fattoria didattica, gestione di laboratorio pluriuso. agriturismo. tutela dei valori ambientali inserim. lavorativo tutela ambiente e territorio produzione artigianale produzione agricola agriconcura agriconcura https://www.agriconcura.it/"
     },
     {
@@ -8813,7 +8847,7 @@
       "id": "sportello-sociale-e-scolastico-di-funo-322",
       "sourceRow": 322,
       "name": "SPORTELLO SOCIALE E SCOLASTICO DI FUNO",
-      "municipality": "FUNO",
+      "municipality": "ARGELATO",
       "province": "",
       "category": "Assistenza Sociale e Inclusione",
       "originalCategory": "Assistenza Sociale e inclusione",
