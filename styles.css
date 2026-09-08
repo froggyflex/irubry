@@ -272,9 +272,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   position: sticky;
   top: 18px;
   align-self: start;
-  max-height: calc(100vh - 36px);
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .filters-panel, .details-panel, .results-panel { min-width: 0; }
@@ -285,12 +283,16 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   max-height: calc(100vh - 36px);
   overflow: auto;
 }
+.details-panel {
+  padding-bottom: 48px;
+}
 .filters-panel {
   overflow: auto;
 }
 .results-panel {
-  max-height: none;
-  overflow: visible;
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .filters-panel, .assistant-panel, .details-card, .empty-state, .map-box {
