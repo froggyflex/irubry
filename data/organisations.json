@@ -37,11 +37,6 @@
       "count": 6
     },
     {
-      "name": "Tempo Libero",
-      "definition": "",
-      "count": 2
-    },
-    {
       "name": "Tutela dell'Ambiente e degli Animali",
       "definition": "Salvaguardia dell'ecosistema, pulizia del verde, educazione ecologica, rifugi per animali e tutela della biodiversità",
       "count": 24
@@ -8363,7 +8358,7 @@
       "name": "ARTERIA ODV",
       "municipality": "PIEVE DI CENTO",
       "province": "BO",
-      "category": "Tempo Libero",
+      "category": "Aggregazione, Sviluppo Locale e Ricreazione",
       "originalCategory": "Tempo Libero",
       "activity": "interventi culturali site specific?",
       "services": [],
@@ -8414,7 +8409,7 @@
       "name": "ASSOCIAZIONE PROMOZIONE ED ORGANIZZAZIONE SPORT E TEMPO LIBERO - ETS",
       "municipality": "SAN PIETRO IN CASALE",
       "province": "BO",
-      "category": "Tempo Libero",
+      "category": "Aggregazione, Sviluppo Locale e Ricreazione",
       "originalCategory": "Tempo Libero",
       "activity": "",
       "services": [],
