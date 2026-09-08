@@ -80,44 +80,46 @@
         </div>
       </aside>
 
-      <section class="results-panel" aria-label="Risultati">
-        <div class="assistant-panel">
-          <div class="assistant-copy">
-            <h2>Ricerca Intelligente</h2>
-            <p id="assistantReply">Scrivi una richiesta semplice, per esempio: “cerco trasporto per anziani a Budrio”.</p>
+      <div class="right-rail">
+        <section class="results-panel" aria-label="Risultati">
+          <div class="assistant-panel">
+            <div class="assistant-copy">
+              <h2>Ricerca Intelligente</h2>
+              <p id="assistantReply">Scrivi una richiesta semplice, per esempio: “cerco trasporto per anziani a Budrio”.</p>
+            </div>
+            <form id="assistantForm" class="assistant-form">
+              <label class="sr-only" for="assistantInput">Richiesta assistente</label>
+              <input id="assistantInput" type="text" autocomplete="off" placeholder="Di che cosa hai bisogno?">
+              <button type="submit">Cerca</button>
+            </form>
           </div>
-          <form id="assistantForm" class="assistant-form">
-            <label class="sr-only" for="assistantInput">Richiesta assistente</label>
-            <input id="assistantInput" type="text" autocomplete="off" placeholder="Di che cosa hai bisogno?">
-            <button type="submit">Cerca</button>
-          </form>
-        </div>
 
-        <div class="results-toolbar">
-          <div>
-            <p class="eyebrow">Risultati</p>
-            <h2 id="resultCount">0 organizzazioni</h2>
+          <div class="results-toolbar">
+            <div>
+              <p class="eyebrow">Risultati</p>
+              <h2 id="resultCount">0 organizzazioni</h2>
+            </div>
+            <select id="sortSelect" aria-label="Ordina risultati">
+              <option value="relevance">Più pertinenti</option>
+              <option value="name-asc">Nome A-Z</option>
+              <option value="name-desc">Nome Z-A</option>
+              <option value="municipality-asc">Comune A-Z</option>
+              <option value="municipality-desc">Comune Z-A</option>
+            </select>
           </div>
-          <select id="sortSelect" aria-label="Ordina risultati">
-            <option value="relevance">Più pertinenti</option>
-            <option value="name-asc">Nome A-Z</option>
-            <option value="name-desc">Nome Z-A</option>
-            <option value="municipality-asc">Comune A-Z</option>
-            <option value="municipality-desc">Comune Z-A</option>
-          </select>
-        </div>
 
-        <div id="activeFilters" class="active-filters" aria-live="polite"></div>
-        <div id="resultsList" class="results-list"></div>
-      </section>
+          <div id="activeFilters" class="active-filters" aria-live="polite"></div>
+          <div id="resultsList" class="results-list"></div>
+        </section>
 
-      <aside class="details-panel hidden" aria-label="Scheda organizzazione">
-        <div id="detailsEmpty" class="empty-state">
-          <h2>Scheda profilo</h2>
-          <p>Seleziona un risultato per vedere contatti, servizi e dati amministrativi.</p>
-        </div>
-        <article id="detailsCard" class="details-card hidden"></article>
-      </aside>
+        <aside class="details-panel hidden" aria-label="Scheda organizzazione">
+          <div id="detailsEmpty" class="empty-state">
+            <h2>Scheda profilo</h2>
+            <p>Seleziona un risultato per vedere contatti, servizi e dati amministrativi.</p>
+          </div>
+          <article id="detailsCard" class="details-card hidden"></article>
+        </aside>
+      </div>
     </main>
 
     <template id="resultTemplate">

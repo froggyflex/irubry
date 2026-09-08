@@ -146,7 +146,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 
 .hero-split {
   display: grid;
-  grid-template-columns: minmax(260px, 440px) minmax(0, 1fr);
+  grid-template-columns: minmax(260px, 500px) minmax(0, 1fr);
   gap: 24px;
   align-items: center;
 }
@@ -155,7 +155,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 330px;
+  min-height: 370px;
   border-radius: var(--radius);
   background: #ffffff;
   overflow: hidden;
@@ -255,14 +255,26 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 
 .app-shell {
   display: grid;
-  grid-template-columns: minmax(280px, 350px) minmax(0, 1fr) minmax(300px, 390px);
+  grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
   gap: 18px;
   padding: 18px;
   min-height: calc(100vh - 103px);
 }
 
 .app-shell.filters-collapsed {
-  grid-template-columns: 96px minmax(0, 1fr) minmax(300px, 390px);
+  grid-template-columns: 96px minmax(0, 1fr);
+}
+
+.right-rail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
+  gap: 18px;
+  position: sticky;
+  top: 18px;
+  align-self: start;
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .filters-panel, .details-panel, .results-panel { min-width: 0; }
@@ -274,6 +286,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   overflow: auto;
 }
 .filters-panel {
+  overflow: auto;
+}
+.results-panel {
+  max-height: none;
   overflow: visible;
 }
 
