@@ -605,7 +605,7 @@ input[type="search"], input[type="text"], select {
   border-radius: var(--radius);
 }
 
-.map-shell { grid-template-columns: minmax(280px, 350px) minmax(0, 1fr) minmax(300px, 390px); }
+.map-shell { grid-template-columns: minmax(280px, 350px) minmax(0, 1fr); }
 .map-box {
   position: relative;
   overflow: hidden;
