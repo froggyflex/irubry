@@ -42,13 +42,6 @@ body {
   line-height: 1.45;
 }
 
-body:has(.app-shell) {
-  height: 100vh;
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-}
-
 button, input, select, textarea { font: inherit; }
 button, select, input, textarea { border-radius: var(--radius); }
 button { cursor: pointer; }
@@ -265,9 +258,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
   gap: 18px;
   padding: 18px;
-  height: auto;
-  min-height: 0;
-  overflow: hidden;
+  min-height: calc(100vh - 103px);
 }
 
 .app-shell.filters-collapsed {
@@ -281,10 +272,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   position: sticky;
   top: 18px;
   align-self: start;
-  height: 100%;
-  min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .filters-panel, .details-panel, .results-panel { min-width: 0; }
@@ -292,17 +280,19 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   position: sticky;
   top: 18px;
   align-self: start;
-  height: 100%;
-  min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  max-height: calc(100vh - 36px);
+  overflow: auto;
+}
+.details-panel {
+  padding-bottom: 48px;
 }
 .filters-panel {
   overflow: auto;
 }
 .results-panel {
-  max-height: none;
-  overflow: visible;
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .filters-panel, .assistant-panel, .details-card, .empty-state, .map-box {
@@ -615,7 +605,7 @@ input[type="search"], input[type="text"], select {
   border-radius: var(--radius);
 }
 
-.map-shell { grid-template-columns: minmax(280px, 350px) minmax(0, 1fr); }
+.map-shell { grid-template-columns: minmax(280px, 350px) minmax(0, 1fr) minmax(300px, 390px); }
 .map-box {
   position: relative;
   overflow: hidden;
@@ -643,44 +633,16 @@ input[type="search"], input[type="text"], select {
 }
 
 @media (max-width: 1180px) {
-  .app-shell {
-    grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
-  }
-  .details-panel {
-    grid-column: auto;
-    position: static;
-    height: auto;
-    overflow: visible;
-  }
+  .app-shell { grid-template-columns: minmax(260px, 330px) minmax(0, 1fr); }
+  .details-panel { grid-column: 1 / -1; position: static; max-height: none; }
 }
 
 @media (max-width: 820px) {
   body { font-size: 17px; }
-  body:has(.app-shell) {
-    height: auto;
-    overflow: visible;
-    display: block;
-  }
   .app-header { align-items: flex-start; flex-direction: column; padding: 20px; }
   .header-stats { justify-content: flex-start; }
-  .app-shell {
-    display: block;
-    height: auto;
-    min-height: 0;
-    overflow: visible;
-    padding: 12px;
-  }
-  .filters-panel, .details-panel {
-    position: static;
-    height: auto;
-    max-height: none;
-    margin-bottom: 14px;
-  }
-  .right-rail {
-    display: block;
-    height: auto;
-    overflow: visible;
-  }
+  .app-shell { display: block; padding: 12px; }
+  .filters-panel, .details-panel { position: static; max-height: none; margin-bottom: 14px; }
   .assistant-form, .search-row { grid-template-columns: 1fr; }
   .results-toolbar { align-items: stretch; flex-direction: column; }
   .map-box, #map { min-height: 320px; height: 320px; }
