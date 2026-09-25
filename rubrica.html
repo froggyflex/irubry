@@ -23,7 +23,29 @@
       </nav>
       <div class="header-stats" aria-label="Statistiche archivio">
         <span><strong id="totalRecords">0</strong> organizzazioni</span>
-        <span><strong id="totalMunicipalities">0</strong> comuni</span>
+        <span class="municipality-stat" tabindex="0" aria-label="15 comuni, mostra elenco">
+          <strong id="totalMunicipalities">0</strong> comuni
+          <span class="municipality-popover" role="tooltip">
+            <strong>Comuni</strong>
+            <ul>
+              <li>Argelato</li>
+              <li>Baricella</li>
+              <li>Bentivoglio</li>
+              <li>Budrio</li>
+              <li>Castel Maggiore</li>
+              <li>Castello d'Argile</li>
+              <li>Castenaso</li>
+              <li>Galliera</li>
+              <li>Granarolo dell'Emilia</li>
+              <li>Malalbergo</li>
+              <li>Minerbio</li>
+              <li>Molinella</li>
+              <li>Pieve di Cento</li>
+              <li>San Giorgio di Piano</li>
+              <li>San Pietro in Casale</li>
+            </ul>
+          </span>
+        </span>
       </div>
     </header>
 
@@ -124,12 +146,12 @@
 
     <template id="resultTemplate">
       <article class="result-card">
-        <button class="result-main" type="button">
+        <div class="result-main" tabindex="0" role="button" aria-label="Apri scheda">
           <span class="result-kicker"></span>
           <strong class="result-name"></strong>
           <span class="result-description"></span>
           <span class="service-preview"></span>
-        </button>
+        </div>
       </article>
     </template>
 

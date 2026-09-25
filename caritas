@@ -1,0 +1,293 @@
+[
+  {
+    "name": "CARITAS Parrocchia Santi Nicolò e Petronio di Funo",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.60030006289999,
+    "lng": 11.361728906680074,
+    "link": "https://www.upcm.it/caritas/ascolto.htm",
+    "orari": {
+      "assistenza_alimentare": "Cda interparrocchiale con le 3 Caritas di Castel Maggiore",
+      "viveri": "a S. Andrea di Castel Maggiore"
+    }
+  },
+  {
+    "name": "CARITAS S. Andrea Castel Maggiore",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.571556492616594,
+    "lng": 11.368439764356731,
+    "link": "https://www.upcm.it/caritas/ascolto.htm",
+    "orari": {
+      "assistenza_alimentare": "sabato 9 - 11",
+      "viveri": "sabato 9 - 11",
+      "vestiario": "2° e 4° lunedì 15 - 17"
+    }
+  },
+  {
+    "name": "CARITAS S. Bartolomeo di Bondanello Castel Maggiore",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.57836832103009,
+    "lng": 11.356411949010479,
+    "link": "https://www.upcm.it/caritas/ascolto.htm",
+    "orari": {
+      "assistenza_alimentare": "martedì 9 - 11",
+      "viveri": "martedì 9 - 11",
+      "vestiario": "martedì 9 - 11"
+    }
+  },
+  {
+    "name": "CARITAS S. Maria Assunta di Sabbiuno di Piano",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.571490564429475,
+    "lng": 11.391861206711857,
+    "link": "https://www.upcm.it/caritas/ascolto.htm",
+    "orari": {
+      "assistenza_alimentare": "giovedì 9 - 11.30",
+      "viveri": "giovedì 9 - 11.30",
+      "vestiario": "giovedì 9 - 11.30"
+    }
+  },
+  {
+    "name": "CARITAS S. Giovanni Battista di Trebbo di Reno",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.55840938830341,
+    "lng": 11.317735735520676,
+    "link": "https://www.upcm.it/caritas/ascolto.htm",
+    "orari": {
+      "assistenza_alimentare": "giovedì 9 - 11",
+      "viveri": "sabato 16-18",
+      "vestiario": "sabato 16-18"
+    }
+  },
+  {
+    "name": "CARITAS S. Michele Arcangelo di Quarto Inferiore",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.53185118324668,
+    "lng": 11.423791248988783,
+    "link": "https://zonapastoralegranarolo.it",
+    "orari": {
+      "assistenza_alimentare": "martedì 8 - 12",
+      "viveri": "martedì 8 - 12"
+    }
+  },
+  {
+    "name": "CARITAS S. Lorenzo di Budrio",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.537792218460474,
+    "lng": 11.534947577871256,
+    "link": "https://www.parrocchiedibudrio.it/san-lorenzo-budrio/",
+    "orari": {
+      "assistenza_alimentare": "martedì 14.30 - 16.30 su appuntamento",
+      "viveri": "1 volta al mese",
+      "vestiario": "al bisogno"
+    }
+  },
+  {
+    "name": "CARITAS S. Lorenzo di Prunaro",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.49288256023848,
+    "lng": 11.512702449015022,
+    "orari": {
+      "viveri": "a studenti stranieri"
+    }
+  },
+  {
+    "name": "CARITAS S. Maria Annunziata di Vedrana",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.55425368693391,
+    "lng": 11.45558323365464,
+    "link": "https://www.parrocchiedibudrio.it/vedrana-cento-prunaro/"
+  },
+  {
+    "name": "CARITAS S. Maria Maddalena di Cazzano",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.57698703664431,
+    "lng": 11.491897021994044,
+    "link": "https://www.parrocchiedibudrio.it/bagnarola-maddalena-di-cazzano/"
+  },
+  {
+    "name": "CARITAS S. Michele Arcangelo di Mezzolara",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.588412557426814,
+    "lng": 11.566090550847255,
+    "link": "https://www.parrocchiedibudrio.it/mezzolara-ronchi-dugliolo/",
+    "orari": {
+      "viveri": "sabato mattina metà mese",
+      "vestiario": "a richiesta"
+    }
+  },
+  {
+    "name": "CARITAS Santi Gervasio e Protasio di Pieve di Budrio",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.54445202324632,
+    "lng": 11.52674280667402,
+    "link": "https://www.parrocchiedibudrio.it/pieve-di-budrio/",
+    "orari": {
+      "assistenza_alimentare": "1° sabato 9 - 11",
+      "viveri": "1° sabato 9 - 11",
+      "vestiario": "1° sabato 9 - 11"
+    }
+  },
+  {
+    "name": "CARITAS Santi Giacomo e Biagio di Bagnarola",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.55747624400225,
+    "lng": 11.495079518062434,
+    "link": "https://www.parrocchiedibudrio.it/bagnarola-maddalena-di-cazzano/"
+  },
+  {
+    "name": "CARITAS S. Croce di Selva Malvezzi",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.55624053254825,
+    "lng": 11.628790177843014,
+    "orari": {
+      "viveri": "1 volta al mese"
+    }
+  },
+  {
+    "name": "CARITAS S. Martino in Argine",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.58674730238371,
+    "lng": 11.611856335540349,
+    "orari": {
+      "assistenza_alimentare": "1 volta al mese",
+      "viveri": "1 volta al mese a domicilio"
+    }
+  },
+  {
+    "name": "CARITAS S. Matteo di Molinella",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.621173408932904,
+    "lng": 11.67065169319835,
+    "orari": {
+      "assistenza_alimentare": "lunedì dalle 18"
+    }
+  },
+  {
+    "name": "CARITAS S. Pietro di Castello d'Argile",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.681455871230746,
+    "lng": 11.296655150847256,
+    "link": "https://parrocchiaargile.it/calendario-attivita-caritas/",
+    "orari": {
+      "assistenza_alimentare": "sabato 11.00 - 12.00",
+      "viveri": "2° sabato 8.30 - 11.00",
+      "vestiario": "sabato 9.00 - 11.30"
+    }
+  },
+  {
+    "name": "CARITAS S. Maria Maggiore di Pieve di Cento",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.7133712850169,
+    "lng": 11.307084206656873,
+    "link": "https://www.parrocchiapievedicento.it/Caritas.htm",
+    "orari": {
+      "assistenza_alimentare": "sabato 10 - 12",
+      "viveri": "sabato 1 volta al mese",
+      "vestiario": "sabato 9 - 12"
+    }
+  },
+  {
+    "name": "CARITAS S. Antonio Abate di Malalbergo",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.71860941179926,
+    "lng": 11.531974993173629,
+    "orari": {
+      "assistenza_alimentare": "con Altedo"
+    }
+  },
+  {
+    "name": "CARITAS S. Giovanni Battista di Altedo",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.684370429725675,
+    "lng": 11.40114574897062,
+    "orari": {
+      "assistenza_alimentare": "1° sabato/mese 9 - 12 su appuntamento",
+      "viveri": "1 volta al mese",
+      "vestiario": "1 volta al mese"
+    }
+  },
+  {
+    "name": "CARITAS S. Giovanni Battista di Minerbio",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.625374553810296,
+    "lng": 11.491882964344635,
+    "link": "https://www.comune.minerbio.bo.it/it-it/vivere-il-comune/cosa-vedere/chiesa-di-san-giovanni-battista-47982-1-94cc73504191eed5372660b8a4ee013c",
+    "orari": {
+      "assistenza_alimentare": "II e IV giovedì del mese 9.30 - 11.30",
+      "viveri": "Emporio alimentare",
+      "vestiario": "II e IV giovedì del mese 9.30 - 11.30"
+    }
+  },
+  {
+    "name": "CARITAS Santi Filippo e Giacomo di Ca' de' Fabbri",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.61807826059868,
+    "lng": 11.454193564328992,
+    "link": "https://parrocchiacadefabbri.wordpress.com/"
+  },
+  {
+    "name": "CARITAS Maria Santissima Ausiliatrice di Bentivoglio",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.634557046573065,
+    "lng": 11.419827066397268,
+    "link": "https://zpsangiorgioargelatobentivoglio.chiesadibologna.it/parrocchia-di-maria-santissima-ausiliatrice-di-bentivoglio/",
+    "orari": {
+      "vestiario": "venerdì 15 - 17"
+    }
+  },
+  {
+    "name": "CARITAS Santi Pietro e Paolo di S. Pietro in Casale",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.69966353913189,
+    "lng": 11.404926506635181,
+    "link": "https://www.parrocchiasantipietroepaolo.it/centro-ascolto-caritas/",
+    "orari": {
+      "assistenza_alimentare": "martedì 9-11 giovedì 16-18",
+      "viveri": "martedì 9-11 giovedì 16-18",
+      "vestiario": "martedì 9-11 giovedì 16-18"
+    }
+  },
+  {
+    "name": "CARITAS S. Giovanni Battista di Castenaso",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.51014217449032,
+    "lng": 11.470335235518657,
+    "link": "https://www.chiesedicastenaso.it/carita/caritas-di-zona/",
+    "orari": {
+      "viveri": "1° e 3° mercoledì 16 - 18"
+    }
+  },
+  {
+    "name": "CARITAS S. Giorgio di Piano",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assistenza alimentare", "sportello ascolto"],
+    "lat": 44.646658523872254,
+    "lng": 11.375765747802951,
+    "link": "https://zpsangiorgioargelatobentivoglio.chiesadibologna.it/parrocchia-di-s-giorgio-di-piano/"
+  }
+]

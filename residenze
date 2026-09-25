@@ -1,0 +1,610 @@
+[
+  {
+    "name": "APPARTAMENTO SEMIAUTONOMIA LA VENENTA 13",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari"],
+    "gestito_da": "La Venenta",
+    "email": "direzione@coop.lavenenta.it",
+    "link": "https://www.venenta.it/"
+  },
+  {
+    "name": "APPARTAMENTO SEMIAUTONOMIA LA VENENTA 17",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari"],
+    "gestito_da": "La Venenta",
+    "email": "direzione@coop.lavenenta.it",
+    "link": "https://www.venenta.it/"
+  },
+  {
+    "name": "APPARTAMENTO SEMIAUTONOMIA LA VENENTA 18",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari"],
+    "gestito_da": "La Venenta",
+    "email": "direzione@coop.lavenenta.it",
+    "link": "https://www.venenta.it/"
+  },
+  {
+    "name": "APPARTAMENTO SEMIAUTONOMIA LA VENENTA 19",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari"],
+    "gestito_da": "La Venenta",
+    "email": "direzione@coop.lavenenta.it",
+    "link": "https://www.venenta.it/"
+  },
+  {
+    "name": "APPARTAMENTO SEMIAUTONOMIA LA VENENTA 20",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari"],
+    "gestito_da": "La Venenta",
+    "email": "direzione@coop.lavenenta.it",
+    "link": "https://www.venenta.it/"
+  },
+  {
+    "name": "APPARTAMENTO SEMIAUTONOMIA LA VENENTA 5",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari"],
+    "gestito_da": "La Venenta",
+    "email": "direzione@coop.lavenenta.it",
+    "link": "https://www.venenta.it/"
+  },
+  {
+    "name": "APPARTAMENTO SEMIAUTONOMIA LA VENENTA 8",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari"],
+    "gestito_da": "La Venenta",
+    "email": "direzione@coop.lavenenta.it",
+    "link": "https://www.venenta.it/"
+  },
+  {
+    "name": "APPARTAMENTO SEMIAUTONOMIA VENENTA 9",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari"],
+    "gestito_da": "La Venenta",
+    "email": "direzione@coop.lavenenta.it",
+    "link": "https://www.venenta.it/"
+  },
+  {
+    "name": "IL FOCOLARE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Di Riposo/Casa Albergo/Albergo per Anziani"],
+    "lat": 44.620914153391816,
+    "lng": 11.454150467429203,
+    "link": "http://www.residenzailfocolare.it/",
+    "facebook": "https://www.facebook.com/p/Residenza-Il-Focolare-100069734890950/"
+  },
+  {
+    "name": "NEVIO FABBRI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Di Riposo/Casa Albergo/Albergo per Anziani", "Casa-Residenza per anziani non autosuff. (CRA)", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "Società Dolce",
+    "lat": 44.49243502442037,
+    "lng": 11.294175496257566,
+    "email": "info@societadolce.it",
+    "link": "https://www.societadolce.it/nevio-fabbri/"
+  },
+  {
+    "name": "NUOVA OASI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Di Riposo/Casa Albergo/Albergo per Anziani"],
+    "lat": 44.55612266103558,
+    "lng": 11.577362767425507,
+    "email": "info@nuovaoasi.it",
+    "link": "https://www.nuovaoasi.it/"
+  },
+  {
+    "name": "VILLA DELLA SALUTE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Di Riposo/Casa Albergo/Albergo per Anziani"],
+    "lat": 44.626843942440445,
+    "lng": 11.492635267429558,
+    "email": "info@villadellasalute.it",
+    "link": "https://www.villadellasalute.it/",
+    "facebook": "https://www.facebook.com/VillaDellaSalute/"
+  },
+  {
+    "name": "VILLA MARINA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Di Riposo/Casa Albergo/Albergo per Anziani"],
+    "lat": 44.50699462250923,
+    "lng": 11.461367196258426,
+    "email": "info@villamarina.bo.it",
+    "link": "https://www.villamarina.bo.it/",
+    "facebook": "https://www.facebook.com/villamarina.bo/"
+  },
+  {
+    "name": "VILLA SANTIAGO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "supp disabili", "Casa Di Riposo/Casa Albergo/Albergo per Anziani"],
+    "lat": 44.717873118471665,
+    "lng": 11.534511511612912,
+    "email": "villasantiago@live.it",
+    "link": "https://www.villasantiago.it/",
+    "facebook": "https://www.facebook.com/p/Villa-santiago-casa-di-riposo-100068128938880/"
+  },
+  {
+    "name": "CASA FAMIGLIA IL CENACOLO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "supp disabili", "Casa Famiglia - DGR 564/00 e succ. integrazioni-anziani"],
+    "lat": 44.637956376406116,
+    "lng": 11.62022173859459,
+    "link": "https://www.curalune.com/it/residenze/casa-famiglia-il-cenacolo-molinella",
+    "facebook": "https://www.facebook.com/p/Il-cenacolo-fattoria-sociale-100083396166303/"
+  },
+  {
+    "name": "CASA FAMIGLIA IL LARICE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Famiglia - DGR 564/00 e succ. integrazioni-anziani"],
+    "gestito_da": "Cooperativa Amuleto",
+    "lat": 44.705154897948894,
+    "lng": 11.293539267433975,
+    "email": "segreteria@cooperativaamuleto.it",
+    "link": "https://www.cooperativaamuleto.com/casafamigliaillarice/"
+  },
+  {
+    "name": "DOLCE DIMORA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Famiglia - DGR 564/00 e succ. integrazioni-anziani"],
+    "lat": 44.61347612084017,
+    "lng": 11.739592267428753,
+    "email": "info@dolce-dimora.it",
+    "link": "https://dolce-dimora.it/"
+  },
+  {
+    "name": "NONNI IRIDE E VANNA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Famiglia - DGR 564/00 e succ. integrazioni-anziani"],
+    "lat": 44.58335681247755,
+    "lng": 11.588910896262703,
+    "email": "fenice774@tiscali.it",
+    "link": "https://www.housefamily7arcangeli.it/"
+  },
+  {
+    "name": "VILLA AMA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Famiglia - DGR 564/00 e succ. integrazioni-anziani"],
+    "lat": 44.622547818122804,
+    "lng": 11.489079915342552,
+    "email": "amasnc.villamelia@gmail.com",
+    "link": "https://www.casafamigliaminerbio.com/"
+  },
+  {
+    "name": "VILLA MARIA GRAZIA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Protetta Per Anziani", "Casa Di Riposo/Casa Albergo/Albergo per Anziani"],
+    "lat": 44.70379412081452,
+    "lng": 11.589037275955771,
+    "email": "info@villamariagrazia.com",
+    "link": "https://www.villamariagrazia.com/",
+    "facebook": "https://www.facebook.com/casadiriposovillamariagrazia/"
+  },
+  {
+    "name": "VILLA ORTENSIA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa Protetta Per Anziani"],
+    "lat": 44.55629875090394,
+    "lng": 11.568897196261199,
+    "email": "villaortensiabo@alice.it",
+    "link": "https://www.casadiriposovillaortensia.net/"
+  },
+  {
+    "name": "CASA RIFUGIO PHOEBE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Casa Rifugio"],
+    "link": "https://www.mondodonna-onlus.it/casa-phoebe-casa-rifugio-ad-alta-intensita-educativa-trauma-orientata/"
+  },
+  {
+    "name": "C.R.A. DAMIANI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)"],
+    "link": "https://www.comune.castenaso.bo.it/it-it/vivere-il-comune/strutture-sanitarie/casa-residenza-per-anziani-damiani-47775-1-1109f243d9a94e41d5abc13266983692"
+  },
+  {
+    "name": "CASA PROTETTA 'LA TORRE'",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "CADIAI",
+    "link": "https://www.cadiai.it/persone_anziane/la-torre/"
+  },
+  {
+    "name": "CASA PROTETTA FRANCESCO RAMPONI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "ASP Pianura Est",
+    "link": "https://www.asppianuraest.bo.it/servizi/servizi-per-anziani-non-autosufficienti/cra-francesco-ramponi"
+  },
+  {
+    "name": "CASA PROTETTA SANDRO PERTINI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "CADIAI",
+    "link": "https://www.cadiai.it/persone_anziane/sandro-pertini/"
+  },
+  {
+    "name": "CRA CENTRO INTEGRATO PER ANZIANI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "ASP Pianura Est",
+    "link": "https://www.asppianuraest.bo.it/servizi/servizi-per-anziani-parzialmente-autosufficienti/centro-integrato-granarolo"
+  },
+  {
+    "name": "CRA DI MINERBIO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "ASP Pianura Est",
+    "link": "https://www.asppianuraest.bo.it/sede-e-contatti/sedi/cra-minerbio"
+  },
+  {
+    "name": "IL CORNIOLO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)"],
+    "gestito_da": "CADIAI",
+    "link": "https://www.cadiai.it/persone_anziane/il-corniolo/"
+  },
+  {
+    "name": "ISTITUTO SAN DOMENICO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "ASP Pianura Est",
+    "link": "https://www.asppianuraest.bo.it/sede-e-contatti/sedi/cra-san-domenico"
+  },
+  {
+    "name": "O.P. GALUPPI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "ASP Pianura Est",
+    "link": "https://www.asppianuraest.bo.it/servizi/servizi-per-anziani-non-autosufficienti/centro-diurno-luigi-galuppi"
+  },
+  {
+    "name": "R.S.A. VIRGINIA GRANDI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Casa-Residenza per anziani non autosuff. (CRA)"],
+    "gestito_da": "CADIAI",
+    "link": "https://www.cadiai.it/persone_anziane/virginia-grandi/"
+  },
+  {
+    "name": "RESIDENZA ANNI AZZURRI IDICE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "supp disabili", "Casa-Residenza per anziani non autosuff. (CRA)"],
+    "gestito_da": "Residenza Anni Azzurri",
+    "link": "https://anniazzurri.it/residenza-anni-azzurri-idice"
+  },
+  {
+    "name": "CENTRO DIURNO COMUNALE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "link": "https://www.asppianuraest.bo.it/sede-e-contatti/sedi/appartamenti-protetti-e-cd"
+  },
+  {
+    "name": "CENTRO DIURNO DON CARLO FEDERICI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "link": "https://www.curalune.com/it/residenze/comunita-alloggio-don-carlo-federici-molinella"
+  },
+  {
+    "name": "CENTRO DIURNO MARGHERITA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "link": "https://www.curalune.com/it/residenze/centro-diurno-margherita-bentivoglio"
+  },
+  {
+    "name": "CENTRO DIURNO PER ANZIANI CASA DEL CILIEGIO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "gestito_da": "ASP Pianura Est",
+    "link": "https://www.asppianuraest.bo.it/servizi/servizi-per-anziani-non-autosufficienti/centro-diurno-casa-del-ciliegio"
+  },
+  {
+    "name": "IL PICCHIO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "link": "https://www.curalune.com/it/residenze/il-picchio-argelato"
+  },
+  {
+    "name": "L'INCONTRO - CENTRO DIURNO ASSISTENZIALE ANZIANI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Centro Diurno Per Anziani (Centro Diurno Assistenziale)"],
+    "link": "https://www.residenzalatuacasa.it/",
+    "facebook": "https://www.facebook.com/p/Centro-Diurno-Lincontro-Per-Anziani-100066467589573/"
+  },
+  {
+    "name": "CSO CENTRO EQUESTRE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Diurno Socio-Occupazionale"]
+  },
+  {
+    "name": "CSO ARCA DI NOÈ",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["supp disabili", "Centro Diurno Socio-Occupazionale"],
+    "gestito_da": "Arca di Noè Cooperativa Sociale",
+    "email": "abitare@arcacoop.com",
+    "link": "https://www.arcacoop.com/"
+  },
+  {
+    "name": "CSO ARCOBALENO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Diurno Socio-Occupazionale"],
+    "link": "https://www.coopsocialearcobaleno.com/"
+  },
+  {
+    "name": "CSO I CANTADINI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Diurno Socio-Occupazionale"]
+  },
+  {
+    "name": "LABORATORIO MANODOPERA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Diurno Socio-Occupazionale"],
+    "gestito_da": "Campi d'Arte",
+    "link": "https://www.campidarte.it/chi-siamo/"
+  },
+  {
+    "name": "CENTRO SEMI-RESIDENZIALE IL SOTTOSOPRA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Socio-Riabilitativo Diurno Per Persone Con Disabilità"]
+  },
+  {
+    "name": "CASA FAMIGLIA PIRANI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunità casa famiglia-DGR1904/11"]
+  },
+  {
+    "name": "CASA FAMIGLIA SANTA CLELIA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Comunità casa famiglia-DGR1904/11 valido fino al 31/12/2018 (ex DGR 846/07)"]
+  },
+  {
+    "name": "CASA DELLA VITA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Comunità per gestanti e madri con bambino-DGR1904/2011"]
+  },
+  {
+    "name": "TAMATA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunità per l'autonomia - DGR 1904/2011"]
+  },
+  {
+    "name": "COMUNITA' ALLOGGIO VILLA DELLA SALUTE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Comunita Alloggio Per Anziani"],
+    "link": "https://www.cooperativaamuleto.com/casafamigliailtiglio/"
+  },
+  {
+    "name": "STRUTTURA SEMI-RESIDENZIALE PER MINORI ALTRE IDEE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunita' Educativa semiresidenziale - DGR 1904/2011 (ex- DGR 846/2007)"],
+    "link": "https://www.informafamiglie.it/distretto-pianura-est/adozione-affido/progetti-di-accoglienza-familiare/comunita-educativa-semi-residenziale-altreidee"
+  },
+  {
+    "name": "UNPOSTOAPPOSTA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunita' Educativa semiresidenziale - DGR 1904/2011 (ex- DGR 846/2007)"],
+    "gestito_da": "Campi d'Arte",
+    "link": "https://www.campidarte.it/un-posto-apposta-campi-darte/"
+  },
+  {
+    "name": "GRP. APPARTAMENTO DI VILLANOVA DI CASTENASO- RAGAZZI/E",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Gruppo Appartamento Per Persone con Disabilità"]
+  },
+  {
+    "name": "CASA KAIROS",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["supp fragilita", "centri diurni/residenziali", "Gruppo appartamento/appartamento protetto dipendenze patologiche-DGR 1423/2015"],
+    "gestito_da": "Cooperativa Sociale L'Orto",
+    "link": "https://cooperativalorto.com/casa-kairos/"
+  },
+  {
+    "name": "PROGETTO INDIVIDUALIZZATO VILLANOVA RAGAZZI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Residenza Protetta Per Persone con Disabilità"]
+  },
+  {
+    "name": "CSO DÌ AMO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Diurno Socio-Occupazionale"],
+    "gestito_da": "La Venenta",
+    "link": "https://www.venenta.it/centro-socio-occupazionale-diamo/"
+  },
+  {
+    "name": "DIVERSAMENTE GENI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Diurno Socio-Occupazionale"]
+  },
+  {
+    "name": "CPF DI PIANURA EST",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "Centro per le famiglie"],
+    "link": "https://www.informafamiglie.it/centri-per-le-famiglie/centri-famiglie-bologna/centro-per-le-famiglie-del-distretto-pianura-est"
+  },
+  {
+    "name": "CASA CARLO CHITI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Socio-Riabilitativo Diurno Per Persone Con Disabilità"],
+    "gestito_da": "Cooperativa Sociale L'Orto",
+    "link": "https://cooperativaorto.it/casa-chiti/"
+  },
+  {
+    "name": "CENTRO DISABILI IL BUCANEVE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Socio-Riabilitativo Diurno Per Persone Con Disabilità"],
+    "link": "https://cooperativabucaneve.it/"
+  },
+  {
+    "name": "CENTRO SOCIO-EDUCATIVO CHICCO BALBONI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Socio-Riabilitativo Diurno Per Persone Con Disabilità"],
+    "link": "https://www.fondazioneirmaromagnoli.org/wp-content/uploads/2016/06/progetto-s.chiara.pdf"
+  },
+  {
+    "name": "CENTRO SOCIO-RIABILITATIVO DIURNO CASA ALBERTO SUBANIA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Socio-Riabilitativo Diurno Per Persone Con Disabilità"],
+    "gestito_da": "Cooperativa Sociale L'Orto",
+    "link": "https://sinergie.fondazionecarisbo.it/network/cooperativa-sociale-l-orto-s-c-a-r-l"
+  },
+  {
+    "name": "L'ARCHE - COMUNITA' L'ARCOBALENO - IMPRESA SOCIALE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Socio-Riabilitativo Diurno Per Persone Con Disabilità"]
+  },
+  {
+    "name": "CENTRO RESIDENZIALE VILLA ROSALINDA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Socio-Riabilitativo Residenziale Per Persone Con Disabilità"],
+    "gestito_da": "ASP Pianura Est",
+    "link": "https://www.asppianuraest.bo.it/servizi/servizi-per-disabili/cssr-villa-rosalinda"
+  },
+  {
+    "name": "CENTRO SOCIO RIAB. VILLA DONINI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Centro Socio-Riabilitativo Residenziale Per Persone Con Disabilità"],
+    "gestito_da": "ASP Pianura Est",
+    "link": "https://www.asppianuraest.bo.it/azienda/la-nostra-storia"
+  },
+  {
+    "name": "BORGO DIGANI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["inserim lavora", "centri diurni/residenziali", "supp disabili", "Comunità alloggio per la salute mentale - DGR 1423/2015"],
+    "link": "https://www.ausl.bologna.it/news/archivio-2025-1/borgo-digani-accoglienza-residenziale-e-socio-assistenziale-inclusione-lavorativa-e-il-primo-anniversario-del-ristorante-sociale"
+  },
+  {
+    "name": "GRILLO PARLANTE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Comunità alloggio per la salute mentale - DGR 1423/2015"],
+    "link": "https://www.oraridiapertura24.it/filiale/Vedrana%2520di%2520Budrio%2520%2528BO%2529-Comunit%25E0%2520Alloggio%2520Il%2520Grillo%2520Parlante-2252174P.html"
+  },
+  {
+    "name": "CASADISTEFANO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunità per gestanti e madri con bambino-DGR1904/2011"],
+    "gestito_da": "La Venenta",
+    "link": "https://www.venenta.it/apertura-della-comunita-per-gestanti-e-madri-con-bambino-denominata-casa-di-stefano/"
+  },
+  {
+    "name": "COLOMBARA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunità per gestanti e madri con bambino-DGR1904/2011"],
+    "gestito_da": "La Venenta",
+    "link": "https://www.venenta.it/assistenza-mamme-bambino/"
+  },
+  {
+    "name": "SAN GABRIELE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunità per gestanti e madri con bambino-DGR1904/2011"],
+    "gestito_da": "La Venenta",
+    "link": "https://www.venenta.it/assistenza-mamme-bambino/"
+  },
+  {
+    "name": "CASA DELLE MAMME",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunità per gestanti e madri con bambino-DGR1904/2011 fino al 2018 (ex-Com.Madre-Bamb.DGR 846/2007)"],
+    "gestito_da": "La Venenta",
+    "link": "https://www.venenta.it/assistenza-mamme-bambino/"
+  },
+  {
+    "name": "LA QUERCIA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Appartamenti Accoglienza Temporanea Persone Singole O Nuclei Familiari", "Comunità per gestanti e madri con bambino-DGR1904/2011 fino al 2018 (ex-Com.Madre-Bamb.DGR 846/2007)"],
+    "link": "https://www.aspbologna.it/it/accoglienza-in-comunita-mamma-bambino-tra-partecipazione-sostegno-alla-genitorialita-e-costruzione-di-nuove-autonomie"
+  },
+  {
+    "name": "COMUNITA' PER FAMIGLIE 'E' POSSIBILE! IN MEMORIA DI ROSANNA CAPPI'",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunità sperimentali (vagliate dal nucleo valutazione regionale - DGR 1904/2011)"],
+    "link": "https://www.jsn.it/gruppo-aderente/e-possibile-in-memoria-di-rosanna-cappi/"
+  },
+  {
+    "name": "COMUNITÀ ALLOGGIO PRUNARO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Comunita Alloggio Per Anziani"],
+    "link": "https://www.curalune.com/it/residenze/comunita-alloggio-prunaro-budrio"
+  },
+  {
+    "name": "IL TIGLIO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Comunita Alloggio Per Anziani"],
+    "link": "https://gessercoop.it/la-casa-di-alma/"
+  },
+  {
+    "name": "LA CASA DI ALMA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Comunita Alloggio Per Anziani"]
+  },
+  {
+    "name": "LE PRIMAVERE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Comunita Alloggio Per Anziani"],
+    "link": "https://www.alloggioperanzianileprimavere.it/"
+  },
+  {
+    "name": "VILLA BOTTONI SALMI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "centri diurni/residenziali", "Comunita Alloggio Per Anziani"],
+    "link": "https://www.villabottonisalmi.it/"
+  },
+  {
+    "name": "COMUNITA' EDUCATIVA PER MINORI",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Comunita' Educativa residenziale - DGR 1904/2011 (ex- DGR 846/2007)"],
+    "link": "https://scu.fism.bo.it/comunita-educativa-per-minori-di-vedrana-di-budrio/"
+  },
+  {
+    "name": "GRUPPO APPARTAMENTO DI VILLANOVA DI CASTENASO (2) - RAGAZZE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Gruppo Appartamento Per Persone con Disabilità"]
+  },
+  {
+    "name": "MARIA ASSUNTA FABBRI - APPARTAMENTO B",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Gruppo Appartamento Per Persone con Disabilità"],
+    "link": "https://www.lechiavidicasa.org/causes/progetti-abitativi-di-vita-indipendente/"
+  },
+  {
+    "name": "MARIA ASSUNTA FABBRI -APPARTAMENTO A",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Gruppo Appartamento Per Persone con Disabilità"],
+    "link": "https://www.lechiavidicasa.org/causes/progetti-abitativi-di-vita-indipendente/"
+  },
+  {
+    "name": "RAFFAELLA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["centri diurni/residenziali", "supp disabili", "Gruppo Appartamento Per Persone con Disabilità"],
+    "link": "https://www.lechiavidicasa.org/causes/progetti-abitativi-di-vita-indipendente/"
+  },
+  {
+    "name": "ASSISTENZA DOMICILIARE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "supp disabili", "Servizio Di Assistenza Domiciliare"]
+  },
+  {
+    "name": "COMUNE DI ARGELATO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "supp disabili", "Servizio Di Assistenza Domiciliare"]
+  },
+  {
+    "name": "COMUNE DI BUDRIO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "supp disabili", "Servizio Di Assistenza Domiciliare"]
+  },
+  {
+    "name": "COMUNE DI SAN GIORGIO DI PIANO",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "supp disabili", "Servizio Di Assistenza Domiciliare"]
+  },
+  {
+    "name": "SERVIZIO AD DI CASTELLO D'ARGILE",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "supp disabili", "Servizio Di Assistenza Domiciliare"]
+  },
+  {
+    "name": "SERVIZIO DI A.D. DEL COMUNE DI MOLINELLA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["assist. anziani", "supp disabili", "Servizio Di Assistenza Domiciliare"]
+  },
+  {
+    "name": "VILLA SALINA-ARIA",
+    "category": "Assistenza Sociale e Inclusione",
+    "services": ["tutela minori", "centri diurni/residenziali", "Struttura temporanea accoglienza MSNA (DGR 1490/2014)"],
+    "link": "https://www.cronacacomune.it/notizie/29547/la-struttura-di-accoglienza-minori-stranieri-non-accompagnati-di-budrio-apre-le-porte-alla-comunita.html"
+  }
+]

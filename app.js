@@ -8,6 +8,7 @@ const state = {
   services: new Set(),
   sort: 'relevance',
   selectedId: null,
+  priorityId: null,
 };
 
 const els = {
@@ -134,16 +135,33 @@ function getCategoryClassName(category) {
   return 'category-aggregazione';
 }
 
+function getCategoryIcon(category) {
+  const icons = {
+    'category-assistenza': '<g><circle cx="9" cy="8.5" r="2.6"/><circle cx="15.8" cy="8.5" r="2.2"/><path d="M3.8 18.4c.6-3.2 2.8-5 5.8-5s5.2 1.8 5.8 5"/><path d="M12.8 18.4c.6-2.7 2.5-4.1 5-4.1 1.2 0 2.1.3 3.2.8"/></g>',
+    'category-sanit': '<path d="M12 21s-7-4.35-7-10.2A4.3 4.3 0 0 1 9.3 6c1.18 0 2.21.47 2.7 1.27C12.49 6.47 13.52 6 14.7 6A4.3 4.3 0 0 1 19 10.8C19 16.65 12 21 12 21Z"/>',
+    'category-cultura': '<g><path d="M12 4.5a8.5 8.5 0 1 0 0 17h1.2c1.1 0 1.8-1.3 1.2-2.2-.6-.9.1-2 1.2-2h2.1A4.3 4.3 0 0 0 22 13c0-4.7-4.5-8.5-10-8.5Z"/><circle cx="7.5" cy="12" r="1"/><circle cx="10.5" cy="8.5" r="1"/><circle cx="15" cy="8" r="1"/><circle cx="18" cy="11" r="1"/></g>',
+    'category-educazione': '<g><path d="M4 8.5 12 4l8 4.5-8 4.5-8-4.5Z"/><path d="M7.5 10.5v4.2c1.8 1.7 6.7 1.7 8.5 0v-4.2"/><path d="M20 8.5v7.2"/></g>',
+    'category-aggregazione': '<g><path d="M5 9.5h12v5.7A3.8 3.8 0 0 1 13.2 19H8.8A3.8 3.8 0 0 1 5 15.2V9.5Z"/><path d="M17 11.5h1.2a2.8 2.8 0 0 1 0 5.6H17"/><path d="M3.5 20h15"/></g>',
+    'category-ambiente': '<path d="M19 4C11 4 6 7.8 6 13.5 6 17.1 8.7 20 12 20c4.4 0 7-4.1 7-9.2V4Z"/><path d="M5 20c1.8-4.2 5-7.2 10-9"/>',
+    'category-sport': '<g><circle cx="12" cy="5.5" r="2.2"/><path d="M9 17.5l1.8-5.2L7 10.5l2.2-4.3 2.8 1.8 2.8-1.8 2.2 4.3-3.8 1.8 1.8 5.2"/><path d="M5.2 13.3 3.5 16M18.8 13.3l1.7 2.7"/></g>',
+  };
+  const categoryClass = getCategoryClassName(category);
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${icons[categoryClass] || icons['category-aggregazione']}</svg>`;
+}
+
 function socialLinkFor(type, value) {
   const clean = String(value || '').trim();
   if (!clean) return '';
 
   if (type === 'website') return clean;
+  if (type === 'email') return `mailto:${clean}`;
   if (type === 'facebook') {
+    if (/^https?:\/\/[^/]*facebook\.com\//i.test(clean)) return clean;
     const handle = clean.replace(/^https?:\/\/[^/]*facebook\.com\//i, '').replace(/^@/, '').trim();
     return handle ? `https://www.facebook.com/${encodeURIComponent(handle)}` : '';
   }
   if (type === 'instagram') {
+    if (/^https?:\/\/[^/]*instagram\.com\//i.test(clean)) return clean;
     const handle = clean.replace(/^https?:\/\/[^/]*instagram\.com\//i, '').replace(/^@/, '').trim();
     return handle ? `https://www.instagram.com/${encodeURIComponent(handle)}` : '';
   }
@@ -153,6 +171,7 @@ function socialLinkFor(type, value) {
 function getSocialIcon(type) {
   const icons = {
     website: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Zm6.93 9h-3.07a14.87 14.87 0 0 0-1.26-5A8.03 8.03 0 0 1 18.93 11ZM14 11H10V6.13A13.36 13.36 0 0 1 14 11Zm0 2H10v4.87A13.36 13.36 0 0 1 14 13Zm2 0h3.07A8.03 8.03 0 0 1 18.93 13H16Zm1.26-8A14.87 14.87 0 0 0 16 11h3.07A8.03 8.03 0 0 1 17.26 5ZM12 4.07A13.38 13.38 0 0 1 13.9 11H10.1A13.38 13.38 0 0 1 12 4.07ZM10.1 13h3.8A13.38 13.38 0 0 1 12 19.93 13.38 13.38 0 0 1 10.1 13ZM5.07 13H8a14.87 14.87 0 0 0 1.26 5A8.03 8.03 0 0 1 5.07 13Zm1.67-8A8.03 8.03 0 0 1 8 11H4.93A14.87 14.87 0 0 0 6.74 5Zm-1.67 8h3.07A14.87 14.87 0 0 0 8 18a8.03 8.03 0 0 1-3.93-5Z"/></svg>',
+    email: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3V5Zm1.5 1.5 7.5 6 7.5-6M4.5 17.5l5-4M19.5 17.5l-5-4"/></svg>',
     facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V7.1c0-.9.3-1.5 1.6-1.5h1.7V2.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7v3.1h2.8v8h3.7Z"/></svg>',
     instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.25-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/></svg>'
   };
@@ -166,49 +185,20 @@ function setContactStatus(message, type = '') {
 }
 
 function initContactForm() {
-  if (!els.contactForm) return;
-  els.contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const data = {
-      name: els.contactName?.value?.trim() || '',
-      surname: els.contactSurname?.value?.trim() || '',
-      organisation: els.contactOrganisation?.value?.trim() || '',
-      email: els.contactEmail?.value?.trim() || '',
-      message: els.contactMessage?.value?.trim() || '',
-    };
-
-    if (!data.name || !data.surname || !data.email || !data.message) {
-      setContactStatus('Compila nome, cognome, email e messaggio.', 'error');
-      return;
-    }
-
-    const recipient = 'contatti@pianuraest.it';
-    const body = [
-      `Nome: ${data.name} ${data.surname}`,
-      data.organisation ? `Ente: ${data.organisation}` : '',
-      `Email: ${data.email}`,
-      '',
-      data.message,
-    ]
-      .filter(Boolean)
-      .join('\n');
-
-    const subject = encodeURIComponent(`Messaggio dal sito Pianura Est - ${data.name} ${data.surname}`);
-    const encodedBody = encodeURIComponent(body);
-    window.location.href = `mailto:${recipient}?subject=${subject}&body=${encodedBody}`;
-    setContactStatus('Il messaggio è pronto per essere inviato via email.', 'success');
-    els.contactForm.reset();
-  });
+  return Boolean(els.contactForm);
 }
 
 async function loadData() {
   if (!els.resultsList || !els.resultCount) return;
 
   try {
-    const response = await fetch('data/organisations.json');
+    const response = await fetch('data/organisations.json', { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.data = await response.json();
+    state.data.organisations = state.data.organisations.map((org) => ({
+      ...org,
+      services: Array.isArray(org.services) ? org.services : org.services ? [org.services] : [],
+    }));
     bootstrap();
   } catch (error) {
     els.resultsList.innerHTML = `<div class="no-results"><strong>Data file non disponibile.</strong><p>Apri l'app tramite un piccolo server locale o GitHub Pages, così il browser può leggere data/organisations.json.</p></div>`;
@@ -228,6 +218,7 @@ function loadPersistedState() {
     state.category = typeof saved.category === 'string' ? saved.category : '';
     state.sort = typeof saved.sort === 'string' ? saved.sort : 'relevance';
     state.selectedId = saved.selectedId || null;
+    state.priorityId = saved.priorityId || null;
     state.services = new Set(Array.isArray(saved.services) ? saved.services.filter((service) => typeof service === 'string') : []);
   } catch (error) {
     console.warn('Unable to restore saved filters:', error);
@@ -243,6 +234,7 @@ function persistState() {
       services: Array.from(state.services),
       sort: state.sort,
       selectedId: state.selectedId,
+      priorityId: state.priorityId,
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
   } catch (error) {
@@ -560,11 +552,18 @@ function render() {
   const selectedOrg = state.selectedId && results.some((org) => org.id === state.selectedId)
     ? results.find((org) => org.id === state.selectedId)
     : null;
+  const prioritizedOrg = state.priorityId && results.some((org) => org.id === state.priorityId)
+    ? results.find((org) => org.id === state.priorityId)
+    : null;
   state.selectedId = selectedOrg ? selectedOrg.id : null;
+  if (!state.priorityId && prioritizedOrg) state.priorityId = prioritizedOrg.id;
+  const orderedResults = prioritizedOrg
+    ? [prioritizedOrg, ...results.filter((org) => org.id !== prioritizedOrg.id)]
+    : results;
   persistState();
   els.resultCount.textContent = countLabel(results.length);
   renderActiveFilters();
-  renderResults(results);
+  renderResults(orderedResults);
   renderDetails(selectedOrg);
   if (document.getElementById('map')) {
     renderMapMarkers(results);
@@ -580,6 +579,65 @@ function renderActiveFilters() {
   if (els.activeFilters) {
     els.activeFilters.innerHTML = filters.map((filter) => `<span class="active-filter">${escapeHtml(filter)}</span>`).join('');
   }
+}
+
+function getMapFocusTarget(org) {
+  const coords = getOrgCoordinates(org);
+  if (!coords) return null;
+  return { lat: Number(coords[0]), lng: Number(coords[1]) };
+}
+
+function focusMapForOrg(org) {
+  if (!org) return;
+  const target = getMapFocusTarget(org);
+  if (!target) return;
+
+  const onMapPage = !!document.getElementById('map');
+  const previousScrollY = window.scrollY;
+  const resultsPanel = document.querySelector('.results-panel');
+  const previousResultsScroll = resultsPanel ? resultsPanel.scrollTop : 0;
+
+  state.selectedId = org.id;
+  state.priorityId = org.id;
+  render();
+
+  if (!onMapPage) {
+    const savedFocus = { orgId: org.id, lat: target.lat, lng: target.lng, scrollToMap: true };
+    sessionStorage.setItem('pianura-focus-org', JSON.stringify(savedFocus));
+    window.location.href = 'mappa.html';
+    return;
+  }
+
+  if (resultsPanel) {
+    resultsPanel.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  window.scrollTo({ top: previousScrollY, left: 0, behavior: 'auto' });
+
+  const map = window.__pianuraMap;
+  if (map) {
+    map.flyTo([target.lat, target.lng], 14, { duration: 1.6 });
+  }
+
+  const marker = window.__pianuraMarkers?.getLayers().find((layer) => {
+    const markerOrg = layer.options?.title;
+    return typeof markerOrg === 'string' && markerOrg === org.name;
+  });
+
+  if (marker) {
+    marker.openPopup();
+  }
+}
+
+function getLocationButtonMarkup(org) {
+  const coords = getOrgCoordinates(org);
+  if (!coords || !Number.isFinite(coords[0]) || !Number.isFinite(coords[1])) {
+    return '';
+  }
+  return `
+    <button class="result-map-button" type="button" aria-label="Mostra sulla mappa" title="Mostra sulla mappa">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a7.5 7.5 0 0 1 7.5 7.5c0 5.5-7.5 11.5-7.5 11.5S4.5 15.5 4.5 10A7.5 7.5 0 0 1 12 2.5Zm0 4a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Z"/></svg>
+    </button>
+  `;
 }
 
 function renderResults(results) {
@@ -599,17 +657,30 @@ function renderResults(results) {
     node.querySelector('.result-name').textContent = org.name;
     node.querySelector('.result-description').textContent = org.activity || 'Descrizione non disponibile.';
     const servicePreview = node.querySelector('.service-preview');
-    if (org.services.length) {
-      servicePreview.innerHTML = org.services.slice(0, 3).map((service) => `<span class="service-pill">${escapeHtml(service)}</span>`).join('');
-    } else {
-      servicePreview.innerHTML = '<span class="service-pill service-pill-muted">Nessun servizio indicato</span>';
-    }
-    node.querySelector('.result-main').addEventListener('click', () => {
+    const servicesMarkup = org.services.length
+      ? org.services.slice(0, 3).map((service) => `<span class="service-pill">${escapeHtml(service)}</span>`).join('')
+      : '<span class="service-pill service-pill-muted">Nessun servizio indicato</span>';
+    const badgeMarkup = `<span class="category-badge" aria-hidden="true">${getCategoryIcon(org.category)}</span>`;
+    servicePreview.innerHTML = `${badgeMarkup}${servicesMarkup}${getLocationButtonMarkup(org)}`;
+    const mainCard = node.querySelector('.result-main');
+    mainCard.addEventListener('click', () => {
       state.selectedId = org.id;
       render();
       if (window.matchMedia('(max-width: 1180px)').matches) {
         els.detailsCard?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    });
+    mainCard.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        state.selectedId = org.id;
+        render();
+      }
+    });
+    const mapButton = servicePreview.querySelector('.result-map-button');
+    mapButton?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      focusMapForOrg(org);
     });
     fragment.append(node);
   });
@@ -633,8 +704,20 @@ function renderDetails(org) {
   const links = [];
   const orgLinks = org.links || {};
   const website = String(orgLinks.website || '').trim();
+  const email = String(org.email || '').trim();
   const facebook = String(orgLinks.facebook || '').trim();
   const instagram = String(orgLinks.instagram || '').trim();
+  const contactHours = org.contactHours || {};
+  const hourLabels = {
+    sportello_ascolto: 'Sportello ascolto',
+    assistenza_alimentare: 'Assistenza alimentare',
+    viveri: 'Distribuzione viveri',
+    vestiario: 'Distribuzione vestiario',
+  };
+  const hoursMarkup = Object.entries(contactHours)
+    .filter(([, value]) => value)
+    .map(([key, value]) => `<div class="contact-hour"><span>${escapeHtml(hourLabels[key] || key)}</span><span>${escapeHtml(value)}</span></div>`)
+    .join('');
 
   if (website) {
     links.push(`<a class="contact-button website-button" href="${escapeHtml(website)}" target="_blank" rel="noreferrer">${getSocialIcon('website')}<span>Sito web</span></a>`);
@@ -667,7 +750,9 @@ function renderDetails(org) {
       </div>
     </div>
 
-    ${links.length ? `<div class="detail-block"><h3>Contatti</h3><div class="detail-links">${links.join('')}</div></div>` : ''}
+    ${hoursMarkup ? `<div class="detail-block"><h3>Orari</h3><div class="contact-hours">${hoursMarkup}</div></div>` : ''}
+
+    ${email || links.length ? `<div class="detail-block"><h3>Contatti</h3>${email ? `<a class="contact-email" href="${escapeHtml(socialLinkFor('email', email))}">${escapeHtml(email)}</a>` : ''}${links.length ? `<div class="detail-links">${links.join('')}</div>` : ''}</div>` : ''}
 
     <div class="detail-block admin-block">
       <button class="detail-toggle" type="button" aria-expanded="false">
@@ -676,6 +761,7 @@ function renderDetails(org) {
       </button>
       <div class="detail-content is-collapsed">
         <div class="detail-grid">
+          ${detailRow('Ente gestore', org.managedBy)}
           ${detailRow('Rappresentante', org.legalRepresentative)}
           ${detailRow('Codice fiscale', org.taxCode)}
           ${detailRow('Repertorio', org.registryNumber)}
@@ -691,6 +777,7 @@ function renderDetails(org) {
   const closeButton = els.detailsCard.querySelector('.detail-close');
   closeButton?.addEventListener('click', () => {
     state.selectedId = null;
+    state.priorityId = null;
     render();
   });
 
@@ -754,6 +841,17 @@ function renderMapMarkers(results) {
     return coords && Number.isFinite(coords[0]) && Number.isFinite(coords[1]);
   });
 
+  const successFocus = (() => {
+    const raw = sessionStorage.getItem('pianura-focus-org');
+    if (!raw) return null;
+    try { return JSON.parse(raw); } catch { return null; }
+  })();
+
+  const resultsPanel = document.querySelector('.results-panel');
+  if (resultsPanel && successFocus && successFocus.scrollToMap) {
+    resultsPanel.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   const notice = document.getElementById('mapNotice');
   if (!validResults.length) {
     if (notice) notice.textContent = 'Nessuna geolocalizzazione disponibile per i filtri attuali.';
@@ -761,20 +859,43 @@ function renderMapMarkers(results) {
   }
 
   const bounds = [];
+  let focusedMarker = null;
   validResults.forEach((org) => {
     const coords = getOrgCoordinates(org);
     if (!coords) return;
-    const marker = L.marker(coords).addTo(markerLayer);
+    const categoryClass = getCategoryClassName(org.category);
+    const markerIcon = L.divIcon({
+      className: `map-marker-wrapper ${categoryClass}`,
+      html: `<span class="map-marker" title="${escapeHtml(org.category || 'Categoria non indicata')}"><span class="map-marker-icon">${getCategoryIcon(org.category)}</span></span>`,
+      iconSize: [38, 46],
+      iconAnchor: [19, 46],
+      popupAnchor: [0, -42],
+    });
+    const marker = L.marker(coords, { icon: markerIcon, title: org.name }).addTo(markerLayer);
     marker.bindPopup(`<strong>${escapeHtml(org.name)}</strong><br>${escapeHtml(org.municipality || '')}`);
     marker.on('click', () => {
       state.selectedId = org.id;
       render();
+      if (window.__pianuraMap) {
+        window.__pianuraMap.flyTo(coords, 14, { duration: 1.2 });
+      }
     });
+    if (successFocus && String(org.id) === String(successFocus.orgId)) {
+      focusedMarker = marker;
+    }
     bounds.push(coords);
   });
 
   if (notice) notice.textContent = '';
-  if (bounds.length) map.fitBounds(bounds, { padding: [24, 24] });
+  map.invalidateSize({ pan: false });
+
+  if (successFocus && focusedMarker) {
+    map.flyTo(focusedMarker.getLatLng(), 14, { duration: 1.6 });
+    focusedMarker.openPopup();
+    sessionStorage.removeItem('pianura-focus-org');
+  } else if (bounds.length) {
+    map.fitBounds(bounds, { padding: [24, 24] });
+  }
 }
 
 function initMapPage() {

@@ -1,0 +1,1082 @@
+Aggiungi i seguenti enti al file JSON esistente (matching per nome se esistono già, o come nuovi). Non modificare la struttura attuale, usa i nomi delle chiavi standard del file. Ricordati di associare questi link Facebook, Instagram, le Email e le Coordinate (lat, lng):
+
+```json
+[
+  {
+    "name": "A.M.A. AMARCORD - ODV",
+    "lat": 44.70068079050209,
+    "lng": 11.402945096269345,
+    "email": "ama.amarcord@libero.it",
+    "facebook": "https://www.facebook.com/amaamarcordsanpietro/"
+  },
+  {
+    "name": "ARCI POGGETTO APS",
+    "lat": 44.73238270324765,
+    "lng": 11.346327140449395,
+    "email": "besjana.92@hotmail.it",
+    "facebook": "https://www.facebook.com/groups/313832902645190/"
+  },
+  {
+    "name": "ASSOCIAZIONE CULTURALE RICREATIVA DUGLIOLESE APS",
+    "lat": 44.61435230571902,
+    "lng": 11.583936480921935,
+    "email": "circolodugliolese@libero.it"
+  },
+  {
+    "name": "BOCCIOFILA LA FONTANA APS - ASD",
+    "lat": 44.72163104433521,
+    "lng": 11.532104369284427,
+    "email": "lafontana.ferrara@gmail.com",
+    "facebook": "https://www.facebook.com/profile.php?id=100057349304524"
+  },
+  {
+    "name": "CIRCOLO ARCI SAN MARINO APS",
+    "lat": 44.605700302019564,
+    "lng": 11.42147911160657,
+    "email": "arcisanmarino@gmail.com",
+    "facebook": "https://www.facebook.com/arcisanmarino/"
+  },
+  {
+    "name": "ROSE ROSSE APS",
+    "lat": 44.57509722345656,
+    "lng": 11.363986867426581,
+    "email": "roserosse@women.it",
+    "facebook": "https://www.facebook.com/RoseRosseAss/",
+    "instagram": "https://www.instagram.com/roserosseaps/"
+  },
+  {
+    "name": "SENZA CONFINI APS",
+    "lat": 44.71428527884914,
+    "lng": 11.30728382695525,
+    "email": "circolokino@gmail.com",
+    "facebook": "https://www.facebook.com/kinopieve/"
+  },
+  {
+    "name": "Associazione dei Club Alcologici Territoriali (Metodo e cultura Hudolin) della Pianura Bolognese e del Circondario di Imola Organizzazione di Volontariato",
+    "lat": 44.57354862401001,
+    "lng": 11.359518423248339,
+    "email": "acatbolognaimola@gmail.com"
+  },
+  {
+    "name": "LABORATORIO CULTURALE SALTARELLO - APS",
+    "lat": 44.707579472626264,
+    "lng": 11.40190138092723,
+    "email": "saltarello.aps@gmail.com",
+    "facebook": "https://www.facebook.com/lab.saltarello/",
+    "instagram": "https://www.instagram.com/saltarello.aps/"
+  },
+  {
+    "name": "ASSOCIAZIONE CULTURALE BURATTINGEGNO TEATRO ETS",
+    "lat": 44.49304420946251,
+    "lng": 11.51178389440811,
+    "email": "info@burattingegno.it",
+    "facebook": "https://www.facebook.com/p/Burattingegno-Teatro-100063954467756/"
+  },
+  {
+    "name": "ASSOCIAZIONE DIAPASON PROGETTI MUSICALI APS",
+    "lat": 44.53765967190984,
+    "lng": 11.536049138588858,
+    "email": "info@diapason.bo.it",
+    "facebook": "https://www.facebook.com/diapasonbudrio/",
+    "instagram": "https://www.instagram.com/diapasonprogettimusicali/"
+  },
+  {
+    "name": "FORMATI SENSIBILI ETS - APS",
+    "lat": 44.53931502617069,
+    "lng": 11.535506738588937,
+    "email": "associazioneformatisensibili@gmail.com",
+    "facebook": "https://www.facebook.com/formatisensibili1/",
+    "instagram": "https://www.instagram.com/formati_sensibili/"
+  },
+  {
+    "name": "CIRCOLO 'LA STALLA' - ASS.NE 'FRAZIONE VIVA' ANSPI - APS ETS",
+    "lat": 44.52642789993453,
+    "lng": 11.455515982766386,
+    "email": "info@circololastalla.org"
+  },
+  {
+    "name": "ORATORIO E CIRCOLO ANSPI POGGETTO ANSPI - APS ETS",
+    "lat": 44.732929340332554,
+    "lng": 11.347725423257366,
+    "facebook": "https://www.facebook.com/p/Circolo-ANSPI-Poggetto-100049914984750/"
+  },
+  {
+    "name": "ORATORIO E CIRCOLO IL CHICCO DI GRANO ANSPI - APS ETS",
+    "lat": 44.552781587738956,
+    "lng": 11.445976340247539,
+    "email": "parrocchiagranaroloemilia@gmail.com"
+  },
+  {
+    "name": "ORATORIO E CIRCOLO S. BARTOLOMEO DI BONDANELLO ANSPI - APS ETS",
+    "lat": 44.57905878460195,
+    "lng": 11.355282080919924,
+    "email": "oratoriodibondanello@gmail.com",
+    "instagram": "https://www.instagram.com/oratorio_bondanello/"
+  },
+  {
+    "name": "ORATORIO E CIRCOLO S. LORENZO DI BUDRIO ANSPI - APS ETS",
+    "lat": 44.53814007599587,
+    "lng": 11.534976765575122,
+    "email": "info@sanlorenzobudrio.it"
+  },
+  {
+    "name": "ORATORIO E CIRCOLO SPORTIVO DI ALTEDO ANSPI - APS ETS",
+    "lat": 44.66468314674528,
+    "lng": 11.487516025103009
+  },
+  {
+    "name": "ORATORIO E CIRCOLO TRABB DI VILLANOVA ANSPI - APS ETS",
+    "lat": 44.49231797826301,
+    "lng": 11.425316067421944,
+    "email": "info@trabb.it",
+    "facebook": "https://www.facebook.com/trabbvillanova/",
+    "instagram": "https://www.instagram.com/trabb.villanova/"
+  },
+  {
+    "name": "CORPO BANDISTICO 'BANDA GIOVANILE CITTA' DI BUDRIO' APS",
+    "lat": 44.5375831978337,
+    "lng": 11.536070596260139,
+    "email": "bandadibudrio@gmail.com",
+    "facebook": "https://www.facebook.com/BandaBudrio/",
+    "instagram": "https://www.instagram.com/bandadibudrio/"
+  },
+  {
+    "name": "IN CAMMINO VERSO ASSOCIAZIONE PER LA SALUTE MENTALE - ODV",
+    "lat": 44.6477217969941,
+    "lng": 11.37752865393763,
+    "email": "silverio.sturaro@gmail.com"
+  },
+  {
+    "name": "ASSOCIAZIONE 'COMITATO FIBROMIALGICI UNITI - ITALIA ODV'",
+    "lat": 44.51078214086735,
+    "lng": 11.468553311601147,
+    "email": "cfuitalia@gmail.com",
+    "facebook": "https://www.facebook.com/cfuitalia/"
+  },
+  {
+    "name": "BANDA FILARMONICA CITTA' DI MOLINELLA ASSOCIAZIONE DI PROMOZIONE SOCIALE",
+    "lat": 44.62006558318259,
+    "lng": 11.667791467429202,
+    "email": "info@bandamolinella.com",
+    "facebook": "https://www.facebook.com/bandamolinella/"
+  },
+  {
+    "name": "AGESCI GRUPPO CASTELMAGGIORE 1 APS",
+    "lat": 44.583130982741615,
+    "lng": 11.357492352084481,
+    "email": "agescicm1@gmail.com",
+    "facebook": "https://www.facebook.com/scout.castelmaggiore1/"
+  },
+  {
+    "name": "AGESCI GRUPPO MOLINELLA 1 APS",
+    "lat": 44.58691919464835,
+    "lng": 11.611818780920348,
+    "email": "molinella1@emiro.agesci.it"
+  },
+  {
+    "name": "AGESCI GRUPPO PIEVE DI CENTO 1 APS",
+    "lat": 44.71350468100882,
+    "lng": 11.307057380927551
+  },
+  {
+    "name": "AGESCI GRUPPO VILLANOVA 1 APS",
+    "lat": 44.492004465317045,
+    "lng": 11.424747509750649,
+    "email": "villanova1@emiro.agesci.it",
+    "facebook": "https://www.facebook.com/grupposcoutvillanova1/",
+    "instagram": "https://www.instagram.com/gruppo_villanova1/"
+  },
+  {
+    "name": "ASSISTENTI CIVICI DI CASTENASO-ODV",
+    "lat": 44.51100874024262,
+    "lng": 11.456783253929872,
+    "email": "aacc.castenaso@gmail.com",
+    "facebook": "https://www.facebook.com/aacc.castenaso/",
+    "instagram": "https://www.instagram.com/assistenti_civici_castenaso/"
+  },
+  {
+    "name": "CENTRO SOCIALE RICREATIVO CULTURALE LUIGEN APS",
+    "lat": 44.71258803237443,
+    "lng": 11.307924580927514,
+    "email": "centroanzianiluigen@gmail.com",
+    "facebook": "https://www.facebook.com/p/Centro-sociale-Luigen-100068916463554/"
+  },
+  {
+    "name": "CIRCOLO ACLI ROSINA ATTI APS",
+    "lat": 44.702288063581335,
+    "lng": 11.405284911612021,
+    "email": "info@cafacliviaemilia.it"
+  },
+  {
+    "name": "L'OPIFICIO APS",
+    "lat": 44.63986063047349,
+    "lng": 11.166498074557204,
+    "email": "opificio.fucinamusicale@gmail.com",
+    "facebook": "https://www.facebook.com/opificiofucinamusicale/"
+  },
+  {
+    "name": "CROCE DEL SOCCORSO-APS",
+    "lat": 44.52133666659044,
+    "lng": 11.523053796259223,
+    "email": "crocedelsoccorsoaps@libero.it",
+    "facebook": "https://www.facebook.com/crocedelsoccorso/"
+  },
+  {
+    "name": "CENTRO SOCIALE RICREATIVO CULTURALE FALCONE E BORSELLINO APS",
+    "lat": 44.64979269378084,
+    "lng": 11.372065267430843,
+    "email": "centrofalconeborsellino@gmail.com",
+    "facebook": "https://www.facebook.com/centro.sociale.falcone.borsellino/"
+  },
+  {
+    "name": "FIAB - CASTENASO TRIBU' INDIGENA APS",
+    "lat": 44.534707427086474,
+    "lng": 11.485813511602533,
+    "email": "comunicazioni@fiabcastenaso.it"
+  },
+  {
+    "name": "FONDAZIONE BONZI ARGELLI ETS",
+    "lat": 44.602269461012845,
+    "lng": 11.423398625099384,
+    "email": "info@bonziargellifondazione.it",
+    "facebook": "https://www.facebook.com/fondazionebonziargelli/"
+  },
+  {
+    "name": "ARCI MALACAPPA APS",
+    "lat": 44.62039059221821,
+    "lng": 11.31521255208667,
+    "email": "manucappa@libero.it"
+  },
+  {
+    "name": "PRO LOCO BUDRIO ''LO DOLCE PIANO'' APS",
+    "lat": 44.537504219740356,
+    "lng": 11.535799596260116,
+    "email": "info@prolocobudrio.it",
+    "facebook": "https://www.facebook.com/budriowelcome/"
+  },
+  {
+    "name": "PRO LOCO CASTEL MAGGIORE APS",
+    "lat": 44.57852301195631,
+    "lng": 11.356024596262412,
+    "email": "proloco.c@gmail.com",
+    "facebook": "https://www.facebook.com/ProlocoCastelMagg/",
+    "instagram": "https://www.instagram.com/proloco_castel_maggiore/"
+  },
+  {
+    "name": "PRO LOCO DI MINERBIO APS",
+    "lat": 44.62290719524099,
+    "lng": 11.487377869278808,
+    "email": "prolocodiminerbio@libero.it",
+    "facebook": "https://www.facebook.com/p/Proloco-di-Minerbio-100069822459850/"
+  },
+  {
+    "name": "OASI 44 GATTI ODV",
+    "lat": 44.561136279358664,
+    "lng": 11.44332478091895,
+    "email": "oasi44gatti@gmail.com",
+    "facebook": "https://www.facebook.com/oasi44gattiGranaroloEmilia/",
+    "instagram": "https://www.instagram.com/oasi44gatti_odv/"
+  },
+  {
+    "name": "AVIS COMUNALE DI CASTENASO ODV",
+    "lat": 44.51157633360464,
+    "lng": 11.464152853929946,
+    "email": "castenaso.comunale@avis.it",
+    "facebook": "https://www.facebook.com/AvisCastenaso/",
+    "instagram": "https://www.instagram.com/aviscastenaso/"
+  },
+  {
+    "name": "CIRCOLO M.C.L. ARGELATO - APS",
+    "lat": 44.64358650884358,
+    "lng": 11.347945338594844
+  },
+  {
+    "name": "RIOLO ASSOCIAZIONE VOLONTARI PROTEZIONE CIVILE - ODV",
+    "lat": 44.649337192955066,
+    "lng": 11.37186835208826,
+    "email": "presidenza@rioloprociv.org",
+    "facebook": "https://www.facebook.com/riolo.protezionecivile/"
+  },
+  {
+    "name": "ASSOCIAZIONE ITALIANA PER LA LOTTA ALLE SINDROMI ATASSICHE EMILIA ROMAGNA - ODV",
+    "lat": 44.54972487931435,
+    "lng": 11.446827596260805,
+    "email": "info@aisaemiliaromagna.it",
+    "facebook": "https://www.facebook.com/aisaemiliaromagna",
+    "instagram": "https://www.instagram.com/aisa_emiliaromagna/"
+  },
+  {
+    "name": "A.V.I.S. COMUNALE DI ARGELATO O.D.V.",
+    "lat": 44.642516208201904,
+    "lng": 11.34897753859481,
+    "email": "argelato.comunale@avis.it",
+    "facebook": "https://www.facebook.com/aviscomunaleargelato/",
+    "instagram": "https://www.instagram.com/avis_comunale_argelato/"
+  },
+  {
+    "name": "AVIS COMUNALE DI BUDRIO ODV",
+    "lat": 44.537525640193834,
+    "lng": 11.536131638588866,
+    "email": "budrio.comunale@avis.it",
+    "facebook": "https://www.facebook.com/Avis.Bologna/",
+    "instagram": "https://www.instagram.com/avis.bologna/"
+  },
+  {
+    "name": "AVIS COMUNALE DI CASTEL MAGGIORE ODV",
+    "lat": 44.576884747193766,
+    "lng": 11.362500538591071,
+    "email": "castelmaggiore.comunale@avis.it",
+    "facebook": "https://www.facebook.com/profile.php?id=61575250935454"
+  },
+  {
+    "name": "AVIS COMUNALE DI MOLINELLA ODV",
+    "lat": 44.621237526026576,
+    "lng": 11.665152796264858,
+    "email": "molinella.comunale@avis.it",
+    "facebook": "https://www.facebook.com/profile.php?id=100068098235442"
+  },
+  {
+    "name": "AVIS COMUNALE DI SAN PIETRO IN CASALE ODV",
+    "lat": 44.707579472626264,
+    "lng": 11.40196575394106,
+    "email": "sanpietroincasale.comunale@avis.it",
+    "facebook": "https://www.facebook.com/profile.php?id=100063694111407"
+  },
+  {
+    "name": "AVIS COMUNALE DI GALLIERA ODV",
+    "lat": 44.733500439053046,
+    "lng": 11.44009529627123
+  },
+  {
+    "name": "AVIS COMUNALE DI GRANAROLO EMILIA ODV",
+    "lat": 44.54973505010467,
+    "lng": 11.447232496260845,
+    "email": "avisgranarolo@gmail.com",
+    "facebook": "https://www.facebook.com/avis.granarolodellemilia"
+  },
+  {
+    "name": "AVIS COMUNALE DI BENTIVOGLIO ODV",
+    "lat": 44.635130251630756,
+    "lng": 11.42082528092311,
+    "email": "bentivoglio.comunale@avis.it",
+    "facebook": "https://www.facebook.com/avisbentivoglio1955/"
+  },
+  {
+    "name": "AVIS COMUNALE DI CASTELLO D'ARGILE ODV",
+    "lat": 44.68310066510326,
+    "lng": 11.296757753939678,
+    "email": "aviscomunaleargile@libero.it"
+  },
+  {
+    "name": "AVIS COMUNALE DI MINERBIO ODV",
+    "lat": 44.623061141474956,
+    "lng": 11.488876338593677,
+    "email": "minerbio.comunale@avis.it",
+    "facebook": "https://www.facebook.com/aviscomunaleminerbio/"
+  },
+  {
+    "name": "AVIS COMUNALE DI PIEVE DI CENTO ODV",
+    "lat": 44.71380922867385,
+    "lng": 11.307922980927595,
+    "email": "pievedicento.comunale@avis.it",
+    "facebook": "https://www.facebook.com/groups/322388044444312/about/"
+  },
+  {
+    "name": "AVIS COMUNALE DI MALALBERGO ODV",
+    "lat": 44.66516853074885,
+    "lng": 11.48656128277425,
+    "email": "malalbergo.comunale@avis.it",
+    "facebook": "https://www.facebook.com/profile.php?id=61557968855844"
+  },
+  {
+    "name": "AVIS COMUNALE DI SAN GIORGIO DI PIANO ODV",
+    "lat": 44.64685883302166,
+    "lng": 11.375241152088114,
+    "email": "avis.sangiorgiodp@gmail.com",
+    "facebook": "https://www.facebook.com/AVISsangiorgiodipiano/"
+  },
+  {
+    "name": "Lega Nazionale per la Difesa del Cane - Sezione di Bologna APS",
+    "lat": 44.586406781104785,
+    "lng": 11.39133449626294,
+    "email": "lndc.bologna@gmail.com"
+  },
+  {
+    "name": "Pro Loco Sangiorgio - APS",
+    "email": "info@omarcarraro.it",
+    "facebook": "https://www.facebook.com/prosangiorgio/"
+  },
+  {
+    "name": "CIRCOLO MCL BEATA VERGINE DELL'EDERA-APS",
+    "lat": 44.54458050115171,
+    "lng": 11.526486811603078
+  },
+  {
+    "name": "ASSOCIAZIONE GRUPPO DELLA STADURA APS",
+    "lat": 44.60291972055895,
+    "lng": 11.415703580921281,
+    "email": "gruppodellastadura@gmail.com",
+    "facebook": "https://www.facebook.com/p/Associazione-Gruppo-della-Stadura-61556222139692/"
+  },
+  {
+    "name": "CENTRO CULTURALE GIORGIO LA PIRA APS",
+    "lat": 44.62567344455443,
+    "lng": 11.49200112325132,
+    "email": "centroculturalelapiraminerbio@gmail.com",
+    "facebook": "https://www.facebook.com/CentroCulturaleGiorgioLaPiraMinerbio/"
+  },
+  {
+    "name": "CIRCOLO M.C.L. VENEZZANO - APS",
+    "lat": 44.68349562050423,
+    "lng": 11.340570680925838,
+    "email": "circolo.mcl.venezzano@gmail.com",
+    "facebook": "https://www.facebook.com/circolomclbitulen/",
+    "instagram": "https://www.instagram.com/circolo_mcl_bitulen/"
+  },
+  {
+    "name": "ALENA ACADEMY APSASSOCIAZIONE DI VOLONTARI DI PROTEZIONE CIVILE DI MALALBERGO - PEGASO ODV",
+    "lat": 44.67684500769149,
+    "lng": 11.492039996268025,
+    "email": "onlinepegasopc@gmail.com",
+    "facebook": "https://www.facebook.com/volontaripcpegaso/",
+    "instagram": "https://www.instagram.com/protezionecivilemalalbergo"
+  },
+  {
+    "name": "ASSOCIAZIONE ADDOHA APSMILLE SOLI ODV",
+    "lat": 44.58139957110608,
+    "lng": 11.35767406742692,
+    "email": "millesoli@millesoli.info"
+  },
+  {
+    "name": "BANDA FILARMONICA COMUNALE 'PRIMO CARLINI' DI MALALBERGO - APS",
+    "lat": 44.71880378433411,
+    "lng": 11.531948167434775,
+    "email": "info@bandaprimocarlini.it",
+    "facebook": "https://www.facebook.com/bandaprimocarlini.malalbergo/"
+  },
+  {
+    "name": "GALAPAGOS-ODV",
+    "email": "gio.antonuccio@gmail.com",
+    "facebook": "https://www.facebook.com/p/Associazione-Galapagos-ass-promozione-sociale-100064396433551/"
+  },
+  {
+    "name": "STATUS EQUO APS",
+    "lat": 44.58141031267,
+    "lng": 11.3548387809201,
+    "email": "info@statusequo.com",
+    "facebook": "https://www.facebook.com/statusequo.aps/"
+  },
+  {
+    "name": "ASSOCIAZIONE ALEX ZANARDI BIMBI IN GAMBA ODV",
+    "lat": 44.525316377333176,
+    "lng": 11.526208255162489,
+    "email": "info@bimbingamba.com",
+    "facebook": "https://www.facebook.com/bimbingambaofficialpage/",
+    "instagram": "https://www.instagram.com/bimbingamba/"
+  },
+  {
+    "name": "CCSVI NELLA SCLEROSI MULTIPLA - EMILIA ROMAGNA ODV",
+    "lat": 44.54957960859424,
+    "lng": 11.446827596260805,
+    "email": "ccsvi.emiliaromagna@gmail.com",
+    "facebook": "https://www.facebook.com/100064453579862/photos/"
+  },
+  {
+    "name": "CORPO OPERATORI EMERGENZA RADIO ORGANIZZAZIONE DI VOLONTARIATO",
+    "lat": 44.53820056574428,
+    "lng": 11.539630296260196,
+    "email": "segreteriacoer@gmail.com",
+    "facebook": "https://www.facebook.com/profile.php?id=100068656998774"
+  },
+  {
+    "name": "ORATORIO E CIRCOLO DON GIUSEPPE CODICE' ANSPI - APS ETS",
+    "lat": 44.55555677231372,
+    "lng": 11.57516671160375
+  },
+  {
+    "name": "ORGANIZZAZIONE DI VOLONTARIATO PROTEZIONE CIVILE VOLONTARI MINERVA",
+    "lat": 44.62522973776677,
+    "lng": 11.49046149626511,
+    "email": "info@volontariminerva.it",
+    "facebook": "https://www.facebook.com/PCminerva/"
+  },
+  {
+    "name": "ASSOCIAZIONE BUDRIO BIER FEST - B.B.F. APS",
+    "lat": 44.492850410149096,
+    "lng": 11.5153430385863,
+    "email": "budriofest@gmail.com",
+    "facebook": "https://www.facebook.com/BUDRIOBIERFEST/",
+    "instagram": "https://www.instagram.com/budrio_bier_fest/"
+  },
+  {
+    "name": "CORPO BANDISTICO SOCIETA' MUSICALE MINERBIESE APS",
+    "lat": 44.617767855461,
+    "lng": 11.487911809757756,
+    "email": "banda.minerbio@gmail.com",
+    "facebook": "https://www.facebook.com/BandaMinerbio/",
+    "instagram": "https://www.instagram.com/banda.minerbio/"
+  },
+  {
+    "name": "CIRCOLO M.C.L. LAVORATORI CO.PRO.B. APS",
+    "lat": 44.63386974029222,
+    "lng": 11.519139009758664
+  },
+  {
+    "name": "CENTRO SOCIALE RICREATIVO CULTURALE QUARTO INFERIORE APS",
+    "lat": 44.53075931938861,
+    "lng": 11.421862496259742,
+    "email": "centrosocialequarto@libero.it"
+  },
+  {
+    "name": "CIRCOLO M.C.L. CASTELLO D'ARGILE - APS",
+    "lat": 44.68194339950654,
+    "lng": 11.296352638597002,
+    "facebook": "https://www.facebook.com/p/Circolo-MCL-Castello-dArgile-100066894604491/"
+  },
+  {
+    "name": "GRUPPO OCARINISTICO BUDRIESE APS",
+    "email": "info@gobitalia.it",
+    "facebook": "https://www.facebook.com/gobocarinabudrio/",
+    "instagram": "https://www.instagram.com/gob_ocarina_budrio"
+  },
+  {
+    "name": "MOSAICO DI SOLIDARIETA' ODV",
+    "lat": 44.55154991665761,
+    "lng": 11.38952623858968,
+    "email": "mosaico.solidarieta@gmail.com",
+    "facebook": "https://www.facebook.com/mosaico75/"
+  },
+  {
+    "name": "NUCLEO VOLONTARI PROTEZIONE CIVILE ANC. PIANURA FELSINEA ODV",
+    "lat": 44.62118407107791,
+    "lng": 11.665152796264858,
+    "email": "nucleoancmolinella@gmail.com",
+    "facebook": "https://www.facebook.com/p/Nucleo-Volontari-di-Protezione-Civile-Anc-Pianura-Felsinea-100057160071406/"
+  },
+  {
+    "name": "Amici dei Pompieri Volontari di San Pietro in Casale ODV",
+    "lat": 44.699002192534714,
+    "lng": 11.401713296269307,
+    "email": "vigilfuoco.spc@gmail.com",
+    "facebook": "https://www.facebook.com/vvf.sanpietroincasale/"
+  },
+  {
+    "name": "ASSOCIAZIONE VOLONTARIATO POLIZIA LOCALE ODV",
+    "email": "o.v.p.c@alice.it",
+    "facebook": "https://www.facebook.com/ovpccastelmaggiore/mentions/"
+  },
+  {
+    "name": "MICIAMICI BOLOGNA ODV",
+    "lat": 44.508987871079825,
+    "lng": 11.436347996258556,
+    "email": "miciamici.gatti@libero.it",
+    "facebook": "https://www.facebook.com/miciamicibolognaodv/",
+    "instagram": "https://www.instagram.com/miciamici_bologna_odv/"
+  },
+  {
+    "name": "ASSOCIAZIONE CULTURALE ISLAMICA AL AMAL DI MOLINELLA APS",
+    "email": "Alamalmolinella@gmail.com",
+    "facebook": "https://www.facebook.com/moschea1molinella/"
+  },
+  {
+    "name": "Circolo Fotografico Il Quadrifoglio - APS",
+    "email": "info@inquadrifogliofoto.it",
+    "instagram": "https://www.instagram.com/circolofotograficoquadrifoglio/"
+  },
+  {
+    "name": "INSIEME SI PUO' FARE ODV",
+    "lat": 44.67868054424574,
+    "lng": 11.291751096268145
+  },
+  {
+    "name": "AL NOSTAR DIALATT DI CASTENASO ASSOCIAZIONE DI PROMOZIONE SOCIALE",
+    "lat": 44.51113022374226,
+    "lng": 11.465736096258611,
+    "email": "alnostardialatt@gmail.com",
+    "facebook": "https://www.facebook.com/AlNostarDialatt/"
+  },
+  {
+    "name": "BURRACO SANTAPAOLA A.P.S.",
+    "email": "burracosantapaola@gmail.com",
+    "facebook": "https://www.facebook.com/burracosantapaolabologna/"
+  },
+  {
+    "name": "AlieMani nella musica Associazione di Promozione Sociale",
+    "lat": 44.549582133573885,
+    "lng": 11.44724322509648,
+    "email": "aliemaninellamusica@gmail.com"
+  },
+  {
+    "name": "CIRCOLO AMICI DELL'ARTE APS",
+    "lat": 44.621028553316584,
+    "lng": 11.669011967429187,
+    "email": "diana.cocchi@alice.it"
+  },
+  {
+    "name": "SCUOLA CANI SALVATAGGIO EMILIA ROMAGNA ODV",
+    "lat": 44.55806216052605,
+    "lng": 11.630947225096934,
+    "email": "scuolacanisalvataggioer@gmail.com",
+    "instagram": "https://www.instagram.com/sics_emilia_romagna/"
+  },
+  {
+    "name": "AMICI DELL'ORTICA APS",
+    "email": "prenotazioni@amicidellortica.it",
+    "facebook": "https://www.facebook.com/groups/SagraOrticaMalalbergo/"
+  },
+  {
+    "name": "PRO LOCO DI MALALBERGO APS",
+    "lat": 44.71925534756307,
+    "lng": 11.531936896270464,
+    "email": "prolocomalalbergo.aps@gmail.com",
+    "facebook": "https://www.facebook.com/profile.php?id=61584672646705",
+    "instagram": "https://www.instagram.com/prolocomalalbergo.aps/"
+  },
+  {
+    "name": "ASSOCIAZIONE CDFING APS",
+    "facebook": "https://www.facebook.com/CDFinG/",
+    "instagram": "https://www.instagram.com/cdfing/reels/VALL"
+  },
+  {
+    "name": "DES ART APSODV AMICI DELLA TERRA - CLUB DI GRANAROLO DELL'EMILIA",
+    "facebook": "https://www.facebook.com/amicidellaterragranaroloemilia/"
+  },
+  {
+    "name": "AL SERVIZIO DELLA SALUTE ODVFONDAZIONE MAROCCHI E.T.S.TENUTA DEL MITO ASSOCIAZIONE DI VOLONTARIATO PER LA TUTELA DEGLI ANIMALI ODV",
+    "lat": 44.59274295058895,
+    "lng": 11.524171596263283,
+    "email": "tenutadelmito@libero.it",
+    "facebook": "https://www.facebook.com/tenutadelmito/",
+    "instagram": "https://www.instagram.com/tenuta_del_mito/"
+  },
+  {
+    "name": "BABYLONBUS - APS",
+    "lat": 44.62534875047531,
+    "lng": 11.49230496742951,
+    "email": "assbabylonbus.org@gmail.com",
+    "facebook": "https://www.facebook.com/babylonbus.org/",
+    "instagram": "https://www.instagram.com/babylonbus"
+  },
+  {
+    "name": "RAPPORTI NAZIONALI ED INTERNAZIONALI CITTA DI MINERBIO-APS",
+    "lat": 44.622961871077955,
+    "lng": 11.488929982771868,
+    "email": "natalinigigi@virgilio.it"
+  },
+  {
+    "name": "CASTEL MIGLIORE ODV",
+    "facebook": "https://www.facebook.com/CastelMigliore/Castel"
+  },
+  {
+    "name": "MiglioreA.V.C.A. ASSOCIAZIONE VOLONTARI CASTELLO D'ARGILE - ODVFASTROD APS",
+    "lat": 44.51530452141808,
+    "lng": 11.52957915393013,
+    "email": "l.dicarlo@fastroddicarlo.it",
+    "facebook": "https://www.facebook.com/associazioneFastRod/",
+    "instagram": "https://www.instagram.com/associazione_fast_rod/"
+  },
+  {
+    "name": "UBUNTU - ASSOCIAZIONE DI PROMOZIONE SOCIALE",
+    "lat": 44.6818744995156,
+    "lng": 11.296274696268313,
+    "email": "ubuntuargile@gmail.com",
+    "facebook": "https://www.facebook.com/p/Ubuntu2023-61556681099357/",
+    "instagram": "https://www.instagram.com/ubuntu.2023/"
+  },
+  {
+    "name": "FONDAZIONE GALLASSI E DAMIANI ETS",
+    "lat": 44.51884387107961,
+    "lng": 11.479955609752148,
+    "email": "info@gallassidamiani.it",
+    "facebook": "https://www.facebook.com/ScuolaGiovanniDamiani/",
+    "instagram": "https://www.instagram.com/fondazionegallassidamiani"
+  },
+  {
+    "name": "HYPER APS",
+    "lat": 44.534513471079194,
+    "lng": 11.543865138588677,
+    "email": "hyper.next.level@gmail.com",
+    "instagram": "https://www.instagram.com/hyper.next.level/"
+  },
+  {
+    "name": "CASA DELL'ASCOLTO APS",
+    "lat": 44.54119017720348,
+    "lng": 11.533614867424754,
+    "email": "info@casadellascolto.it",
+    "facebook": "https://www.facebook.com/Casadellascolto/",
+    "instagram": "https://www.instagram.com/casadellascolto"
+  },
+  {
+    "name": "FONDAZIONE LE CHIAVI DI CASA ETS",
+    "lat": 44.54954137939714,
+    "lng": 11.446827596260794,
+    "email": "info@lechiavidicasa.org",
+    "facebook": "https://www.facebook.com/ChiaviDiCasaONLUS/",
+    "instagram": "https://www.instagram.com/fondazionelechiavidicasa/"
+  },
+  {
+    "name": "QUI' DAL CRANVEL APS",
+    "lat": 44.63415410579694,
+    "lng": 11.489672438594365,
+    "email": "marco.cazzola@tim.it",
+    "facebook": "https://www.facebook.com/profile.php?id=100027999204796",
+    "instagram": "https://www.instagram.com/carnevale_di_minerbio"
+  },
+  {
+    "name": "CIRCOLO PIEVESE DI MUSICA MODERNA APS",
+    "lat": 44.71071777107699,
+    "lng": 11.3087122674343,
+    "email": "cpmmmusicapieve@gmail.com",
+    "facebook": "https://www.facebook.com/circolopievesedimusicamoderna/",
+    "instagram": "https://www.instagram.com/cpmm_musicapieve/"
+  },
+  {
+    "name": "ASSOCIAZIONE AMICI DELLA MUSICA DI ARGELATO APS",
+    "lat": 44.58957050875958,
+    "lng": 11.367022338591765,
+    "email": "amicidellamusica.arg@libero.it",
+    "facebook": "https://www.facebook.com/LaboratoriodiMusicaPrendiNota/"
+  },
+  {
+    "name": "BRIGATA BESTIALE ODV",
+    "lat": 44.596370110766706,
+    "lng": 11.398545023249651,
+    "email": "brigatabestiale@gmail.com",
+    "facebook": "https://www.facebook.com/p/Rifugio-Brigata-Bestiale-100086461308021/",
+    "instagram": "https://www.instagram.com/brigata.bestiale"
+  },
+  {
+    "name": "HILAL SPORTIVA CULTURA MAROCCHINA -APS",
+    "lat": 44.646629704155295,
+    "lng": 11.533773380923746,
+    "email": "ass.hilal@hotmail.com"
+  },
+  {
+    "name": "HOBBYART APS",
+    "email": "labussola@labussola.net",
+    "facebook": "https://www.facebook.com/profile.php?id=100069145609735"
+  },
+  {
+    "name": "ASSOCIAZIONE FELINA EMILIANA STAR CATS ETSASSOCIAZIONE IL DELFINO BLU APS",
+    "lat": 44.53933547671634,
+    "lng": 11.537059067424623,
+    "email": "ildelfinoblu2006@gmail.com",
+    "facebook": "https://www.facebook.com/AssociazioneCulturaleIlDelfinoBlu/",
+    "instagram": "https://www.instagram.com/associazioneildelfino/FELIS"
+  },
+  {
+    "name": "FELIS - ODV",
+    "email": "felisonlus@gmail.com",
+    "facebook": "https://www.facebook.com/felis.progettooasifeline/",
+    "instagram": "https://www.instagram.com/felis_odv/"
+  },
+  {
+    "name": "ASSOCIAZIONE LIVE MUSIC SCHOOL ETS",
+    "lat": 44.70861884616189,
+    "lng": 11.40186901161239,
+    "email": "info@livemusicschool.com",
+    "facebook": "https://www.facebook.com/livemusicschool/",
+    "instagram": "https://www.instagram.com/live_musicschool_/"
+  },
+  {
+    "name": "PRO LOCO DI MEZZOLARA APS",
+    "lat": 44.58849915616091,
+    "lng": 11.564183782769982,
+    "email": "info@prolocomezzolara.it",
+    "facebook": "https://www.facebook.com/prolocomezzolara/",
+    "instagram": "https://www.instagram.com/proloco_mezzolara/"
+  },
+  {
+    "name": "LOLA IN BARACCA ODV",
+    "lat": 44.54962800857532,
+    "lng": 11.447221767425205,
+    "email": "lolainbaracca@gmail.com",
+    "facebook": "https://www.facebook.com/lolainbaraccaodv/",
+    "instagram": "https://www.instagram.com/lolainbaraccaodv"
+  },
+  {
+    "name": "ASSOCIAZIONE PAZIENTI CANNABIS MEDICA APS",
+    "lat": 44.67556811254302,
+    "lng": 11.506808682774937
+  },
+  {
+    "name": "PRO LOCO PIEVE DI CENTO APS",
+    "lat": 44.71391894686,
+    "lng": 11.30680459627014,
+    "email": "prolocopievedicento@gmail.com",
+    "facebook": "https://www.facebook.com/proloco.pieve/",
+    "instagram": "https://www.instagram.com/prolocopievedicento"
+  },
+  {
+    "name": "BAOBAB-ODV",
+    "lat": 44.608252447331154,
+    "lng": 11.379076667428468,
+    "email": "Villacolle.baobab@gmail.com",
+    "facebook": "https://www.facebook.com/p/Associazione-Baobab-onlus-100064681897460/",
+    "instagram": "https://www.instagram.com/associazionebaobabodv/"
+  },
+  {
+    "name": "PIEVE_SKIN APS",
+    "lat": 44.714920971076936,
+    "lng": 11.310090846270223,
+    "email": "pieveskin@gmail.com",
+    "facebook": "https://www.facebook.com/PieveSkin/",
+    "instagram": "https://www.instagram.com/pieve_skin/"
+  },
+  {
+    "name": "MOMI SHOW APS",
+    "facebook": "https://www.facebook.com/MOMIassociazione/",
+    "instagram": "https://www.instagram.com/milenamorselli_momishow/"
+  },
+  {
+    "name": "VOLA VOLA APS",
+    "lat": 44.57840268133943,
+    "lng": 11.35647095393374,
+    "email": "volavolaaps@gmail.com",
+    "facebook": "https://www.facebook.com/volavolaaps/",
+    "instagram": "https://www.instagram.com/volavola.aps/"
+  },
+  {
+    "name": "LIONS CLUB PIEVE DI CENTO ENTE DEL TERZO SETTORE",
+    "lat": 44.71364969533029,
+    "lng": 11.305954596270103,
+    "email": "lionspievedicento@gmail.com",
+    "facebook": "https://www.facebook.com/groups/1735128926754302/",
+    "instagram": "https://www.instagram.com/lions_club_pieve_di_cento/"
+  },
+  {
+    "name": "PROMETEO BARICELLA ODV",
+    "lat": 44.649468271077666,
+    "lng": 11.538357009759613,
+    "email": "prometeobaricella@gmail.com"
+  },
+  {
+    "name": "ASSOCIAZIONE BUDDY DOG A.P.S.",
+    "lat": 44.571449928115854,
+    "lng": 11.446173038590812,
+    "email": "buddydogbologna@gmail.com"
+  },
+  {
+    "name": "LE TRE BIANCHEZZE APS",
+    "lat": 44.637483505358915,
+    "lng": 11.359169082772723
+  },
+  {
+    "name": "PRO LOCO GALLIERA APS",
+    "lat": 44.744655451752074,
+    "lng": 11.436557996271894,
+    "email": "info@prolocogalliera.info",
+    "facebook": "https://www.facebook.com/prolocogalliera2001/",
+    "instagram": "https://www.instagram.com/proloco_galliera/"
+  },
+  {
+    "name": "ASSOCIAZIONE NATURALMENTE MARE APS ASDLIONS CLUB BUDRIO ENTE DEL TERZO SETTORE",
+    "lat": 44.52630081997425,
+    "lng": 11.526106025095137,
+    "email": "lionsbudrio@gmail.com",
+    "facebook": "https://www.facebook.com/p/LIONS-CLUB-Budrio-61581052523953/"
+  },
+  {
+    "name": "BIMBILANDIA ASSOCIAZIONE DI PROMOZIONE SOCIALE",
+    "email": "bimbilandia_dd@libero.it",
+    "facebook": "https://www.facebook.com/groups/1007009224067466/",
+    "instagram": "https://www.instagram.com/bimbilandia_altedo/"
+  },
+  {
+    "name": "E OLTRE - CIRCOLO RICREATIVO AZIENDALE COLLABORATORI GRUPPO COSWELL APSORGANIZZAZIONE VOLONTARI PROTEZIONE CIVILE CASTEL MAGGIORE - ODV",
+    "email": "o.v.p.c@alice.it",
+    "facebook": "https://www.facebook.com/ovpccastelmaggiore/"
+  },
+  {
+    "name": "ASSOCIAZIONE SALUTE E SOCIETA G. DAMIANI CASTENASO APS",
+    "lat": 44.50269637506809,
+    "lng": 11.47210559625814,
+    "email": "saluteesocietagdamiani@gmail.com",
+    "facebook": "https://www.facebook.com/p/Associazione-Salute-e-Societ%C3%A0-G-Damiani-Castenaso-APS-61564726220828/"
+  },
+  {
+    "name": "ASSOCIAZIONE I DADI VILLA MANSUETO E BALDINI GIACOMINA APS",
+    "lat": 44.53737812364023,
+    "lng": 11.535627596260122,
+    "email": "associazioneidadi@gmail.com",
+    "instagram": "https://www.instagram.com/associazioneidadi/"
+  },
+  {
+    "name": "ASSOCIAZIONE VOLONTARI PROTEZIONE CIVILE BENTIVOGLIO ODV",
+    "lat": 44.63482236719026,
+    "lng": 11.420761153936892,
+    "email": "avpcbentivoglio@tiscali.it",
+    "facebook": "https://www.facebook.com/p/Avpc-Bentivoglio-OdV-100088398679721/"
+```json
+[
+  {
+    "name": "TEATROGGI APS",
+    "email": "ass.teatroggi2008@libero.it",
+    "facebook": "https://www.facebook.com/p/Associazione-Teatroggi-APSopera-dei-pupi-sicilianiCompagnia-Ippogrifo-100057723545827/"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI ARGELATO",
+    "lat": 44.64232033836803,
+    "lng": 11.34762632510169,
+    "email": "sportello.sociale.ar@renogalliera.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI BENTIVOGLIO",
+    "lat": 44.57187194271849,
+    "lng": 11.376319867426469,
+    "email": "sportello.sociale.be@renogalliera.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI CASTELLO D'ARGILE",
+    "lat": 44.68150325713826,
+    "lng": 11.296752880925762,
+    "email": "sportello.sociale.ca@renogalliera.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI CASTEL MAGGIORE",
+    "lat": 44.576135713426815,
+    "lng": 11.365681580919755,
+    "email": "sportello.sociale.cm@renogalliera.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI GALLIERA",
+    "lat": 44.74477679122803,
+    "lng": 11.435926596271916,
+    "email": "sportello.sociale.ga@renogalliera.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI PIEVE DI CENTO",
+    "lat": 44.713481395352424,
+    "lng": 11.307263767434469,
+    "email": "sportello.sociale.pc@renogalliera.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI SAN GIORGIO DI PIANO",
+    "lat": 44.64708980504654,
+    "lng": 11.375391538595107,
+    "email": "sportello.sociale.sg@renogalliera.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI SAN PIETRO IN CASALE",
+    "lat": 44.70188919687965,
+    "lng": 11.406313482776373,
+    "email": "sportello.sociale.sp@renogalliera.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI FUNO",
+    "lat": 44.59375663104746,
+    "lng": 11.369796167427669,
+    "email": "sportello.sociale.ar@renogalliera.it"
+  },
+  {
+    "name": "SERVIZI SOCIALI BUDRIO",
+    "lat": 44.563857015040526,
+    "lng": 11.471210938590342,
+    "email": "servizisociali@comune.budrio.bo.it"
+  },
+  {
+    "name": "U.O. SERVIZI SOCIALI CASTENASO",
+    "lat": 44.509542473270635,
+    "lng": 11.468387053929787,
+    "email": "sportellosociale@comune.castenaso.bo.it"
+  },
+  {
+    "name": "SPORTELLO SOCIALE E SCOLASTICO DI MOLINELLA"
+  },
+  {
+    "name": "Settore Welfare locale - Servizi educativi e scolastici BARICELLA",
+    "email": "scuola@terredipianura.it"
+  },
+  {
+    "name": "Settore Welfare locale - Servizi educativi e scolastici GRANAROLO DELL'EMILIA",
+    "email": "scuola@terredipianura.it"
+  },
+  {
+    "name": "Settore Welfare locale - Servizi educativi e scolastici MALALBERGO",
+    "email": "scuola@terredipianura.it"
+  },
+  {
+    "name": "Settore Welfare locale - Servizi educativi e scolastici MINERBIO",
+    "email": "scuola@terredipianura.it"
+  },
+  {
+    "name": "PUA Casa della Comunità (ex Casa della salute) BUDRIO",
+    "lat": 44.5348375262844,
+    "lng": 11.534910325374513
+  },
+  {
+    "name": "PUA Casa della Comunità (ex Casa della salute) PIEVE DI CENTO",
+    "lat": 44.71366654682675,
+    "lng": 11.31096129627013
+  },
+  {
+    "name": "PUA Casa della Comunità (ex Casa della salute) SAN PIETRO IN CASALE e GALLIERA",
+    "lat": 44.70117844876852,
+    "lng": 11.400064796269422
+  },
+  {
+    "name": "AMA GRUPPO BARCOLLO MA NON MOLLO",
+    "lat": 44.50132856369817,
+    "lng": 11.45423306126274,
+    "email": "ambra.tullini@gmail.com"
+  },
+  {
+    "name": "AMA GRUPPO FUTURA",
+    "lat": 44.701661674413025,
+    "lng": 11.399157596269399
+  },
+  {
+    "name": "AMA GRUPPO CAREGIVER",
+    "lat": 44.52662893317449,
+    "lng": 11.454095021721233,
+    "email": "michelamelloni90@gmail.com"
+  },
+  {
+    "name": "AMA GRUPPO PER MANO CON UN MARZIANO",
+    "lat": 44.64965915098052,
+    "lng": 11.372092093124696,
+    "email": "l.piazza@renogalliera.it"
+  },
+  {
+    "name": "AMA GRUPPO ACAT BOLOGNA-PIANURA BOLOGNESE-IMOLA",
+    "lat": 44.573347048670456,
+    "lng": 11.35957353023567,
+    "email": "acatbolognaimola@gmail.com"
+  },
+  {
+    "name": "AMA GRUPPO CLUB BUDRIO"
+  },
+  {
+    "name": "AMA GRUPPO CLUB CASTENASO E GRANAROLO DELL'EMILIA"
+  },
+  {
+    "name": "AMA GRUPPO CLUB CASTEL MAGGIORE",
+    "lat": 44.53742572883851,
+    "lng": 11.537766335514121
+  },
+  {
+    "name": "AMA GRUPPO FAMILIARI DI PERSONE CON PROBLEMI DI DIPENDENZA PATOLOGICA",
+    "lat": 44.64755771761505,
+    "lng": 11.377523293204401
+  },
+  {
+    "name": "AMA GRUPPO LE NUVOLE",
+    "lat": 44.634697813382026,
+    "lng": 11.420579964347661
+  },
+  {
+    "name": "AMA GRUPPO A.P.E. BUDRIO",
+    "lat": 44.533282080057646,
+    "lng": 11.542299677827877,
+    "email": "ape.budrio@libero.it"
+  },
+  {
+    "name": "AMA GRUPPO INSIEME + SERENI",
+    "lat": 44.50963562120534,
+    "lng": 11.46986997783998,
+    "email": "insiemesereni@gmail.com"
+  },
+  {
+    "name": "AMA GRUPPO BENTIVOGLIO"
+  }
+]
