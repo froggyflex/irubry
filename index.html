@@ -1,84 +1,34 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Home del progetto della rubrica interattiva della Pianura Est.">
-    <title>Pianura Est | Home</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <header class="app-header">
-      <div class="brand-block">
-        <img class="brand-logo" src="Mappa%20pianura%20est2%20bianco.png" alt="Logo Pianura Est">
-        <div class="brand-copy">
-          <p class="eyebrow">Rubrica interattiva</p>
-          <h1>Pianura Est</h1>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trova enti e servizi nei comuni della Pianura Est.">
+  <title>Pianura Est | Trova servizi</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Pianura Est, pagina iniziale"><img src="Mappa%20pianura%20est2%20bianco.png" alt="" width="48" height="48"><span><strong>Pianura Est</strong><small>Rubrica dei servizi</small></span></a>
+    <nav aria-label="Navigazione principale"><a class="current" aria-current="page" href="index.html">Home</a><a href="rubrica.html">Rubrica</a><a href="mappa.html">Mappa</a></nav>
+  </header>
+  <main class="home-main">
+    <div class="page-intro"><p class="eyebrow">Organizzazioni del territorio</p><h1>Trova aiuto vicino a te</h1><p>Scegli un comune sulla mappa per vedere gli enti e i servizi presenti nella zona.</p></div>
+    <section class="home-explorer" aria-label="Esplora i comuni">
+      <div class="map-stage"><div id="homeMap" class="region-map" aria-label="Mappa interattiva dei comuni della Pianura Est"></div><div id="homeMapFallback" class="map-fallback" hidden>La mappa non è disponibile. Scegli un comune dall'elenco.</div></div>
+      <div class="home-choice">
+        <p class="eyebrow">Scegli una zona</p><h2>I comuni della Pianura Est</h2>
+        <label for="homeMunicipality">Comune</label><select id="homeMunicipality"><option value="">Seleziona un comune</option></select>
+        <div id="homeSelection" class="selection-summary" aria-live="polite"><p>Seleziona il tuo comune sulla mappa o nell'elenco.</p></div>
+        <div id="homeNeeds" class="home-needs" hidden><h3>Servizi nel comune</h3><div id="homeNeedsList" class="home-needs-list"></div></div>
+        <div class="home-actions"><a id="homeDirectoryLink" class="button-primary" href="rubrica.html">Apri la rubrica</a><a id="homeMapLink" class="button-secondary" href="mappa.html">Esplora la mappa</a></div>
       </div>
-      <nav class="site-nav" aria-label="Navigazione principale">
-        <a class="nav-link active" href="index.html">Home</a>
-        <a class="nav-link" href="rubrica.html">Rubrica</a>
-        <a class="nav-link" href="mappa.html">Mappa</a>
-      </nav>
-    </header>
-
-    <main class="page-shell">
-      <section class="hero-card hero-split">
-        <div class="hero-image" aria-label="Mappa del distretto della Pianura Est">
-          <img class="hero-map-image" src="Mappa%20pianura%20est2%20scritte%20bia.png" alt="Mappa del distretto della Pianura Est">
-        </div>
-        <div class="hero-copy">
-          <p class="eyebrow">Perché serve questa rubrica</p>
-          <h2>Una guida semplice per trovare i servizi giusti nel territorio</h2>
-          <p>Questa rubrica nasce per aiutare cittadini, famiglie e operatori a orientarsi tra enti, servizi e opportunità disponibili nella Pianura Est, in modo rapido e immediato.</p>
-          <p>Per utilizzarla basta aprire la sezione rubrica, cercare per parola chiave, comune o servizio e consultare le schede degli enti più adatti alle proprie esigenze.</p>
-        </div>
-      </section>
-
-      <section class="content-grid contact-section">
-        <article class="info-card contact-card">
-          <div class="contact-header">
-            <h3>Vuoi aggiornare o aggiungere la tua realtà?</h3>
-            <p>Se sei un ente e vuoi segnalare una modifica, aggiungere un servizio o far conoscere la tua presenza nel territorio,<br>compila il modulo qui sotto.</p>
-          </div>
-          <form id="contactForm" class="contact-form" action="https://formspree.io/f/xaenddee" method="POST">
-            <div class="field-row">
-              <div class="field-group">
-                <label for="contactName">Nome</label>
-                <input id="contactName" name="name" type="text" autocomplete="given-name" required>
-              </div>
-
-              <div class="field-group">
-                <label for="contactSurname">Cognome</label>
-                <input id="contactSurname" name="surname" type="text" autocomplete="family-name" required>
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-group">
-                <label for="contactOrganisation">Nome ente</label>
-                <input id="contactOrganisation" name="organisation" type="text" autocomplete="organization">
-              </div>
-
-              <div class="field-group">
-                <label for="contactEmail">Email</label>
-                <input id="contactEmail" name="email" type="email" autocomplete="email" required>
-              </div>
-            </div>
-
-            <div class="field-group field-message">
-              <label for="contactMessage">Messaggio: Descrivi brevemente la tua attività e se vuoi lasciaci un contatto diretto</label>
-              <textarea id="contactMessage" name="message" rows="5" placeholder="Descrivi brevemente la tua attività e, se vuoi, lasciaci un contatto diretto." required></textarea>
-            </div>
-
-            <button class="button-primary" type="submit">Invia messaggio</button>
-          </form>
-          <p id="contactStatus" class="status-message" role="status">Compila il modulo se vuoi inviare un messaggio al team.</p>
-        </article>
-      </section>
-    </main>
-
-    <script src="app.js"></script>
-  </body>
+    </section>
+    <p class="map-credit">Confini comunali: dati ISTAT, distribuiti da geojson-italy (CC BY 4.0). Mappa: OpenStreetMap.</p>
+    <section class="home-secondary" aria-label="Altri modi per cercare"><div><h2>Sai già cosa cerchi?</h2><p>Cerca per nome dell'ente o per tipo di servizio.</p></div><form class="home-search" action="rubrica.html" method="get"><label class="sr-only" for="homeSearch">Cerca nella rubrica</label><input id="homeSearch" name="q" type="search" placeholder="Per esempio: trasporto, anziani, doposcuola"><button class="button-primary" type="submit">Cerca</button></form></section>
+  </main>
+  <footer class="site-footer"><span>Pianura Est</span><a href="segnala.html">Sei un ente? Aggiungi o aggiorna la tua scheda</a></footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script><script src="app.js" defer></script>
+</body>
 </html>
