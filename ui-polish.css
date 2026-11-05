@@ -142,12 +142,25 @@ dialog { border-radius: var(--radius-m); }
 .detail-links a:hover { background: var(--green-light); border-color: var(--green); }
 .detail-links .social-facebook { color: #1877f2; border-color: #b7d2f7; background: #eef5ff; }
 .detail-links .social-instagram { color: #c13584; border-color: #efc3dc; background: #fff0f7; }
+.detail-content .button-secondary { background: var(--green); border-color: var(--green); color: #fff; }
+.detail-content .button-secondary:hover { background: var(--green-dark); border-color: var(--green-dark); }
+.detail-dialog .dialog-head { background: var(--green); color: #fff; }
+.detail-dialog .dialog-head .eyebrow { color: #fff; }
+.detail-dialog .profile-actions { margin-inline: -30px; padding-inline: 30px; background: var(--green-light); }
 .service-choice { border-radius: var(--radius-s); }
 .service-choice:has(input:checked) { background: var(--green-light); border-color: var(--green); }
-.map-layout { border-radius: var(--radius-m); overflow: hidden; box-shadow: var(--shadow); }
+.map-layout { height: min(570px, calc(100vh - 300px)); min-height: 440px; border-radius: var(--radius-m); overflow: hidden; background: #56635f; box-shadow: var(--shadow); }
+.map-canvas-wrap { padding: 18px; background: #56635f; }
+.map-canvas-wrap .region-map { min-height: 100%; border-radius: var(--radius-s); overflow: hidden; }
 .map-result:hover { background: var(--green-light); }
 .map-result.is-selected { box-shadow: inset 4px 0 0 var(--straw); background: #fffaf0; }
+.map-result { position: relative; padding-right: 48px; }
+.map-address-status { position: absolute; right: 18px; bottom: 14px; display: inline-flex; color: #8b9691; cursor: help; }
+.map-address-status svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .map-selection-info { display: inline-flex; margin-top: 10px; background: #fff; cursor: pointer; }
+.map-selection-title { display: flex; align-items: center; gap: 10px; }
+.map-selection-title h2 { margin-bottom: 0; }
+.map-selection-title .map-selection-info { margin-top: 0; }
 .map-related-title { margin: 0; padding: 12px 20px 4px; background: #dfe4e1; color: var(--green-dark); font-size: .95rem; }
 .map-related-modes { display: flex; gap: 6px; padding: 8px 20px 12px; background: #dfe4e1; }
 .map-related-mode { border: 1px solid #b7d9ca; border-radius: 999px; padding: 6px 10px; background: #e3f1eb; color: var(--green-dark); font-size: .78rem; font-weight: 700; }
@@ -170,6 +183,7 @@ dialog { border-radius: var(--radius-m); }
 .map-marker::after { content: ''; width: 0; height: 0; margin-top: -1px; border: 6px solid transparent; border-top: 9px solid var(--category-color, var(--green)); }
 .map-marker-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 2px solid #fff; border-radius: 50%; background: var(--category-color, var(--green)); color: #fff; }
 .map-marker.is-selected .map-marker-icon { border-color: var(--straw); }
+.map-marker.is-selected { transform: scale(1.32); transform-origin: 50% 100%; }
 .map-marker-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
 .map-marker-wrapper.assistenza { --category-color: #7d4db6; }
 .map-marker-wrapper.sanit { --category-color: #d63b3b; }
@@ -179,12 +193,14 @@ dialog { border-radius: var(--radius-m); }
 .map-marker-wrapper.ambiente { --category-color: #4f9b61; }
 .map-marker-wrapper.sport { --category-color: #dc8a26; }
 .contact-form { border-radius: var(--radius-m); box-shadow: var(--shadow); }
+.contact-main .page-intro p:last-child { max-width: none; }
 
 .home-welcome { margin: 32px 0 26px; padding: 48px clamp(24px, 4vw, 56px); background: #fff; border-radius: var(--radius-m); box-shadow: var(--shadow); }
 .home-welcome-copy { display: flow-root; }
 .home-welcome-heading { width: calc(52% - 20px); margin-left: auto; }
 .home-welcome-copy h1 { margin: 0 0 22px; }
 .home-map-image { float: left; width: min(48%, 560px); height: auto; margin: 0 clamp(28px, 5vw, 72px) 20px 0; }
+.home-map-image { background: #fff; }
 .home-welcome-copy > p:nth-of-type(3) { text-align-last: right; }
 .home-welcome-copy p { margin: 0 0 18px; color: var(--muted); }
 .home-welcome-copy .eyebrow { color: var(--green-dark); }

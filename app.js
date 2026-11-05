@@ -6,7 +6,7 @@ const needs = [
   { label: 'Cibo e beni di prima necessità', service: 'Assistenza alimentare e materiale', description: 'Pacchi viveri, mense, vestiario', icon: '<path d="M5 8h14l-1 12H6L5 8Z"/><path d="M8 8a4 4 0 0 1 8 0"/>' },
   { label: 'Assistenza anziani', service: 'Assist. Anziani', description: 'Compagnia, assistenza a domicilio, centri diurni', icon: '<circle cx="12" cy="7" r="2.5"/><path d="M7 20c.5-4 2.2-6 5-6s4.5 2 5 6"/>' },
   { label: 'Disabilità e fragilità', service: 'Supporto disabilità', description: 'Sostegno a persone e famiglie', icon: '<circle cx="12" cy="5" r="2"/><path d="M12 8v7m0 0-4 5m4-5 4 5M8 11h8"/>' },
-  { label: 'Trasporto e accompagnamento', service: 'Trasporto sociale e sanitario', description: 'Visite mediche, spostamenti, trasporto protetto', icon: '<path d="M4 16h16M6 16V9h12v7M8 19h2m6 0h2M7 9l1-3h8l1 3"/>' },
+  { label: 'Trasporto e accompagn.', service: 'Trasporto sociale e sanitario', description: 'Visite mediche, spostamenti, trasporto protetto', icon: '<path d="M4 16h16M6 16V9h12v7M8 19h2m6 0h2M7 9l1-3h8l1 3"/>' },
   { label: 'Minori e doposcuola', service: 'Doposcuola', description: 'Aiuto compiti, centri estivi, oratori', icon: '<rect x="5" y="5" width="14" height="14" rx="1"/><path d="M8 9h8m-8 3h5"/>' },
   { label: 'Emergenza e soccorso', service: 'Soccorso ed emergenza', description: 'Protezione civile, pronto intervento', icon: '<path d="M12 21s7-4 7-10V5l-7-2-7 2v6c0 6 7 10 7 10Z"/><path d="M9 12h6m-3-3v6"/>' },
   { label: 'Animali', service: 'Tutela Animali', description: 'Tutela e cura degli animali', icon: '<circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><path d="M7 14c1.2-2 2.8-3 5-3s3.8 1 5 3c0 3-2 5-5 5s-5-2-5-5Z"/>' },
@@ -343,7 +343,7 @@ function renderMapOrganisations() {
     : state.municipality
       ? countLabel(allRows.length) + ' in questo comune. ' + located + ' con posizione sulla mappa.'
       : countLabel(allRows.length) + ' nella Pianura Est. ' + located + ' con posizione sulla mappa.';
-  el('mapSelection').innerHTML = '<h2>' + escapeHtml(state.municipality ? titleCase(state.municipality) : 'Tutta la Pianura Est') + '</h2><button class="need-info map-selection-info" type="button" aria-label="Mostra informazioni sulla selezione">i</button>';
+  el('mapSelection').innerHTML = '<div class="map-selection-title"><h2>' + escapeHtml(state.municipality ? titleCase(state.municipality) : 'Tutta la Pianura Est') + '</h2><button class="need-info map-selection-info" type="button" aria-label="Mostra informazioni sulla selezione">i</button></div>';
   el('mapSelection').querySelector('.map-selection-info').addEventListener('click', () => showInfo(summary + ' Gli enti con una posizione geografica sono indicati sulla mappa. Seleziona un ente per visualizzare i servizi correlati.'));
   if (!rows.length) {
     list.innerHTML = '<p class="map-more-note">Nessun ente trovato. Prova un altro nome o servizio.</p>';
@@ -382,9 +382,11 @@ function renderMapOrganisations() {
   const appendResult = (org) => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'map-result' + (selectedOrg && org.id === selectedOrg.id ? ' is-selected' : '');
-    button.innerHTML = '<strong>' + escapeHtml(org.name) + '</strong><span>' + escapeHtml(org.category || 'Categoria non indicata') + '</span>';
+    button.className = 'map-result' + (selectedOrg && org.id === selectedOrg.id ? ' is-selected' : '') + (!coordinates(org) ? ' has-no-address' : '');
+    button.innerHTML = '<strong>' + escapeHtml(org.name) + '</strong><span>' + escapeHtml(org.category || 'Categoria non indicata') + '</span>' +
+      (!coordinates(org) ? '<span class="map-address-status" title="Indirizzo non disponibile" aria-label="Indirizzo non disponibile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2"/><path d="m4 4 16 16"/></svg></span>' : '');
     button.addEventListener('click', () => {
+      if (!coordinates(org)) showInfo('Indirizzo non disponibile per questo ente. La mappa verrà centrata sul comune di appartenenza.');
       selectMapOrganisation(org);
     });
     list.append(button);
@@ -436,6 +438,15 @@ function relatedScore(selected, org, mode) {
 function selectMapOrganisation(org, updateUrl = true) {
   state.mapFocusId = org.id;
   state.relatedMode = 'servizi';
+  if (!coordinates(org)) {
+    state.municipality = org.municipality;
+    state.mapQuery = '';
+    el('mapMunicipality').value = org.municipality;
+    el('mapSearch').value = '';
+    el('mapSearchWrap').hidden = false;
+    el('mapDirectoryLink').href = listUrl(org.municipality);
+    focusArea(org.municipality);
+  }
   if (updateUrl) {
     const url = new URL(location.href);
     url.searchParams.set('ente', org.id);
