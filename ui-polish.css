@@ -146,7 +146,22 @@ dialog { border-radius: var(--radius-m); }
 .detail-content .button-secondary:hover { background: var(--green-dark); border-color: var(--green-dark); }
 .detail-dialog .dialog-head { background: var(--green); color: #fff; }
 .detail-dialog .dialog-head .eyebrow { color: #fff; }
-.detail-dialog .profile-actions { margin-inline: -30px; padding-inline: 30px; background: var(--green-light); }
+.detail-dialog .profile-actions {
+  margin-inline: 0;
+  padding-inline: 0;
+  background: transparent !important;
+}
+.detail-dialog,
+.detail-dialog .detail-content {
+  background: #fff !important;
+}
+.detail-dialog .detail-content .profile-actions {
+  background: transparent !important;
+}
+.detail-dialog .detail-content .profile-actions {
+  border-bottom: 0;
+  box-shadow: none;
+}
 .service-choice { border-radius: var(--radius-s); }
 .service-choice:has(input:checked) { background: var(--green-light); border-color: var(--green); }
 .map-layout { height: min(570px, calc(100vh - 300px)); min-height: 440px; border-radius: var(--radius-m); overflow: hidden; background: #56635f; box-shadow: var(--shadow); }
