@@ -3,16 +3,16 @@ const searchStoreKey = 'pianura-est-recent-searches-v2';
 const savedStoreKey = 'pianura-est-saved-profiles-v1';
 const pageSize = 10;
 const needs = [
-  { label: 'Anziani', service: 'Assist. Anziani' },
-  { label: 'Disabilità', service: 'Supporto disabilità' },
-  { label: 'Aiuto alimentare', service: 'Assistenza alimentare e materiale' },
-  { label: 'Trasporto', service: 'Trasporto sociale e sanitario' },
-  { label: 'Doposcuola', service: 'Doposcuola' },
-  { label: 'Emergenza', service: 'Soccorso ed emergenza' },
-  { label: 'Animali', service: 'Tutela Animali' },
-  { label: 'Eventi', service: 'Organizzazione eventi e tradizioni' },
+  { label: 'Cibo e beni di prima necessità', service: 'Assistenza alimentare e materiale', description: 'Pacchi viveri, mense, vestiario', icon: '<path d="M5 8h14l-1 12H6L5 8Z"/><path d="M8 8a4 4 0 0 1 8 0"/>' },
+  { label: 'Assistenza anziani', service: 'Assist. Anziani', description: 'Compagnia, assistenza a domicilio, centri diurni', icon: '<circle cx="12" cy="7" r="2.5"/><path d="M7 20c.5-4 2.2-6 5-6s4.5 2 5 6"/>' },
+  { label: 'Disabilità e fragilità', service: 'Supporto disabilità', description: 'Sostegno a persone e famiglie', icon: '<circle cx="12" cy="5" r="2"/><path d="M12 8v7m0 0-4 5m4-5 4 5M8 11h8"/>' },
+  { label: 'Trasporto e accompagnamento', service: 'Trasporto sociale e sanitario', description: 'Visite mediche, spostamenti, trasporto protetto', icon: '<path d="M4 16h16M6 16V9h12v7M8 19h2m6 0h2M7 9l1-3h8l1 3"/>' },
+  { label: 'Minori e doposcuola', service: 'Doposcuola', description: 'Aiuto compiti, centri estivi, oratori', icon: '<rect x="5" y="5" width="14" height="14" rx="1"/><path d="M8 9h8m-8 3h5"/>' },
+  { label: 'Emergenza e soccorso', service: 'Soccorso ed emergenza', description: 'Protezione civile, pronto intervento', icon: '<path d="M12 21s7-4 7-10V5l-7-2-7 2v6c0 6 7 10 7 10Z"/><path d="M9 12h6m-3-3v6"/>' },
+  { label: 'Animali', service: 'Tutela Animali', description: 'Tutela e cura degli animali', icon: '<circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><path d="M7 14c1.2-2 2.8-3 5-3s3.8 1 5 3c0 3-2 5-5 5s-5-2-5-5Z"/>' },
+  { label: 'Eventi e tradizioni', service: 'Organizzazione eventi e tradizioni', description: 'Attività, feste e iniziative locali', icon: '<rect x="5" y="6" width="14" height="14" rx="1"/><path d="M8 3v6m8-6v6M5 10h14"/>' },
 ];
-const state = { data: null, boundaries: null, municipality: '', category: '', services: new Set(), savedIds: new Set(), query: '', mapQuery: '', sort: 'relevance', visible: pageSize, map: null, areas: null, markers: null };
+const state = { data: null, boundaries: null, municipality: '', category: '', services: new Set(), savedIds: new Set(), query: '', mapQuery: '', mapFocusId: '', relatedMode: 'servizi', mapFilters: { services: '', category: '' }, mapFilterOrder: ['services', 'category'], sort: 'relevance', visible: pageSize, map: null, areas: null, markers: null };
 const serviceNames = {
   'Assist. Anziani': 'Assistenza agli anziani',
   'Inserim. Lavorativo': 'Inserimento lavorativo',
@@ -35,6 +35,16 @@ function safeUrl(value) {
 }
 function countLabel(count) { return count === 1 ? '1 ente' : count + ' enti'; }
 function serviceLabel(name) { return serviceNames[name] || name; }
+function categoryPresentation(category) {
+  const value = normalize(category);
+  if (value.includes('assistenza') || value.includes('inclusione')) return { className: 'assistenza', icon: '<circle cx="9" cy="8.5" r="2.6"/><circle cx="15.8" cy="8.5" r="2.2"/><path d="M3.8 18.4c.6-3.2 2.8-5 5.8-5s5.2 1.8 5.8 5"/><path d="M12.8 18.4c.6-2.7 2.5-4.1 5-4.1 1.2 0 2.1.3 3.2.8"/>' };
+  if (value.includes('sanita') || value.includes('soccorso') || value.includes('protezione')) return { className: 'sanit', icon: '<path d="M12 21s-7-4.35-7-10.2A4.3 4.3 0 0 1 9.3 6c1.18 0 2.21.47 2.7 1.27C12.49 6.47 13.52 6 14.7 6A4.3 4.3 0 0 1 19 10.8C19 16.65 12 21 12 21Z"/>' };
+  if (value.includes('cultura') || value.includes('arte') || value.includes('spettacolo')) return { className: 'cultura', icon: '<path d="M12 4.5a8.5 8.5 0 1 0 0 17h1.2c1.1 0 1.8-1.3 1.2-2.2-.6-.9.1-2 1.2-2h2.1A4.3 4.3 0 0 0 22 13c0-4.7-4.5-8.5-10-8.5Z"/><circle cx="7.5" cy="12" r="1"/><circle cx="10.5" cy="8.5" r="1"/><circle cx="15" cy="8" r="1"/><circle cx="18" cy="11" r="1"/>' };
+  if (value.includes('educazione') || value.includes('infanzia') || value.includes('giovani')) return { className: 'educazione', icon: '<path d="M4 8.5 12 4l8 4.5-8 4.5-8-4.5Z"/><path d="M7.5 10.5v4.2c1.8 1.7 6.7 1.7 8.5 0v-4.2"/><path d="M20 8.5v7.2"/>' };
+  if (value.includes('ambiente') || value.includes('animali')) return { className: 'ambiente', icon: '<path d="M19 4C11 4 6 7.8 6 13.5 6 17.1 8.7 20 12 20c4.4 0 7-4.1 7-9.2V4Z"/><path d="M5 20c1.8-4.2 5-7.2 10-9"/>' };
+  if (value.includes('sport') || value.includes('benessere')) return { className: 'sport', icon: '<circle cx="12" cy="5.5" r="2.2"/><path d="M9 17.5l1.8-5.2L7 10.5l2.2-4.3 2.8 1.8 2.8-1.8 2.2 4.3-3.8 1.8 1.8 5.2"/><path d="M5.2 13.3 3.5 16M18.8 13.3l1.7 2.7"/>' };
+  return { className: 'aggregazione', icon: '<path d="M5 9.5h12v5.7A3.8 3.8 0 0 1 13.2 19H8.8A3.8 3.8 0 0 1 5 15.2V9.5Z"/><path d="M17 11.5h1.2a2.8 2.8 0 0 1 0 5.6H17"/><path d="M3.5 20h15"/>' };
+}
 function municipalityCount(name) { return state.data.organisations.filter((org) => org.municipality === name).length; }
 function organisationUrl(org) {
   const params = new URLSearchParams({ comune: org.municipality, ente: org.id });
@@ -73,6 +83,13 @@ function setupDialog(dialog) {
   dialog.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
 }
+function showInfo(text) {
+  const dialog = el('infoDialog');
+  const target = el('infoText');
+  if (!dialog || !target || !text) return;
+  target.textContent = text;
+  dialog.showModal();
+}
 function detailRow(label, value) {
   return value ? '<div class="detail-row"><dt>' + escapeHtml(label) + '</dt><dd>' + escapeHtml(value) + '</dd></div>' : '';
 }
@@ -95,7 +112,10 @@ function toggleSavedProfile(org) {
   if (state.savedIds.has(org.id)) state.savedIds.delete(org.id);
   else state.savedIds.add(org.id);
   try { localStorage.setItem(savedStoreKey, JSON.stringify([...state.savedIds])); } catch { /* Storage can be disabled. */ }
-  if (page === 'directory') renderSavedProfiles();
+  if (page === 'directory') {
+    renderSavedProfiles();
+    renderRecent();
+  }
 }
 function openDetails(org) {
   const dialog = el('detailDialog');
@@ -108,7 +128,7 @@ function openDetails(org) {
   if (website) contacts.push('<a href="' + escapeHtml(website) + '" target="_blank" rel="noopener noreferrer">Visita il sito web ↗</a>');
   for (const type of ['facebook', 'instagram']) {
     const url = socialUrl(type, org.links?.[type]);
-    if (url) contacts.push('<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + titleCase(type) + ' ↗</a>');
+    if (url) contacts.push('<a class="social-link social-' + type + '" href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + titleCase(type) + ' ↗</a>');
   }
   const hours = Object.entries(org.contactHours || {}).filter(([, value]) => value);
   target.innerHTML =
@@ -177,7 +197,15 @@ function initMap(containerId, onSelect) {
     },
   }).addTo(state.map);
   state.map.fitBounds(state.areas.getBounds(), { padding: [20, 20] });
-  if (page === 'map') state.markers = L.layerGroup().addTo(state.map);
+  if (page === 'map') {
+    state.markers = L.layerGroup().addTo(state.map);
+    state.map.on('zoomend', updateMapMarkerVisibility);
+  }
+}
+function updateMapMarkerVisibility() {
+  if (!state.map || !state.markers) return;
+  const visible = state.map.getZoom() >= 12;
+  state.markers.eachLayer((marker) => marker.setOpacity(visible ? 1 : 0));
 }
 function focusArea(name) {
   if (!state.map || !state.areas) return;
@@ -188,6 +216,7 @@ function focusArea(name) {
 function renderHomeNeeds(name) {
   const section = el('homeNeeds');
   const list = el('homeNeedsList');
+  if (!section || !list) return;
   list.innerHTML = '';
   if (!name) { section.hidden = true; return; }
   const organisations = state.data.organisations.filter((org) => org.municipality === name);
@@ -206,26 +235,74 @@ function renderHomeNeeds(name) {
 }
 function selectHomeMunicipality(name) {
   state.municipality = name;
-  el('homeMunicipality').value = name;
-  el('homeDirectoryLink').href = listUrl(name);
-  el('homeMapLink').href = mapUrl(name);
-  el('homeDirectoryLink').textContent = name ? 'Vedi gli enti di ' + titleCase(name) : 'Apri la rubrica';
-  el('homeSelection').innerHTML = name
+  const municipalitySelect = el('homeMunicipality');
+  if (municipalitySelect) municipalitySelect.value = name;
+  const directoryLink = el('homeDirectoryLink');
+  if (directoryLink) {
+    directoryLink.href = listUrl(name);
+    directoryLink.textContent = name ? 'Vedi gli enti di ' + titleCase(name) : 'Apri la rubrica';
+  }
+  const mapLink = el('homeMapLink');
+  if (mapLink) mapLink.href = mapUrl(name);
+  const selection = el('homeSelection');
+  if (selection) selection.innerHTML = name
     ? '<strong>' + escapeHtml(titleCase(name)) + '</strong><p>' + countLabel(municipalityCount(name)) + ' nella rubrica</p>'
     : "<p>Seleziona il tuo comune sulla mappa o nell'elenco.</p>";
   renderHomeNeeds(name);
   focusArea(name);
 }
 function initHome() {
-  optionsFor(el('homeMunicipality'), state.data.municipalities, 'Seleziona un comune');
-  el('homeMunicipality').addEventListener('change', (event) => selectHomeMunicipality(event.target.value));
+  const municipalitySelect = el('homeMunicipality');
+  if (municipalitySelect) {
+    optionsFor(municipalitySelect, state.data.municipalities, 'Seleziona un comune');
+    municipalitySelect.addEventListener('change', (event) => selectHomeMunicipality(event.target.value));
+  }
   initMap('homeMap', selectHomeMunicipality);
+  updateHomeIntroBlocks();
+  const homeImage = document.querySelector('.home-map-image');
+  if (homeImage) homeImage.addEventListener('load', updateHomeIntroBlocks, { once: true });
+  window.addEventListener('resize', updateHomeIntroBlocks);
+  setupAudienceCarousel();
   const requested = new URLSearchParams(location.search).get('comune');
   if (state.data.municipalities.some((item) => item.name === requested)) selectHomeMunicipality(requested);
+}
+function setupAudienceCarousel() {
+  const viewport = document.querySelector('.audience-viewport');
+  const previous = el('audiencePrevious');
+  const next = el('audienceNext');
+  if (!viewport || !previous || !next) return;
+  const update = () => {
+    const hasOverflow = viewport.scrollWidth > viewport.clientWidth + 1;
+    previous.hidden = !hasOverflow;
+    next.hidden = !hasOverflow;
+    previous.disabled = !hasOverflow || viewport.scrollLeft <= 1;
+    next.disabled = !hasOverflow || viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 1;
+  };
+  const scroll = (direction) => {
+    viewport.scrollBy({ left: direction * viewport.clientWidth, behavior: 'smooth' });
+    window.setTimeout(update, 350);
+  };
+  previous.addEventListener('click', () => scroll(-1));
+  next.addEventListener('click', () => scroll(1));
+  viewport.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  requestAnimationFrame(update);
+}
+function updateHomeIntroBlocks() {
+  const image = document.querySelector('.home-map-image');
+  const copy = document.querySelector('.home-welcome-copy');
+  if (!image || !copy || window.innerWidth <= 700) return;
+  const blocks = [...copy.querySelectorAll(':scope > .intro-block')];
+  blocks.forEach((block) => block.classList.remove('is-side', 'is-full'));
+  const imageBottom = image.getBoundingClientRect().bottom;
+  blocks.forEach((block) => {
+    block.classList.add(block.getBoundingClientRect().top < imageBottom ? 'is-side' : 'is-full');
+  });
 }
 function selectMapMunicipality(name) {
   state.municipality = name;
   state.mapQuery = '';
+  state.mapFocusId = '';
   el('mapMunicipality').value = name;
   el('mapSearch').value = '';
   el('mapSearchWrap').hidden = !name;
@@ -244,16 +321,30 @@ function selectMapMunicipality(name) {
 function renderMapOrganisations() {
   const list = el('mapResults');
   list.innerHTML = '';
+  state.map?.closePopup();
   state.markers?.clearLayers();
-  if (!state.municipality) return;
-  const allRows = state.data.organisations.filter((org) => org.municipality === state.municipality).sort((a, b) => a.name.localeCompare(b.name, 'it'));
+  const allRows = state.data.organisations.filter((org) => {
+    if (state.municipality && org.municipality !== state.municipality) return false;
+    if (state.mapFilters.category && org.category !== state.mapFilters.category) return false;
+    if (state.mapFilters.services && !org.services.includes(state.mapFilters.services)) return false;
+    return true;
+  }).sort((a, b) => a.name.localeCompare(b.name, 'it'));
   const words = searchWords(state.mapQuery);
-  const rows = state.mapQuery.trim() && !words.length ? [] : allRows.filter((org) => !words.length || matchScore(org, words));
+  let rows = state.mapQuery.trim() && !words.length ? [] : allRows.filter((org) => !words.length || matchScore(org, words));
+  const requestedId = state.mapFocusId || new URLSearchParams(location.search).get('ente');
+  const selectedOrg = rows.find((org) => String(org.id) === String(requestedId));
+  if (selectedOrg) rows = [selectedOrg, ...rows.filter((org) => org.id !== selectedOrg.id)];
+  const displayRows = selectedOrg && state.relatedMode !== 'all'
+    ? [selectedOrg, ...rows.filter((org) => org.id !== selectedOrg.id).sort((a, b) => relatedScore(selectedOrg, a, state.relatedMode) - relatedScore(selectedOrg, b, state.relatedMode))]
+    : rows;
   const located = rows.filter((org) => coordinates(org)).length;
   const summary = state.mapQuery.trim()
     ? countLabel(rows.length) + (rows.length === 1 ? ' trovato su ' : ' trovati su ') + allRows.length + '. ' + located + ' con posizione sulla mappa.'
-    : countLabel(allRows.length) + ' in questo comune. ' + located + ' con posizione sulla mappa.';
-  el('mapSelection').innerHTML = '<h2>' + escapeHtml(titleCase(state.municipality)) + '</h2><p>' + summary + '</p>';
+    : state.municipality
+      ? countLabel(allRows.length) + ' in questo comune. ' + located + ' con posizione sulla mappa.'
+      : countLabel(allRows.length) + ' nella Pianura Est. ' + located + ' con posizione sulla mappa.';
+  el('mapSelection').innerHTML = '<h2>' + escapeHtml(state.municipality ? titleCase(state.municipality) : 'Tutta la Pianura Est') + '</h2><button class="need-info map-selection-info" type="button" aria-label="Mostra informazioni sulla selezione">i</button>';
+  el('mapSelection').querySelector('.map-selection-info').addEventListener('click', () => showInfo(summary + ' Gli enti con una posizione geografica sono indicati sulla mappa. Seleziona un ente per visualizzare i servizi correlati.'));
   if (!rows.length) {
     list.innerHTML = '<p class="map-more-note">Nessun ente trovato. Prova un altro nome o servizio.</p>';
     return;
@@ -262,7 +353,17 @@ function renderMapOrganisations() {
   rows.forEach((org) => {
     const point = coordinates(org);
     if (!point || !state.markers) return;
-    const marker = L.circleMarker(point, { radius: 9, weight: 2, color: '#fff', fillColor: '#bd552f', fillOpacity: 1 }).addTo(state.markers);
+    const presentation = categoryPresentation(org.category);
+    const marker = L.marker(point, {
+      icon: L.divIcon({
+        className: 'map-marker-wrapper ' + presentation.className,
+        html: '<span class="map-marker' + (selectedOrg && org.id === selectedOrg.id ? ' is-selected' : '') + '" title="' + escapeHtml(org.category || 'Categoria non indicata') + '"><span class="map-marker-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + presentation.icon + '</svg></span></span>',
+        iconSize: [38, 46],
+        iconAnchor: [19, 46],
+        popupAnchor: [0, -42],
+      }),
+      title: org.name,
+    }).addTo(state.markers);
     const popup = document.createElement('div');
     popup.className = 'marker-popup';
     const name = document.createElement('strong');
@@ -271,35 +372,145 @@ function renderMapOrganisations() {
     button.className = 'text-button';
     button.type = 'button';
     button.textContent = 'Apri la scheda';
-    button.addEventListener('click', () => openDetails(org));
+    button.addEventListener('click', () => { selectMapOrganisation(org); openDetails(org); });
     popup.append(name, button);
     marker.bindPopup(popup);
-    marker.on('click', () => marker.openPopup());
+    marker.on('click', () => selectMapOrganisation(org, false));
     markerById.set(org.id, marker);
   });
-  rows.forEach((org) => {
+  updateMapMarkerVisibility();
+  const appendResult = (org) => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'map-result';
+    button.className = 'map-result' + (selectedOrg && org.id === selectedOrg.id ? ' is-selected' : '');
     button.innerHTML = '<strong>' + escapeHtml(org.name) + '</strong><span>' + escapeHtml(org.category || 'Categoria non indicata') + '</span>';
     button.addEventListener('click', () => {
-      const marker = markerById.get(org.id);
-      if (marker) { state.map.flyTo(marker.getLatLng(), 14); marker.openPopup(); }
-      else openDetails(org);
+      selectMapOrganisation(org);
     });
     list.append(button);
-  });
-  const requested = new URLSearchParams(location.search).get('ente');
-  const target = markerById.get(requested);
-  if (target) { state.map.flyTo(target.getLatLng(), 14); target.openPopup(); }
+  };
+  if (selectedOrg) {
+    const related = displayRows.filter((org) => org.id !== selectedOrg.id);
+    appendResult(selectedOrg);
+    if (related.length) {
+      const heading = document.createElement('h3');
+      heading.className = 'map-related-title';
+      heading.textContent = 'Enti correlati per:';
+      list.append(heading);
+      const modes = document.createElement('div');
+      modes.className = 'map-related-modes';
+      ['servizi', 'categoria', 'vicinanza'].forEach((mode) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'map-related-mode' + (state.relatedMode === mode ? ' is-active' : '');
+        button.textContent = mode[0].toLocaleUpperCase('it') + mode.slice(1);
+        button.addEventListener('click', () => { state.relatedMode = mode; renderMapOrganisations(); });
+        modes.append(button);
+      });
+      list.append(modes);
+      related.forEach(appendResult);
+    }
+  } else rows.forEach(appendResult);
+  const target = markerById.get(selectedOrg?.id);
+  if (target) { state.map.flyTo(target.getLatLng(), selectedMapZoom(selectedOrg, allRows)); target.openPopup(); }
+}
+function selectedMapZoom(selected, rows) {
+  if (!selected) return 14;
+  const point = coordinates(selected);
+  if (!point) return 14;
+  const nearby = rows.filter((org) => {
+    const other = coordinates(org);
+    return other && org.id !== selected.id && Math.hypot(point[0] - other[0], point[1] - other[1]) < 0.02;
+  }).length;
+  return nearby >= 3 ? 16 : 14;
+}
+function relatedScore(selected, org, mode) {
+  if (mode === 'categoria') return org.category === selected.category ? 0 : 1;
+  if (mode === 'vicinanza') {
+    const a = coordinates(selected);
+    const b = coordinates(org);
+    return a && b ? Math.hypot(a[0] - b[0], a[1] - b[1]) : 999;
+  }
+  return org.services.some((service) => selected.services.includes(service)) ? 0 : 1;
+}
+function selectMapOrganisation(org, updateUrl = true) {
+  state.mapFocusId = org.id;
+  state.relatedMode = 'servizi';
+  if (updateUrl) {
+    const url = new URL(location.href);
+    url.searchParams.set('ente', org.id);
+    history.replaceState(null, '', url);
+  }
+  renderMapOrganisations();
+  const marker = state.markers?.getLayers().find((item) => item.options.title === org.name);
+  if (marker && state.map) {
+    const zoom = selectedMapZoom(org, state.data.organisations);
+    state.map.flyTo(marker.getLatLng(), zoom, { duration: .8 });
+    marker.setOpacity(1);
+    marker.openPopup();
+  }
 }
 function initMapPage() {
   optionsFor(el('mapMunicipality'), state.data.municipalities, 'Tutti i comuni');
   el('mapMunicipality').addEventListener('change', (event) => selectMapMunicipality(event.target.value));
   el('mapSearch').addEventListener('input', (event) => { state.mapQuery = event.target.value; renderMapOrganisations(); });
+  setupMapFilters();
   initMap('map', selectMapMunicipality);
+  renderMapOrganisations();
   const requested = new URLSearchParams(location.search).get('comune');
+  const requestedOrg = new URLSearchParams(location.search).get('ente');
+  if (requestedOrg) state.mapFocusId = requestedOrg;
   if (state.data.municipalities.some((item) => item.name === requested)) selectMapMunicipality(requested);
+  const initialOrg = state.data.organisations.find((org) => String(org.id) === String(requestedOrg));
+  if (initialOrg && initialOrg.municipality === state.municipality) {
+    state.mapFocusId = initialOrg.id;
+    const url = new URL(location.href);
+    url.searchParams.set('ente', initialOrg.id);
+    history.replaceState(null, '', url);
+    renderMapOrganisations();
+  }
+  function setupMapFilters() {
+    const toggle = el('mapFilterToggle');
+    const panel = el('mapFilterPanel');
+    const options = el('mapFilterOptions');
+    if (!toggle || !panel || !options) return;
+    toggle.addEventListener('click', () => {
+      const open = panel.hidden;
+      panel.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    const renderFilterButtons = () => {
+      panel.querySelectorAll('[data-map-filter]').forEach((button) => {
+        const type = button.dataset.mapFilter;
+        button.classList.toggle('is-active', Boolean(state.mapFilters[type]));
+        button.textContent = type === 'services' ? 'Servizi' : 'Categoria';
+      });
+      [...panel.querySelectorAll('[data-map-filter]')].sort((a, b) => state.mapFilterOrder.indexOf(a.dataset.mapFilter) - state.mapFilterOrder.indexOf(b.dataset.mapFilter)).forEach((button) => panel.append(button));
+    };
+    panel.querySelectorAll('[data-map-filter]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const type = button.dataset.mapFilter;
+        state.mapFilterOrder = [type, ...state.mapFilterOrder.filter((item) => item !== type)];
+        renderFilterButtons();
+        const items = type === 'category' ? state.data.categories.map((item) => item.name) : state.data.services.filter((item) => item.count > 0).map((item) => item.name);
+        options.innerHTML = '<button type="button" class="map-filter-clear">Tutti</button>' + items.map((item) => '<button type="button" data-map-value="' + escapeHtml(item) + '"' + (state.mapFilters[type] === item ? ' class="is-selected"' : '') + '>' + escapeHtml(type === 'category' ? item : serviceLabel(item)) + '</button>').join('');
+        options.hidden = false;
+        options.querySelector('.map-filter-clear').addEventListener('click', () => {
+          state.mapFilters[type] = '';
+          options.hidden = true;
+          renderFilterButtons();
+          renderMapOrganisations();
+        });
+        options.querySelectorAll('[data-map-value]').forEach((option) => option.addEventListener('click', () => {
+          state.mapFilters[type] = option.dataset.mapValue;
+          options.hidden = true;
+          renderFilterButtons();
+          renderMapOrganisations();
+        }));
+      });
+    });
+    renderFilterButtons();
+  }
 }
 function searchWords(value) {
   const ignored = new Set(['per', 'con', 'che', 'del', 'della', 'delle', 'dei', 'sono', 'cerco', 'cerca', 'servizio', 'servizi', 'un', 'una', 'nel', 'nella', 'alle', 'alla', 'agli', 'dello', 'vorrei', 'bisogno', 'vicino', 'aiuto', 'serve']);
@@ -408,15 +619,32 @@ function renderDirectory() {
     el('emptyReset')?.addEventListener('click', () => el('resetSearch').click());
   }
   rows.slice(0, state.visible).forEach((org) => {
+    const card = document.createElement('article');
+    card.className = 'result-item';
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'result-item';
+    button.className = 'result-main';
     const summary = org.activity
       ? org.activity.slice(0, 180) + (org.activity.length > 180 ? '…' : '')
       : org.services.length ? 'Servizi: ' + org.services.slice(0, 2).map(serviceLabel).join(', ') : 'Descrizione non disponibile.';
-    button.innerHTML = '<span class="result-meta">' + escapeHtml(titleCase(org.municipality || 'Comune non indicato')) + ' · ' + escapeHtml(org.category || 'Categoria non indicata') + '</span><strong>' + escapeHtml(org.name) + '</strong><span class="result-summary">' + escapeHtml(summary) + '</span><span class="result-action">Apri la scheda →</span>';
+    const category = categoryPresentation(org.category);
+    const servicePills = org.services.length
+      ? org.services.map((service) => '<span class="service-pill">' + escapeHtml(serviceLabel(service)) + '</span>').join('')
+      : '<span class="service-pill service-pill-muted">Nessun servizio indicato</span>';
+    card.classList.add('category-' + category.className);
+    button.innerHTML = '<span class="result-category"><span class="result-meta">' + escapeHtml(titleCase(org.municipality || 'Comune non indicato')) + ' · ' + escapeHtml(org.category || 'Categoria non indicata') + '</span></span><strong>' + escapeHtml(org.name) + '</strong><span class="result-summary">' + escapeHtml(summary) + '</span><span class="result-services"><span class="category-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + category.icon + '</svg></span>' + servicePills + '</span>';
     button.addEventListener('click', () => openDetails(org));
-    list.append(button);
+    card.append(button);
+    if (coordinates(org)) {
+      const mapLink = document.createElement('a');
+      mapLink.className = 'result-map-button';
+      mapLink.href = organisationUrl(org);
+      mapLink.title = 'Mostra sulla mappa';
+      mapLink.setAttribute('aria-label', 'Mostra ' + org.name + ' sulla mappa');
+      mapLink.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>';
+      card.append(mapLink);
+    }
+    list.append(card);
   });
   el('loadMore').hidden = rows.length <= state.visible;
 }
@@ -525,6 +753,17 @@ function initDirectory() {
       const description = document.createElement('small');
       description.textContent = item.definition;
       text.append(description);
+      const info = document.createElement('button');
+      info.type = 'button';
+      info.className = 'need-info service-info';
+      info.setAttribute('aria-label', 'Mostra descrizione di ' + serviceLabel(item.name));
+      info.textContent = 'i';
+      info.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        showInfo(item.definition);
+      });
+      label.append(info);
     }
     label.append(input, text);
     el('servicesList').append(label);
@@ -534,7 +773,14 @@ function initDirectory() {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'need-button';
-    button.textContent = need.label;
+    const service = services.find((item) => item.name === need.service);
+    button.title = need.description;
+    button.innerHTML = '<span class="need-card-top"><span class="need-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + need.icon + '</svg></span><strong>' + escapeHtml(service ? service.count : 0) + ' enti</strong></span><span class="need-card-label">' + escapeHtml(need.label) + '</span><small>' + escapeHtml(need.description) + '</small><span class="need-info" aria-hidden="true">i</span>';
+    button.querySelector('.need-info').addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      showInfo(need.description);
+    });
     button.addEventListener('click', () => {
       state.query = '';
       state.services = new Set([need.service]);
@@ -545,6 +791,24 @@ function initDirectory() {
     });
     el('quickNeeds').append(button);
   });
+  const needsViewport = document.querySelector('.need-viewport');
+  const previousNeeds = el('needsPrevious');
+  const nextNeeds = el('needsNext');
+  const updateNeedsArrows = () => {
+    if (!needsViewport || !previousNeeds || !nextNeeds) return;
+    previousNeeds.disabled = needsViewport.scrollLeft <= 1;
+    nextNeeds.disabled = needsViewport.scrollLeft + needsViewport.clientWidth >= needsViewport.scrollWidth - 1;
+  };
+  const scrollNeeds = (direction) => {
+    if (!needsViewport) return;
+    needsViewport.scrollBy({ left: direction * needsViewport.clientWidth, behavior: 'smooth' });
+    window.setTimeout(updateNeedsArrows, 350);
+  };
+  previousNeeds?.addEventListener('click', () => scrollNeeds(-1));
+  nextNeeds?.addEventListener('click', () => scrollNeeds(1));
+  needsViewport?.addEventListener('scroll', updateNeedsArrows, { passive: true });
+  window.addEventListener('resize', updateNeedsArrows);
+  requestAnimationFrame(updateNeedsArrows);
   const params = new URLSearchParams(location.search);
   const municipality = params.get('comune');
   state.municipality = state.data.municipalities.some((item) => item.name === municipality) ? municipality : '';
@@ -616,6 +880,7 @@ function initContact() {
 async function init() {
   setupDialog(el('filterDialog'));
   setupDialog(el('detailDialog'));
+  setupDialog(el('infoDialog'));
   if (page === 'contact') { initContact(); return; }
   try {
     const requests = [fetch('data/organisations.json')];
