@@ -164,9 +164,9 @@ dialog { border-radius: var(--radius-m); }
 }
 .service-choice { border-radius: var(--radius-s); }
 .service-choice:has(input:checked) { background: var(--green-light); border-color: var(--green); }
-.map-layout { height: min(570px, calc(100vh - 300px)); min-height: 440px; border-radius: var(--radius-m); overflow: hidden; background: #56635f; box-shadow: var(--shadow); }
-.map-canvas-wrap { padding: 18px; background: #56635f; }
-.map-canvas-wrap .region-map { min-height: 100%; border-radius: var(--radius-s); overflow: hidden; }
+.map-layout { height: min(570px, calc(100vh - 300px)); min-height: 440px; border: 0; border-radius: var(--radius-m); overflow: hidden; background: #fff; box-shadow: var(--shadow); }
+.map-canvas-wrap { padding: 0; background: #fff; }
+.map-canvas-wrap .region-map { min-height: 100%; border-radius: 0; overflow: hidden; }
 .map-result:hover { background: var(--green-light); }
 .map-result.is-selected { box-shadow: inset 4px 0 0 var(--straw); background: #fffaf0; }
 .map-result { position: relative; padding-right: 48px; }
@@ -176,8 +176,8 @@ dialog { border-radius: var(--radius-m); }
 .map-selection-title { display: flex; align-items: center; gap: 10px; }
 .map-selection-title h2 { margin-bottom: 0; }
 .map-selection-title .map-selection-info { margin-top: 0; }
-.map-related-title { margin: 0; padding: 12px 20px 4px; background: #dfe4e1; color: var(--green-dark); font-size: .95rem; }
-.map-related-modes { display: flex; gap: 6px; padding: 8px 20px 12px; background: #dfe4e1; }
+.map-related-title { margin: 0; padding: 12px 20px 4px; background: #fff; color: var(--green-dark); font-size: .95rem; }
+.map-related-modes { display: flex; gap: 6px; padding: 8px 20px 12px; background: #fff; }
 .map-related-mode { border: 1px solid #b7d9ca; border-radius: 999px; padding: 6px 10px; background: #e3f1eb; color: var(--green-dark); font-size: .78rem; font-weight: 700; }
 .map-related-mode.is-active { background: var(--green); border-color: var(--green); color: #fff; }
 .map-side .wide-button { background: var(--green); border-color: var(--green); color: #fff; }
